@@ -1,6 +1,9 @@
+"use client";
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-18 md:p-24 bg-[#333]">
       {/* header */}
@@ -11,7 +14,7 @@ export default function Home() {
       {/* main content */}
       <div className="flex flex-row gap-12 flex-wrap justify-center items-center">
         <div className="flex border md:rounded-[60px] rounded-[40px] flex-col bg-[#d5cccc] md:min-h-[400px] max-h-[610px] min-w-[390px] md:max-w-[590px] px-8 py-12 content-center justify-center items-center">
-          <Button variant="outline" className="md:w-[300px] md:h-[80px] min-w-[150px] border rounded-[40px] text-white bg-[#ff7e33] mb-2 font-medium md:text-[24px] px-8 py-6 text-[18px]">Talent</Button>
+          <Button variant="outline" onClick={() => router.push(`/talent/login`)} className="md:w-[300px] md:h-[80px] min-w-[150px] border rounded-[40px] text-white bg-[#ff7e33] mb-2 font-medium md:text-[24px] px-8 py-6 text-[18px]">Talent</Button>
           <small className="md:text-[18px] text-[14px]">For the ones who seek new job opportunities!</small>
         </div>
         <div className="flex border md:rounded-[60px] rounded-[40px] flex-col bg-[#d5cccc] md:min-h-[400px] max-h-[610px] min-w-[390px] md:max-w-[590px] px-8 py-12 content-center justify-center items-center">
