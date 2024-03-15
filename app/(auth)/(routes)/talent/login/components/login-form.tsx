@@ -96,7 +96,7 @@ const LoginForm = ({ className, ...props }: UserAuthFormProps) => {
             )}
           />
           <div className="flex flex-wrap justify-between items-center gap-4 py-6">
-            <Link href="/" className="">
+            <Link href="/talent/signup" className="">
               <p className="text-[18px] font-medium text-[#FF7E33]">Create an account?</p>
             </Link>
             <Link href="/" className="">
