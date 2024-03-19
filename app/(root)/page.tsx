@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <div className="flex border md:rounded-[60px] rounded-[40px] flex-col bg-[#d5cccc] md:min-h-[400px] max-h-[610px] min-w-[390px] md:max-w-[590px] px-8 py-12 content-center justify-center items-center">
           <Button variant="outline" className="md:w-[300px] md:h-[80px] min-w-[150px] border rounded-[40px] text-white bg-[#5496ee] mb-2 font-medium md:text-[24px] px-8 py-6 text-[18px]">Recruiter</Button>
-          <small className="md:text-[18px] text-[14px]">For the ones who seek new talents to work with!</small>
+          <small className="md:text-[18px] text-[14px]">For the ones who seek new talents to work with</small>
         </div>
       </div>
     </main>
