@@ -1,7 +1,23 @@
-import React from 'react'
+import { cookies } from "next/headers"
 
-export default function TalentDashboard() {
+import { TalentHome } from "./components/talent-home"
+
+export default function TalentPage() {
+  const layout = cookies().get("react-resizable-panels:layout")
+  const collapsed = cookies().get("react-resizable-panels:collapsed")
+
+  const defaultLayout = layout ? JSON.parse(layout.value) : undefined
+  const defaultCollapsed = collapsed ? JSON.parse(collapsed.value) : undefined
+
   return (
-    <div>TalentDashboard</div>
+    <>
+      <div className="flex-col flex">
+        <TalentHome
+          defaultLayout={defaultLayout}
+          defaultCollapsed={defaultCollapsed}
+          navCollapsedSize={4}
+        />
+      </div>
+    </>
   )
 }
