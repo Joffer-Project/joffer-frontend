@@ -2,17 +2,10 @@
 
 import * as React from "react"
 import {
-  AlertCircle,
-  Archive,
-  ArchiveX,
-  File,
-  Inbox,
+  Instagram,
+  Linkedin,
   MessagesSquare,
-  Search,
-  Send,
-  ShoppingCart,
-  Trash2,
-  Users2,
+  X,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -34,7 +27,7 @@ export function TalentHome({
   navCollapsedSize,
 }: MailProps) {
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed)
-  
+
   return (
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
@@ -44,7 +37,7 @@ export function TalentHome({
             sizes
           )}`
         }}
-        className="h-full max-h-[800px] items-stretch"
+        className="items-stretch"
       >
         <ResizablePanel
           defaultSize={defaultLayout[0]}
@@ -58,97 +51,68 @@ export function TalentHome({
               collapsed
             )}`
           }}
-          className={cn(
+          className={cn('bg-[#FF7626] flex flex-col',
             isCollapsed &&
-              "min-w-[50px] transition-all duration-300 ease-in-out"
+            "min-w-[50px] h-full transition-all duration-300 ease-in-out"
           )}
         >
           <div
             className={cn(
-              "flex h-[52px] items-center justify-center",
-              isCollapsed ? "h-[52px]" : "px-2"
+              "flex h-[80px] items-center bg-gradient-to-r from-[#E85600] to-[#8C3400]",
+              isCollapsed ? "h-[60px] justify-center" : "px-2"
             )}
           >
             <LogoArea isCollapsed={isCollapsed} />
           </div>
-          <Separator />
           <Matches
             isCollapsed={isCollapsed}
             links={[
               {
-                title: "Inbox",
-                label: "128",
-                icon: Inbox,
-                variant: "default",
+                title: "Twitter",
+                role: "UI/UX Researcher",
+                date: "11.03.2024",
+                icon: X,
               },
               {
-                title: "Drafts",
-                label: "9",
-                icon: File,
-                variant: "ghost",
+                title: "LinkedIn",
+                role: "Frontend Developer",
+                date: "04.02.2024",
+                icon: Linkedin,
               },
               {
-                title: "Sent",
-                label: "",
-                icon: Send,
-                variant: "ghost",
-              },
-              {
-                title: "Junk",
-                label: "23",
-                icon: ArchiveX,
-                variant: "ghost",
-              },
-              {
-                title: "Trash",
-                label: "",
-                icon: Trash2,
-                variant: "ghost",
-              },
-              {
-                title: "Archive",
-                label: "",
-                icon: Archive,
-                variant: "ghost",
-              },
-            ]}
-          />
-          <Separator />
-          <Matches
-            isCollapsed={isCollapsed}
-            links={[
-              {
-                title: "Social",
-                label: "972",
-                icon: Users2,
-                variant: "ghost",
-              },
-              {
-                title: "Updates",
-                label: "342",
-                icon: AlertCircle,
-                variant: "ghost",
-              },
-              {
-                title: "Forums",
-                label: "128",
+                title: "Messages",
+                role: "Backend Developer",
+                date: "01.01.2024",
                 icon: MessagesSquare,
-                variant: "ghost",
               },
               {
-                title: "Shopping",
-                label: "8",
-                icon: ShoppingCart,
-                variant: "ghost",
+                title: "Instagram",
+                role: "Fullstack Developer",
+                date: "11.03.2024",
+                icon: Instagram,
               },
-              {
-                title: "Promotions",
-                label: "21",
-                icon: Archive,
-                variant: "ghost",
-              },
+
             ]}
           />
+          <div
+            className={cn(
+              "flex h-[80px] items-center bg-gradient-to-r from-sky-500 to-indigo-500 mt-auto",
+              isCollapsed ? "h-[60px] justify-center" : "px-2"
+            )}
+          >
+            <div className={cn("flex items-center py-8")}>
+              <img
+                src="/images/logo.png"
+                alt="logo"
+                className={cn("h-16 w-auto")}
+              />
+
+              {!isCollapsed && (
+                <div className="text-2xl font-medium text-white">Superlikes</div>
+              )}
+
+            </div>
+          </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>

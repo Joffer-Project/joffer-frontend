@@ -11,9 +11,9 @@ interface NavProps {
   isCollapsed: boolean
   links: {
     title: string
-    label?: string
+    date: string
+    role: string
     icon: LucideIcon
-    variant: "default" | "ghost"
   }[]
 }
 
@@ -21,9 +21,9 @@ export function Matches({ links, isCollapsed }: NavProps) {
   return (
     <div
       data-collapsed={isCollapsed}
-      className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
+      className="group flex flex-col gap-4 py-8 data-[collapsed=true]:py-2"
     >
-      <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
+      <nav className="grid gap-2 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
         {links.map((link, index) =>
           isCollapsed ? (
             <Tooltip key={index} delayDuration={0}>
@@ -31,10 +31,8 @@ export function Matches({ links, isCollapsed }: NavProps) {
                 <Link
                   href="#"
                   className={cn(
-                    buttonVariants({ variant: link.variant, size: "icon" }),
-                    "h-9 w-9",
-                    link.variant === "default" &&
-                      "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                    buttonVariants({ variant: "default", size: "icon" }),
+                    "h-9 w-9 dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                   )}
                 >
                   <link.icon className="h-4 w-4" />
@@ -43,9 +41,9 @@ export function Matches({ links, isCollapsed }: NavProps) {
               </TooltipTrigger>
               <TooltipContent side="right" className="flex items-center gap-4">
                 {link.title}
-                {link.label && (
+                {link.date && (
                   <span className="ml-auto text-muted-foreground">
-                    {link.label}
+                    {link.date}
                   </span>
                 )}
               </TooltipContent>
@@ -55,23 +53,21 @@ export function Matches({ links, isCollapsed }: NavProps) {
               key={index}
               href="#"
               className={cn(
-                buttonVariants({ variant: link.variant, size: "sm" }),
-                link.variant === "default" &&
-                  "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                "justify-start"
+                buttonVariants({ variant: "default" }), "justify-start h-20 bg-transparent py-4"
               )}
             >
-              <link.icon className="mr-2 h-4 w-4" />
-              {link.title}
-              {link.label && (
+              <link.icon className="mr-4 h-14 w-14" />
+              <div className="flex flex-col">
+                <h2 className="text-xl font-medium">{link.title}</h2>
+                <h4 className="text-md font-normal">{link.role}</h4>
+              </div>
+              {link.date && (
                 <span
                   className={cn(
-                    "ml-auto",
-                    link.variant === "default" &&
-                      "text-background dark:text-white"
+                    "ml-auto text-background dark:text-white text-sm font-medium"
                   )}
                 >
-                  {link.label}
+                  {link.date}
                 </span>
               )}
             </Link>

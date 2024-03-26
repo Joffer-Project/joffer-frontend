@@ -15,15 +15,15 @@ export function LogoArea({
 
 
     return (
-        <div className={cn("flex items-center justify-center", isCollapsed ? "w-12" : "w-64")}>
+        <div className={cn("flex items-center py-8")}>
             <img
                 src="/images/logo.png"
                 alt="logo"
-                className={cn("h-8 w-auto", isCollapsed ? "h-6" : "h-8")}
+                className={cn("h-16 w-auto")}
             />
 
             {!isCollapsed && (
-                <div className="ml-2 text-lg font-bold text-white">Talent</div>
+                <div className="text-2xl font-medium text-white">Latest Matchs</div>
             )}
 
         </div>

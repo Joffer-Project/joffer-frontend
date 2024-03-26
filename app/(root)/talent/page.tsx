@@ -11,7 +11,7 @@ export default function TalentPage() {
 
   return (
     <>
-      <div className="flex-col flex">
+      <div className="flex-col flex h-screen">
         <TalentHome
           defaultLayout={defaultLayout}
           defaultCollapsed={defaultCollapsed}
