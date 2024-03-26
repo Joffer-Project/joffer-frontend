@@ -14,6 +14,8 @@ import { Separator } from "@/components/ui/separator"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Matches } from "./matches"
+import ActionBar from "./action-bar"
+import Suggestions from "./suggestions"
 
 interface MailProps {
   defaultLayout: number[] | undefined
@@ -116,7 +118,8 @@ export function TalentHome({
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-          Main content
+          <Suggestions />
+          <ActionBar />
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>
