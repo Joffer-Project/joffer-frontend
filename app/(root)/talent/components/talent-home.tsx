@@ -117,7 +117,7 @@ export function TalentHome({
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
+        <ResizablePanel defaultSize={defaultLayout[1]} minSize={30} className="py-16 px-12">
           <Suggestions />
           <ActionBar />
         </ResizablePanel>

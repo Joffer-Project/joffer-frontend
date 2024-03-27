@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 
 export default function ActionBar() {
     return (
-        <div className="flex justify-between items-center flex-wrap gap-2">
+        <div className="flex justify-between items-center flex-wrap gap-2 py-8">
             <div className="flex flex-col justify-center items-center gap-1">
                 <img
                     src="/images/question-mark.png"
