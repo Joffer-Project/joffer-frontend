@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import {
+  Flame,
   Instagram,
   Linkedin,
   MessagesSquare,
@@ -102,12 +103,9 @@ export function TalentHome({
               isCollapsed ? "h-[60px] justify-center" : "px-2"
             )}
           >
-            <div className={cn("flex items-center py-8")}>
-              <img
-                src="/images/logo.png"
-                alt="logo"
-                className={cn("h-16 w-auto")}
-              />
+            <div className={cn("flex items-center gap-2 py-8")}>
+              
+              <Flame className="text-white" stroke="currentColor" size={42} />
 
               {!isCollapsed && (
                 <div className="text-2xl font-medium text-white">Superlikes</div>
