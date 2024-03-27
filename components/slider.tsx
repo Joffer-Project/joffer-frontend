@@ -10,15 +10,21 @@ import {
 } from "@/components/ui/carousel"
 
 export function Slider() {
+  const images = [
+    "/images/slider/tesla1.jpg",
+    "/images/slider/tesla2.jpg",
+    "/images/slider/tesla3.jpg",
+  ]
+
   return (
     <Carousel className="w-full">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {images.map((url, index) => (
           <CarouselItem key={index}>
             <div className="p-0">
               <Card>
-                <CardContent className="flex h-[250px] items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+                <CardContent className="flex h-[250px] items-center justify-center p-0">
+                  <img src={url} alt="" className="w-full h-full object-cover rounded-lg" />
                 </CardContent>
               </Card>
             </div>
