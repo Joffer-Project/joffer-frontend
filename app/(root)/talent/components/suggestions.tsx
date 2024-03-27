@@ -7,7 +7,7 @@ import AboutJob from './about-job'
 export default function Suggestions() {
     return (
         <div className="bg-[#8F9293] gap-8 flex h-[70vh] p-8">
-            <div className="flex flex-col max-w-[450px]">
+            <div className="flex flex-col max-w-[450px] gap-4">
                 <Slider />
                 <AboutCompany />
             </div>
