@@ -76,8 +76,8 @@ const LoginForm = ({ className, ...props }: UserAuthFormProps) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormControl>
-                  <Input placeholder="Mail" {...field} />
+                <FormControl className="mb-4 h-12 border rounded-sm border-[#3C4144]">
+                  <Input placeholder="Mail" {...field} className="py-4 text-lg"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -88,8 +88,8 @@ const LoginForm = ({ className, ...props }: UserAuthFormProps) => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormControl>
-                  <Input type="password" placeholder="Password" {...field} />
+                <FormControl className="mb-4 h-12 border rounded-sm border-[#3C4144]">
+                  <Input type="password" placeholder="Password" {...field} className="py-4 text-lg"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
