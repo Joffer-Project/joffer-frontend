@@ -77,53 +77,67 @@ const SignUpFormStep3 = ({ className, ...props }: UserAuthFormProps) => {
     ];
 
     return (
-        <div className={cn("grid gap-6 p-20", className)} {...props}>
-            <h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Roles</h2>
-            <p className="font-medium text-xl mb-4">Select the roles that align best with your interests, knowledge, experience, and wishes.</p>
-            <Form {...form}>
-                <form className="space-y-2">
-                    <div className="flex flex-wrap gap-4 max-h-[200px] overflow-y-auto">
-                    {
-                        roles.map((role, index) => (
-                            <div className="flex" key={index}>
-                        <input type="checkbox" id={role} className="peer hidden" />
-                        <label htmlFor={role} className="select-none cursor-pointer rounded-lg border-2 border-gray-200
-   py-3 px-6 font-bold text-[#FF7E33] transition-colors duration-200 ease-in-out peer-checked:bg-gray-200 peer-checked:text-gray-900 peer-checked:border-gray-200 "> {role} </label>
-                    </div>
-                        ))
-                    }
-                    </div>
+		<div className={cn("grid gap-6 p-20", className)} {...props}>
+			<h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Roles</h2>
+			<p className="font-regular text-xl mb-4 text-[#5C6062]">
+				Select the roles that align best with your interests, knowledge,
+				experience, and wishes.
+			</p>
+			<Form {...form}>
+				<form className="space-y-2">
+					<div className="flex flex-wrap gap-4 max-h-[200px] overflow-y-auto">
+						{roles.map((role, index) => (
+							<div className="flex" key={index}>
+								<input
+									type="checkbox"
+									id={role}
+									className="peer hidden"
+								/>
+								<label
+									htmlFor={role}
+									className="select-none cursor-pointer rounded-lg border-2 border-gray-200
+   py-3 px-6 font-bold text-[#FF7E33] transition-colors duration-200 ease-in-out peer-checked:bg-gray-200 peer-checked:text-gray-900 peer-checked:border-gray-200 ">
+									{" "}
+									{role}{" "}
+								</label>
+							</div>
+						))}
+					</div>
 
+					{/* step button 1/5 */}
+					<div className="flex justify-between items-center pt-8">
+						<Button
+							disabled={isLoading}
+							type="button"
+							onClick={() => router.push(`/talent/signup/2`)}
+							className="bg-[#FF7E33] w-[180px] h-[60px] border rounded-[40px] text-xl">
+							{isLoading && <p>Loading...</p>}
+							Previous
+						</Button>
 
-                    {/* step button 1/5 */}
-                    <div className="flex justify-between items-center pt-8">
-
-                        <Button disabled={isLoading} type="button" onClick={() => router.push(`/talent/signup/2`)} className="bg-[#FF7E33] w-[180px] h-[60px] border rounded-[40px] text-xl">
-                            {isLoading && (
-                                <p>Loading...</p>
-                            )}
-                            Previous
-                        </Button>
-
-                        <div className="flex flex-row justify-center items-center mx-auto py-6">
-                            <p className="text-[22px] font-medium tracking-[5px]">
-                                <Link href="/talent/signup" className="text-[#FF7E33]">
-                                    3
-                                </Link>
-                                /5
-                            </p>
-                        </div>
-                        <Button disabled={isLoading} type="button" onClick={() => router.push(`/talent/signup/4`)} className="bg-[#FF7E33] w-[180px] h-[60px] border rounded-[40px] text-xl">
-                            {isLoading && (
-                                <p>Loading...</p>
-                            )}
-                            Next
-                        </Button>
-                    </div>
-                </form>
-            </Form>
-        </div>
-    );
+						<div className="flex flex-row justify-center items-center mx-auto py-6">
+							<p className="text-[22px] font-medium tracking-[5px]">
+								<Link
+									href="/talent/signup"
+									className="text-[#FF7E33]">
+									3
+								</Link>
+								/5
+							</p>
+						</div>
+						<Button
+							disabled={isLoading}
+							type="button"
+							onClick={() => router.push(`/talent/signup/4`)}
+							className="bg-[#FF7E33] w-[180px] h-[60px] border rounded-[40px] text-xl">
+							{isLoading && <p>Loading...</p>}
+							Next
+						</Button>
+					</div>
+				</form>
+			</Form>
+		</div>
+	);
 };
 
 export default SignUpFormStep3;

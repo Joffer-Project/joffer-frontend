@@ -98,7 +98,7 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl className="mb-4 h-12 border rounded-sm border-[#3C4144]">
-                  <Input type="password" placeholder="Repeat password" {...field} className="py-4 text-lg" />
+                  <Input type="password" placeholder="Repeat your password" {...field} className="py-4 text-lg" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
