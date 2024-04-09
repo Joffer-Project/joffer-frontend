@@ -83,12 +83,17 @@
   font-style: light;
   font-weight: 100;
   color: rgba(253, 253, 253, 1);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
   cursor: pointer;
 }
 
 .talent-btn:hover {
   background: linear-gradient(94deg, #ff5e00 0%, #b54300 100.01%);
+}
+
+.talent-btn:active {
+  box-shadow: 0 0.2rem 0.3rem 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(0.2rem);
 }
 
 .talent-description {
@@ -103,10 +108,12 @@
 }
 
 .talent-section.shadow {
+  transition: all 0.6s ease-in-out;
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.8);
 }
 
 .talent-description.darker {
+  transition: all 0.6s ease-in-out;
   font-weight: 500;
   color: rgba(60, 65, 68, 1); /* Darker text color when hovered */
 }
@@ -161,15 +168,14 @@
   align-items: center;
   border-radius: 50px;
   background: linear-gradient(94deg, #5496ee 0%, #0063e6 100.01%);
-  box-shadow: 0 0.4rem 8rem 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.4rem 8rem 0 rgba(0, 0, 0, 0.1);
   border: none;
   font-family: "Fredoka", sans-serif;
   font-size: 2.4rem;
   font-style: light;
   font-weight: 100;
   color: rgba(253, 253, 253, 1);
-  transition: all 0.3s ease-in-out;
-  transition-duration: 0.6s;
+  transition: all 0.1s ease-in-out;
   cursor: pointer;
 }
 
@@ -178,6 +184,11 @@
     --Linear-toughest-blue,
     linear-gradient(95deg, #005ad1 0%, #00367f 100%)
   );
+}
+
+.recruiter-btn:active {
+  box-shadow: 0 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(0.2rem);
 }
 
 .recruiter-description {
@@ -192,10 +203,12 @@
 }
 
 .recruiter-section.shadow {
+  transition: all 0.6s ease-in-out;
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.8);
 }
 
 .recruiter-description.darker {
+  transition: all 0.6s ease-in-out;
   font-weight: 500;
   color: rgba(60, 65, 68, 1); /* Darker text color when hovered */
 }
@@ -215,7 +228,7 @@
   top: -20%;
 }
 
-/* MEDIA QUERIES */
+/* ------------------- MEDIA QUERIES ---------------------------*/
 
 /* Adjustments for screens up to 1440px */
 @media (max-width: 90em) {

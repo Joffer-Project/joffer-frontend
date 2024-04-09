@@ -49,7 +49,7 @@ const RecruiterSection = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            recruiter
+            Recruiter
           </button>
           <p className={`recruiter-description ${isHovered ? "darker" : ""}`}>
             For the ones who seek new talents to work with!
