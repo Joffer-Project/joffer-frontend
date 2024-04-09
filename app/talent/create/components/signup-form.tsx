@@ -1,13 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { User } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import * as z from "zod";
 import {
   Form,
@@ -22,6 +19,7 @@ import { useRouter } from "next/navigation";
 import { userLogin } from "@/actions/user";
 import toast from "react-hot-toast";
 import useUser from "@/hooks/user-store";
+import Steps from "./Steps";
 
 const schema = z.object({
   email: z.string().email(),
@@ -46,8 +44,11 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
   });
   const user = useUser();
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [step, setStep] = useState(1);
 
+  const updateStep = (step: number) => {
+    setStep(step);
+  };
 
   return (
     <div className={cn("grid gap-6 p-20", className)} {...props}>
@@ -105,25 +106,11 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
             )}
           />
 
-          {/* step button 1/5 */}
-          <div className="flex justify-between items-center pt-8">
-
-            {/* step */}
-            <div className="flex flex-row justify-center items-center mx-auto py-6">
-              <p className="text-[22px] font-medium tracking-[5px]">
-                <Link href="/talent/signup" className="text-[#FF7E33]">
-                  1
-                </Link>
-                /5
-              </p>
-            </div>
-            <Button disabled={isLoading} type="button" onClick={() => router.push(`/talent/signup/2`)} className="bg-[#FF7E33] w-[180px] h-[60px] border rounded-[40px] text-xl">
-              {isLoading && (
-                <p>Loading...</p>
-              )}
-              Next
-            </Button>
-          </div>
+          {/* step button */}
+          <Steps
+            step={step}
+            setStep={updateStep}
+          />
         </form>
       </Form>
     </div>
