@@ -4,113 +4,301 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .logo {
-  width: 60%; /* Adjust logo size based on the screen width */
-  max-width: 283px; /* Maximum logo width */
+  width: 100%;
+  max-width: 28.3rem;
 }
 
 .sections-container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
+  width: 144rem;
+  height: 65rem;
+  gap: 2.5rem;
+  margin-top: 4.5rem;
 }
 
-.talent-section,
-.recruiter-section {
-  flex: 1; /* Equal flex-grow value for equal width */
-  margin: 10px; /* Spacing between sections */
-  max-width: 45%; /* Limit maximum width to ensure they stay near each other */
+.talent-description {
+  margin-top: 0.8rem;
+  font-family: Fredoka;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 125% */
+  letter-spacing: 0.016px;
 }
 
-.talent-content,
-.recruiter-content {
-  border-radius: 60px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+/* ---------------------- TALENT BOX ------------------------*/
+
+.talent-section {
+  background: linear-gradient(135deg, #fef3ed 0%, #ffefe6 100%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
   align-items: center;
-  padding: 40px 30px;
-  min-height: 300px; /* Adjusted for better responsiveness */
-}
-
-.talent-background,
-.recruiter-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  justify-content: center;
+  width: 50%;
   height: 100%;
-  object-fit: cover;
+  border-radius: 6rem;
+  box-shadow: 0 0.4rem 1rem 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.talent-text,
-.recruiter-text {
+.talent-content {
   position: relative;
+  z-index: 1; /* This will ensure the content is above the background image */
+}
+
+.talent-bg {
+  content: "";
+  position: absolute;
+  top: -8%;
+  left: -5%;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  width: 120%;
+  z-index: 0;
+}
+
+.talent-btn {
+  display: flex;
+  width: 30rem;
+  padding: 2.4rem 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5rem;
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.4rem;
+  font-style: light;
+  font-weight: 100;
+  color: rgba(253, 253, 253, 1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.talent-btn:hover {
+  background: linear-gradient(94deg, #ff5e00 0%, #b54300 100.01%);
+}
+
+.talent-description {
+  margin-top: 0.8rem;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 125% */
+  letter-spacing: 0.016px;
+  color: rgba(143, 146, 147, 1);
+}
+
+.talent-section.shadow {
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.8);
+}
+
+.talent-description.darker {
+  font-weight: 500;
+  color: rgba(60, 65, 68, 1); /* Darker text color when hovered */
+}
+
+/* Existing styles */
+.talent-bg {
+  transition: all 0.3s ease-in-out;
+  width: 160%;
+  top: -18%;
+  left: -25%;
+}
+
+.talent-bg.hovered {
+  width: 175%;
+  opacity: 0.2;
+  left: -30%;
+  top: -20%;
+}
+
+/* ---------------------- RECRUITER BOX ------------------------*/
+
+.recruiter-section {
+  background: linear-gradient(135deg, #f0f6fd 0%, #e6effd 100%, #e6effd 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  border-radius: 6rem;
+  box-shadow: 0px 0.4rem 1rem 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.talent-title,
-.recruiter-title {
-  text-align: center;
-  border-radius: 40px;
-  box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  padding: 20px 40px;
-  font-size: 1.5rem;
+.recruiter-content {
+  position: relative;
+  z-index: 1; /* This will ensure the content is above the background image */
 }
 
-.talent-description,
+.recruiter-bg {
+  content: "";
+  position: absolute;
+  opacity: 0.1;
+}
+
+.recruiter-btn {
+  display: flex;
+  width: 30rem;
+  padding: 2.4rem 10rem 2.4rem 9.9rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: linear-gradient(94deg, #5496ee 0%, #0063e6 100.01%);
+  box-shadow: 0 0.4rem 8rem 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.4rem;
+  font-style: light;
+  font-weight: 100;
+  color: rgba(253, 253, 253, 1);
+  transition: all 0.3s ease-in-out;
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+
+.recruiter-btn:hover {
+  background: var(
+    --Linear-toughest-blue,
+    linear-gradient(95deg, #005ad1 0%, #00367f 100%)
+  );
+}
+
 .recruiter-description {
-  text-align: center;
-  font-size: 1rem;
-  color: #7f7f7f;
+  margin-top: 0.8rem;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 125% */
+  letter-spacing: 0.016px;
+  color: rgba(143, 146, 147, 1);
 }
 
-/* Medium devices (tablets, 640px and up) */
-@media only screen and (min-width: 640px) {
+.recruiter-section.shadow {
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.8);
+}
+
+.recruiter-description.darker {
+  font-weight: 500;
+  color: rgba(60, 65, 68, 1); /* Darker text color when hovered */
+}
+
+/* Existing styles */
+.recruiter-bg {
+  transition: all 0.3s ease-in-out;
+  width: 160%;
+  top: -18%;
+  left: -25%;
+}
+
+.recruiter-bg.hovered {
+  width: 175%;
+  opacity: 0.2;
+  left: -30%;
+  top: -20%;
+}
+
+/* MEDIA QUERIES */
+
+/* Adjustments for screens up to 1440px */
+@media (max-width: 90em) {
+  html {
+    font-size: 48.25%;
+  }
+}
+
+/* Adjustments for screens up to 1200px */
+@media (max-width: 75em) {
+  html {
+    font-size: 40%;
+  }
+}
+
+/* Adjustments for screens up to 1000px */
+@media (max-width: 62.25em) {
+  html {
+    font-size: 32.75%;
+  }
+}
+
+/* Adjustments for screens up to 820px */
+@media (max-width: 51.25em) {
+  html {
+    font-size: 25.5%;
+  }
+}
+
+/* Adjustments for screens up to 620px */
+@media (max-width: 38.75em) {
+  .main-container {
+    width: 100%;
+    margin: 0 auto;
+  }
   .sections-container {
-    flex-wrap: nowrap; /* Ensure no wrapping to column */
+    height: 150rem;
+    flex-direction: column;
   }
 
-  .talent-section,
-  .recruiter-section {
-    max-width: 40%; /* Adjust size for better spacing */
-  }
-}
-
-/* Large devices (desktops, 1024px and up) */
-@media only screen and (min-width: 1024px) {
-  .talent-section,
-  .recruiter-section {
-    max-width: 35%; /* Further adjust size for larger screens */
+  html {
+    font-size: 25.5%;
   }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+/* Adjustments for screens up to 550px */
+@media (max-width: 34.375em) {
+  .sections-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
   .talent-section,
   .recruiter-section {
-    max-width: 30%; /* Adjust for extra space */
+    width: 60%;
+    margin-bottom: 1rem;
   }
 }
 
-/* XXLarge devices (larger desktops, 1440px and up) */
-@media only screen and (min-width: 1440px) {
+/* Adjustments for screens up to 500px */
+@media (max-width: 31.25em) {
+  .sections-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
   .talent-section,
   .recruiter-section {
-    max-width: 35%; /* Optimize for very large screens */
+    width: 75%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Adjustments for screens up to 400px */
+@media (max-width: 25em) {
+  .sections-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .talent-section,
+  .recruiter-section {
+    width: 80%;
+    margin-bottom: 1rem;
   }
 }

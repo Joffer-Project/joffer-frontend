@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 
 * {
   margin: 0;
@@ -13,7 +13,7 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: "Fredoka One", sans-serif;
+  font-family: "Fredoka", sans-serif;
 }
 
 .App {
