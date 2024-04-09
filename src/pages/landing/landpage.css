@@ -7,56 +7,110 @@
   width: 100vw;
   min-height: 100vh;
   padding: 20px;
-  font-size: var(--base-font-size);
 }
 
-/* Adjustments for better visual proportion */
+.logo {
+  width: 60%; /* Adjust logo size based on the screen width */
+  max-width: 283px; /* Maximum logo width */
+}
+
+.sections-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.talent-section,
+.recruiter-section {
+  flex: 1; /* Equal flex-grow value for equal width */
+  margin: 10px; /* Spacing between sections */
+  max-width: 45%; /* Limit maximum width to ensure they stay near each other */
+}
+
 .talent-content,
 .recruiter-content {
-  min-height: 500px; /* Increased minimum height for better visual proportion */
-  padding: 5% 3%; /* Proportional padding */
+  border-radius: 60px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  padding: 40px 30px;
+  min-height: 300px; /* Adjusted for better responsiveness */
 }
 
-/* Media Queries */
+.talent-background,
+.recruiter-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.talent-text,
+.recruiter-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.talent-title,
+.recruiter-title {
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+}
+
+.talent-description,
+.recruiter-description {
+  text-align: center;
+  font-size: 1rem;
+  color: #7f7f7f;
+}
+
 /* Medium devices (tablets, 640px and up) */
 @media only screen and (min-width: 640px) {
-  html {
-    font-size: 16%; /* Base font size for medium devices */
+  .sections-container {
+    flex-wrap: nowrap; /* Ensure no wrapping to column */
+  }
+
+  .talent-section,
+  .recruiter-section {
+    max-width: 40%; /* Adjust size for better spacing */
   }
 }
 
 /* Large devices (desktops, 1024px and up) */
 @media only screen and (min-width: 1024px) {
-  html {
-    font-size: 18px; /* Base font size for large devices */
-  }
-
   .talent-section,
   .recruiter-section {
-    max-width: 45%; /* Adjusting width indirectly through font size */
+    max-width: 35%; /* Further adjust size for larger screens */
   }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  :root {
-    --base-font-size: 22px; /* Adjust base font size for visual balance */
-  }
-
   .talent-section,
   .recruiter-section {
-    max-width: 40%; /* Optimal width adjustment */
+    max-width: 30%; /* Adjust for extra space */
   }
 }
 
 /* XXLarge devices (larger desktops, 1440px and up) */
 @media only screen and (min-width: 1440px) {
-  :root {
-    --base-font-size: 24px; /* Maximum base font size for very large screens */
-  }
-
   .talent-section,
   .recruiter-section {
-    max-width: 35%; /* Final width adjustment for very large screens */
+    max-width: 35%; /* Optimize for very large screens */
   }
 }
