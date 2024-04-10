@@ -12,6 +12,16 @@
 .logo {
   width: 100%;
   max-width: 28.3rem;
+  padding-left: 1rem;
+}
+
+.slogan {
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.8rem; /* 127.273% */
+  color: rgba(92, 96, 98, 1);
 }
 
 .sections-container {
@@ -35,7 +45,7 @@
   letter-spacing: 0.016px;
 }
 
-/* ---------------------- TALENT BOX ------------------------ */
+/* ---------------------- TALENT ------------------------ */
 
 .talent-section {
   background: linear-gradient(135deg, #fef3ed 0%, #ffefe6 100%);
@@ -132,7 +142,7 @@
   top: -20%;
 }
 
-/* ---------------------- RECRUITER BOX ------------------------ */
+/* ---------------------- RECRUITER------------------------ */
 
 .recruiter-section {
   background: linear-gradient(135deg, #f0f6fd 0%, #e6effd 100%, #e6effd 100%);
