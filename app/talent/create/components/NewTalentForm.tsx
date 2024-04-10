@@ -31,6 +31,7 @@ const schema = z.object({
   name: z.string().min(3).max(100),
   password: z.string().min(8).max(100),
   description: z.string().min(20).max(200),
+  profileImage: z.string().url(),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -40,6 +41,7 @@ const defaultValues: FormValues = {
   name: "",
   password: "",
   description: "",
+  profileImage: "",
 };
 
 interface NewTalentFormProps extends React.HTMLAttributes<HTMLDivElement> { }
@@ -68,7 +70,7 @@ const NewTalentForm = ({ className, ...props }: NewTalentFormProps) => {
 
           {step === 3 && <Roles />}
 
-          {step === 4 && <ImagesLinks />}
+          {step === 4 && <ImagesLinks form={form} />}
 
           {step === 5 && <AboutInfo form={form} />}
 

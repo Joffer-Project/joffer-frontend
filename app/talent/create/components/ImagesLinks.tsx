@@ -1,11 +1,23 @@
 "use client";
 
 import React from "react";
+import ImageUpload from "@/components/ui/image-upload"
+import {
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
+
+interface ImagesLinksProps {
+    form: any;
+}
 
 
-interface ImagesLinksProps { }
-
-const ImagesLinks: React.FC<ImagesLinksProps> = ({ }) => {
+const ImagesLinks: React.FC<ImagesLinksProps> = ({
+    form
+}) => {
 
 
 
@@ -15,45 +27,23 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({ }) => {
             <p className="font-medium text-xl mb-6">The images and links that you added will be shown on your profile as listed below. You can always update your images in the settings.</p>
             <div className="flex flex-col gap-8">
                 <div className="flex gap-2">
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="profileImage" className="font-medium text-[18px]">Profile Image</label>
-                        <input
-                            type="file"
-                            id="profileImage"
-                            name="profileImage"
-                            className="w-[300px] h-[50px] border rounded-[40px] p-4"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="coverImage" className="font-medium text-[18px]">Cover Image</label>
-                        <input
-                            type="file"
-                            id="coverImage"
-                            name="coverImage"
-                            className="w-[300px] h-[50px] border rounded-[40px] p-4"
-                        />
-                    </div>
-                </div>
-                {/* links */}
-                <div className="flex gap-2">
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="profileImage" className="font-medium text-[18px]">Profile Image</label>
-                        <input
-                            type="file"
-                            id="profileImage"
-                            name="profileImage"
-                            className="w-[300px] h-[50px] border rounded-[40px] p-4"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="coverImage" className="font-medium text-[18px]">Cover Image</label>
-                        <input
-                            type="file"
-                            id="coverImage"
-                            name="coverImage"
-                            className="w-[300px] h-[50px] border rounded-[40px] p-4"
-                        />
-                    </div>
+                    <FormField
+                        control={form.control}
+                        name="profileImage"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <ImageUpload
+                                        value={field.value ? [field.value] : []}
+                                        onChange={(url) => field.onChange(url)}
+                                        onRemove={() => field.onChange('')}
+                                        />
+                                </FormControl>
+                                <FormLabel className="text-center">Background image</FormLabel>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
                 </div>
             </div>
         </>
