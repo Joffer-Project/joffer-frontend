@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-interface AuthLayoutProps {
+interface TalentCreateLayoutProps {
   children: React.ReactNode;
 }
-const AuthLayout: React.FC<AuthLayoutProps> = ({
+const TalentCreateLayout: React.FC<TalentCreateLayoutProps> = ({
   children
 }) => {
 
@@ -26,4 +26,4 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
   );
 }
 
-export default AuthLayout;
+export default TalentCreateLayout;

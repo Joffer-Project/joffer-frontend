@@ -1,11 +1,11 @@
-import SignUpForm from "./components/signup-form";
+import NewTalentForm from "./components/NewTalentForm";
 
-const SignUpPage = () => {
+const NewTalentPage = () => {
   return ( 
     <div>
-      <SignUpForm />
+      <NewTalentForm />
     </div>
    );
 }
  
-export default SignUpPage;
+export default NewTalentPage;
