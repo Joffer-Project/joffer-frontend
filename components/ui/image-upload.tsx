@@ -5,20 +5,22 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { ImagePlus, PlusCircle, Trash } from 'lucide-react';
+import { PlusCircle, Trash } from 'lucide-react';
 
 interface ImageUploadProps {
     disabled?: boolean;
     onChange: (value: string) => void;
     onRemove: (value: string) => void;
     value: string[];
+    label?: string;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
     disabled,
     onChange,
     onRemove,
-    value
+    value,
+    label,
 }) => {
     const [isMounted, setIsMounted] = useState(false);
 
@@ -36,8 +38,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 
     return (
         <div>
-            <div className="mb-4 flex items-center gap-4">
-                <div className="relative w-[100px] h-[100px] rounded-md overflow-hidden">
+            <div className="mb-4 flex flex-col items-center gap-2">
+                <div className="relative w-[80px] h-[80px] rounded-md overflow-hidden">
 
                     {value[0] && (
                         <>
@@ -63,14 +65,15 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                                     disabled={disabled}
                                     variant="secondary"
                                     onClick={onClick}
-                                    className="w-full h-full border-2 hover:border-red-600 border-gray-600 joffer-image-upload-btn"
+                                    className="w-full h-full border-2 border-gray-600 joffer-image-upload-btn"
                                 >
-                                    <PlusCircle className="h-8 w-8 hover:text-red-600 text-gray-600 joffer-image-upload-btn-icon" />
+                                    <PlusCircle className="h-8 w-8 text-gray-600 joffer-image-upload-btn-icon" />
                                 </Button>
                             );
                         }}
                     </CldUploadWidget>
                 </div>
+                {label && <label className="text-xs font-medium text-gray-800">{label}</label>}
             </div>
         </div>
 

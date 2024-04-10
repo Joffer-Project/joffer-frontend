@@ -37,9 +37,9 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                         value={field.value ? [field.value] : []}
                                         onChange={(url) => field.onChange(url)}
                                         onRemove={() => field.onChange('')}
+                                        label="Profile Picture"
                                         />
                                 </FormControl>
-                                <FormLabel className="text-center">Background image</FormLabel>
                                 <FormMessage />
                             </FormItem>
                         )}

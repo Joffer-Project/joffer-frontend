@@ -7,7 +7,16 @@ body,
 :root {
   height: 100%;
 }
- 
+
+.joffer-image-upload-btn:hover {
+  border-color: #ff0000;
+}
+
+.joffer-image-upload-btn:hover .joffer-image-upload-btn-icon {
+  color: #ff0000;
+  transform: scale(1.2);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
