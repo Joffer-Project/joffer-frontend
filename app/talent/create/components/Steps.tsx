@@ -23,7 +23,7 @@ const Steps: React.FC<StepsProps> = ({
 
             {step === 5 ? (
                 <Button type="button" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
-                    Preview <Eye />
+                    Preview <Eye className='ml-2' />
                 </Button>
             ) : (
                 <div className="flex flex-row justify-center items-center mx-auto py-6">
@@ -35,7 +35,7 @@ const Steps: React.FC<StepsProps> = ({
 
             {step === 5 ? (
                 <Button type="button" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
-                    Start <Eye />
+                    Start
                 </Button>
             ) : (
                 <Button type="button" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg" onClick={() => setStep(step + 1)}>

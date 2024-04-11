@@ -63,7 +63,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
             <h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Images & Links</h2>
             <p className="font-medium text-xl mb-6">The images and links that you added will be shown on your profile as listed below. You can always update your images in the settings.</p>
             <div className="flex flex-col gap-2">
-                <div className="flex gap-3 overflow-auto">
+                <div className="flex gap-3 overflow-auto justify-between">
                     <FormField
                         control={form.control}
                         name="profileImage"
@@ -146,7 +146,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                         )}
                     />
                 </div>
-                <div className="flex gap-3 overflow-auto -mb-4">
+                <div className="flex gap-3 overflow-auto justify-between -mb-4">
                     <FormField
                         control={form.control}
                         name=""
@@ -262,9 +262,9 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
 
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Share link</DialogTitle>
+                    <DialogTitle>Share your link below</DialogTitle>
                     <DialogDescription>
-                        Anyone who has this link will be able to view this.
+                    Links will be shown in your profile in the order as listed.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="flex items-center space-x-2">
