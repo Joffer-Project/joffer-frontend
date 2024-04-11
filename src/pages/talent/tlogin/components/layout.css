@@ -1,0 +1,124 @@
+.main-layout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+/* ---------------------- BG ------------------------ */
+
+.main-layout-bg {
+  background-color: rgba(253, 253, 253, 1);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2.573fr 4fr;
+  position: absolute;
+  z-index: 0;
+}
+
+.layout-bg-img {
+  position: relative;
+  background-color: #d7e703;
+}
+
+.layout-bg-right-side {
+  background-color: rgba(253, 253, 253, 1);
+}
+
+.bg-inner-holder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------- INNER ------------------------ */
+
+.inner-layout-container {
+  width: 65%;
+  height: 60%;
+  border-radius: 10px;
+  background: var(--Foundation-Light-Neutrals-light-neutrals-50, #fdfdfd);
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.45);
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+}
+
+.inner-left-img {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* ---------------------- MEDIA QUERIES ------------------------ */
+
+/* ----- 1440px ----- */
+@media (max-width: 90em) {
+  .main-layout-bg {
+    grid-template-columns: 2.572fr 4fr;
+  }
+  .inner-layout-container {
+    width: 65%;
+    height: 55%;
+    grid-template-columns: 2fr 4fr;
+  }
+}
+
+/* ----- 1300px ----- */
+@media (max-width: 81.25em) {
+  .main-layout-bg {
+    grid-template-columns: 2.62fr 4fr;
+  }
+
+  .inner-layout-container {
+    width: 67%;
+    height: 50%;
+    grid-template-columns: 2.1fr 4fr;
+  }
+}
+
+/* ----- 1150px ----- */
+@media (max-width: 71.875em) {
+  .main-layout-bg {
+    grid-template-columns: 1fr 0fr;
+  }
+
+  .layout-bg-right-side {
+    display: none;
+  }
+  .inner-layout-container {
+    width: 70%;
+    height: 45%;
+    grid-template-columns: 2.5fr 4fr;
+  }
+}
+
+/* ----- 900px ----- */
+@media (max-width: 56.25em) {
+  .inner-layout-container {
+    width: 75%;
+    height: 50%;
+    grid-template-columns: 0fr 1fr;
+  }
+}
+
+/* ----- 720px ----- */
+@media (max-width: 45em) {
+  .inner-layout-container {
+    width: 85%;
+    height: 80%;
+  }
+}
+
+/* ----- 550px ----- */
+@media (max-width: 34.375em) {
+  .inner-layout-container {
+    width: 90%;
+    height: 95%;
+  }
+}

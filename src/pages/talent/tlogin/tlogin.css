@@ -1,51 +1,57 @@
-.background {
-	align-items: start;
-	background-color: var(
-		--Foundation-Light-Neutrals-light-neutrals-50,
-		#fdfdfd
-	);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: relative;
+/* ---------------------- BASE IMG ------------------------ */
+.base-bg-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
-.background img {
-	height: 100vh;
-	width: 100%;
-	max-width: 710px;
+/* ---------------------- INNER IMG ------------------------ */
+.talent-inner-left-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1.6rem;
+  border-radius: 1rem 0 0 1rem;
+  background: var(
+    --Linear-hard-orange,
+    linear-gradient(159deg, #ff7e33 0%, #ff5e00 100%)
+  );
 }
 
-.carousel {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100%;
+.talent-login-logo {
+  height: 40%;
 }
 
-.image-container {
-	border-radius: 10px;
-	box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.45);
-	background-color: var(
-		--Foundation-Light-Neutrals-light-neutrals-50,
-		#fdfdfd
-	);
-	display: flex;
-	flex-direction: row;
-	align-items: start;
-	justify-content: space-between;
-	width: 75%;
+.talent-login-logo img {
+  width: 100%;
+  height: 100%;
 }
 
-.orange-holder {
-	object-fit: cover;
-	object-position: center;
-	width: 100%;
-	max-width: 500px;
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+.talent-login-info {
+  width: 80%;
+  text-align: center;
+  font-family: Fredoka;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: rgba(60, 65, 68, 1);
+}
+
+.talent-login-action-text {
+  width: 80%;
+  text-align: center;
+  font-family: Fredoka;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: rgba(60, 65, 68, 1);
+  margin-bottom: 10%;
+}
+
+/* ----- 900px ----- */
+@media (max-width: 56.25em) {
+  .talent-inner-left-container {
+    display: none;
+  }
 }

@@ -1,29 +1,34 @@
 import React from "react";
+import logo from "../../../images/logo-black.png";
+import baseBackgroundImg from "../../../images/orange-left-img-color-holder.webp";
+import Layout from "./components/layout";
 import "./tlogin.css";
-import orangeHolder from "../../../images/orange-left-img-color-holder.webp";
 
 const BackgroundCarousel = () => {
-	return (
-		<div className="card">
-			<div className="background">
-				<img
-					src={orangeHolder}
-					alt="Orange color holder"
-					className="orange-holder background-img"
-				/>
-			</div>
-			<div className="carousel">
-				<div className="image-container">
-					<img
-						loading="lazy"
-						src="https://cdn.builder.io/api/v1/image/assets/TEMP/9bc01476b47dbea3fbf17a8c765eb297f1fa0f9a65b680cf58791fc619a676cb?apiKey=d5d118b7190b41549398dbbdd251edfc&"
-						alt="Product Image"
-						className="orange-holder"
-					/>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <Layout
+      backgroundComponent={
+        <img
+          className="base-bg-img"
+          src={baseBackgroundImg}
+          alt="left background"
+        />
+      }
+      rightSideComponent={<div></div>}
+      innerLeftComponent={
+        <div className="talent-inner-left-container">
+          <div className="talent-login-logo">
+            <img src={logo} alt="" />
+          </div>
+          <div className="talent-login-info">
+            <p>Let advanced Joffer algoritms find your ideal carreer fit!</p>
+          </div>
+          <div className="talent-login-action-text">Just Swipe!</div>
+        </div>
+      }
+      innerRightComponent={<div></div>}
+    ></Layout>
+  );
 };
 
 export default BackgroundCarousel;
