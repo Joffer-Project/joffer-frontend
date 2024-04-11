@@ -1,4 +1,5 @@
 /* Style the form container */
+
 .card-container {
 	max-width: 40.625rem; /* Equivalent to 650px */
 	margin: 0 auto;
@@ -61,13 +62,12 @@
 .navigation-container button:hover {
 	background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
 	box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
-	gap: 0.8rem;
+	gap: 0.8rem; /* Equivalent to 10px */
 }
 
 /* For industries page */
 /* Style the form description */
 .description {
-	margin-bottom: 2rem;
 	font-size: 1.2rem; /* Equivalent to 14px */
 	color: #777;
 }
@@ -81,4 +81,38 @@
 }
 input {
 	font-size: 1.125rem; /* Equivalent to 18px */
+}
+/* styles.css */
+.industryLabel {
+	border: 2px solid var(--Linear-hard-orange, #ff7e33);
+
+	cursor: pointer;
+	border-radius: 2.5rem; /* rounded-lg */
+	border-width: 0.125rem; /* border-2 */
+	border-color: #ccc; /* border-gray-200 */
+	padding: 0.75rem 1.5rem; /* py-3 px-6 */
+	font-weight: bold; /* font-bold */
+	color: #ff7e33; /* text-[#FF7E33] */
+	transition-property: background-color, color, border-color; /* transition-colors */
+	transition-duration: 0.2s; /* duration-200 */
+	transition-timing-function: ease-in-out; /* ease-in-out */
+}
+
+.industryLabel:checked {
+	background: var(
+		--Linear-hard-orange,
+		linear-gradient(159deg, #ff7e33 0%, #ff5e00 100%)
+	);
+}
+.hidden input {
+	visibility: hidden;
+}
+form {
+	display: flex;
+	flex-wrap: wrap;
+	max-height: 350px;
+	overflow-y: auto;
+}
+.form-container {
+	margin-bottom: 2rem;
 }

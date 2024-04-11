@@ -1,4 +1,4 @@
-import "./tsignup.css";
+import "./finalStep.css";
 import rightArrow from "../../../images/Right.svg";
 import leftArrow from "../../../images/Left.svg";
 import eye from "../../../images/Eye icon.svg";
