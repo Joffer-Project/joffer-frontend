@@ -73,7 +73,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                         }}
                     </CldUploadWidget>
                 </div>
-                {label && <label className="text-xs font-medium text-gray-800">{label}</label>}
+                {label && <label className="text-xs font-medium text-gray-800 whitespace-nowrap">{label}</label>}
             </div>
         </div>
 

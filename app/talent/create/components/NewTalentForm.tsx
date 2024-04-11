@@ -32,6 +32,10 @@ const schema = z.object({
   password: z.string().min(8).max(100),
   description: z.string().min(20).max(200),
   profileImage: z.string().url(),
+  image2Url: z.string().url(),
+  image3Url: z.string().url(),
+  image4Url: z.string().url(),
+  image5Url: z.string().url(),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -42,6 +46,10 @@ const defaultValues: FormValues = {
   password: "",
   description: "",
   profileImage: "",
+  image2Url: "",
+  image3Url: "",
+  image4Url: "",
+  image5Url: "",
 };
 
 interface NewTalentFormProps extends React.HTMLAttributes<HTMLDivElement> { }
@@ -60,7 +68,7 @@ const NewTalentForm = ({ className, ...props }: NewTalentFormProps) => {
   };
 
   return (
-    <div className={cn("grid gap-6 p-20", className)} {...props}>
+    <div className={cn("flex flex-col gap-6 p-4 md:p-12 h-full justify-center", className)} {...props}>
       <Form {...form}>
         <form>
 

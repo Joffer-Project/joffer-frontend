@@ -59,11 +59,11 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
     }
 
     return (
-        <><Dialog>
+        <Dialog>
             <h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Images & Links</h2>
             <p className="font-medium text-xl mb-6">The images and links that you added will be shown on your profile as listed below. You can always update your images in the settings.</p>
             <div className="flex flex-col gap-2">
-                <div className="flex gap-2">
+                <div className="flex gap-3 overflow-auto">
                     <FormField
                         control={form.control}
                         name="profileImage"
@@ -81,8 +81,72 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                             </FormItem>
                         )}
                     />
+                    <FormField
+                        control={form.control}
+                        name="image2Url"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <ImageUpload
+                                        value={field.value ? [field.value] : []}
+                                        onChange={(url) => field.onChange(url)}
+                                        onRemove={() => field.onChange('')}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="image3Url"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <ImageUpload
+                                        value={field.value ? [field.value] : []}
+                                        onChange={(url) => field.onChange(url)}
+                                        onRemove={() => field.onChange('')}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="image4Url"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <ImageUpload
+                                        value={field.value ? [field.value] : []}
+                                        onChange={(url) => field.onChange(url)}
+                                        onRemove={() => field.onChange('')}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="image5Url"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <ImageUpload
+                                        value={field.value ? [field.value] : []}
+                                        onChange={(url) => field.onChange(url)}
+                                        onRemove={() => field.onChange('')}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
                 </div>
-                <div className="flex gap-2 -mb-4">
+                <div className="flex gap-3 overflow-auto -mb-4">
                     <FormField
                         control={form.control}
                         name=""
@@ -232,7 +296,6 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-        </>
     );
 };
 

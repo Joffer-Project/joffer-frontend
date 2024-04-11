@@ -1,11 +1,9 @@
 import NewTalentForm from "./components/NewTalentForm";
 
 const NewTalentPage = () => {
-  return ( 
-    <div>
-      <NewTalentForm />
-    </div>
-   );
+  return (
+    <NewTalentForm />
+  );
 }
- 
+
 export default NewTalentPage;
