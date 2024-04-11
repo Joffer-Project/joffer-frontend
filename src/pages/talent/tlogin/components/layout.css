@@ -49,6 +49,12 @@
   grid-template-columns: 2fr 4fr;
 }
 
+.inner-right-side {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .inner-left-img {
   margin: 0;
   padding: 0;
