@@ -6,10 +6,15 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 
 import { getAllAccounts } from "@/actions/account";
 import { Button } from "@/components/ui/button"
+import Loader from "@/components/ui/loader";
 
 const HomePage = () => {
   const router = useRouter();
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const talentClicked = () => {
     if (user) {

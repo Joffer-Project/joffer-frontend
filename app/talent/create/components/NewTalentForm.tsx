@@ -18,13 +18,14 @@ import {
 import { useRouter } from "next/navigation";
 import { userLogin } from "@/actions/user";
 import toast from "react-hot-toast";
-import useUser from "@/hooks/user-store";
 import Steps from "./Steps";
 import Essentials from "./Essentials";
 import Industries from "./Industries";
 import Roles from "./Roles";
 import ImagesLinks from "./ImagesLinks";
 import AboutInfo from "./AboutInfo";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Loader from "@/components/ui/loader";
 
 const schema = z.object({
   email: z.string().email(),
@@ -59,10 +60,16 @@ const NewTalentForm = ({ className, ...props }: NewTalentFormProps) => {
     resolver: zodResolver(schema),
     defaultValues,
   });
-  const user = useUser();
+  const { user, isLoading } = useUser();
   const router = useRouter();
   const [step, setStep] = useState(1);
 
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  // check ac from global state , if found then redirect to dashboard as per type
   const updateStep = (step: number) => {
     setStep(step);
   };
