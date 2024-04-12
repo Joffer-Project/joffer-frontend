@@ -19,8 +19,10 @@ const HomePage = () => {
     const fetchData = async (sub: any) => {
       try {
         const accounts = await getAllAccounts();
-        console.log(sub);
-        console.log(accounts);
+        if (accounts) {
+          const account = accounts.find((account: any) => account.auth0Id === sub);
+          console.log("Account:", account);
+        }
       }
       catch (error) {
         console.error("Error fetching Accounts:", error);
