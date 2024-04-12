@@ -39,7 +39,7 @@
 
 .inner-layout-container {
   width: 65%;
-  height: 60%;
+  height: 67%;
   border-radius: 10px;
   background: var(--Foundation-Light-Neutrals-light-neutrals-50, #fdfdfd);
   box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.45);
@@ -70,7 +70,7 @@
   }
   .inner-layout-container {
     width: 65%;
-    height: 55%;
+    height: 60%;
     grid-template-columns: 2fr 4fr;
   }
 }
@@ -83,7 +83,7 @@
 
   .inner-layout-container {
     width: 67%;
-    height: 50%;
+    height: 60%;
     grid-template-columns: 2.1fr 4fr;
   }
 }
@@ -98,9 +98,9 @@
     display: none;
   }
   .inner-layout-container {
-    width: 70%;
-    height: 45%;
-    grid-template-columns: 2.5fr 4fr;
+    width: 68%;
+    height: 55%;
+    grid-template-columns: 2.2fr 4fr;
   }
 }
 

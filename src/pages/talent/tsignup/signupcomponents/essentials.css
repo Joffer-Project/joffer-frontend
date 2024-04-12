@@ -1,82 +1,172 @@
-.card-container {
-  margin: 0;
-  padding: 0;
+.t-essentials-main-container {
   width: 100%;
   height: 100%;
-  padding: 10rem;
 }
-.title {
-  margin-bottom: 2rem; /* Equivalent to 32px */
+
+/* ---------------------- TITLE ------------------------ */
+
+.t-essentials-title h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 5rem;
+  padding-left: 3rem;
+  background: linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 44px; /* 122.222% */
 }
-/* Style the form title */
-.title h2 {
-  font-size: 2.25rem; /* Equivalent to 36px */
-  background: var(
-    --Linear-toughest-orange,
-    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
-  );
+
+.t-essentials-title p {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #3c4144;
+  padding-top: 1.6rem;
+  padding-left: 5.4rem;
+  padding-right: 5.4rem;
+}
+
+/* ---------------------- INPUT ------------------------ */
+
+.t-essentials-input-container {
+  width: 100%;
+  padding: 15rem 5.4rem 15rem 5.4rem;
+}
+
+.t-essentials-input-container input {
+  width: 100%;
+  height: 65px;
+  border-radius: 10px;
+  border: 2px solid var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
+  padding: 18px 0px 18px 20px;
+  font-family: "Fredoka";
+}
+
+.t-essentials-input-container input::placeholder {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: rgba(60, 65, 68, 1);
+  transition: all 0.1s ease-in-out;
+  font-family: "Fredoka";
+}
+
+.t-essentials-input-container input:hover {
+  border: 0.3rem solid var(--Linear-toughest-orange, #ff5e00);
+}
+
+.t-essentials-input-container input:hover::placeholder {
+  color: var(--Linear-toughest-orange, #ff5e00);
+  font-weight: 600;
+}
+
+.t-essentials-input-container input:focus {
+  border: 2px solid var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
+}
+
+.t-essentials-input-container input:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* ---------------------- NAVIGATION CONTAINER ------------------------ */
+
+.t-essentials-navigation-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 17rem;
+  width: 100%;
+  height: 5rem;
+  padding: 0 5.4rem;
+  margin-top: 3rem;
+}
+
+/* ---------------------- NEXT BUTTON ------------------------ */
+
+.t-essentials-navigation-container button {
+  display: inline-flex;
+  padding: 0.8rem 3rem 0.8rem 3.5rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 4rem;
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  border: none;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease-in-out;
+  transition-duration: 0.3s;
+}
+
+.t-essentials-navigation-container button p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 177.778% */
+  color: rgba(253, 253, 253, 1);
+  font-family: "Fredoka";
+}
+
+.t-essentials-navigation-container button img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.t-essentials-navigation-container button:hover {
+  display: inline-flex;
+  padding: 8px 20px 8px 35px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 40px;
+  background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.t-essentials-navigation-container button:focus {
+  display: inline-flex;
+  padding: 7px 19px 7px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 40px;
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  cursor: pointer;
+}
+
+/* ---------------------- PAGE NO ------------------------ */
+
+.t-essentials-essentials-page-number-info {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.t-essentials-page-number {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: rgba(60, 65, 68, 1);
+  background: linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Style the form input fields */
-.form-container input {
-  width: 100%;
-  padding: 1.125rem 0 1.125rem 1.25rem; /* Equivalent to 18px 0 18px 20px */
-  margin-bottom: 2rem;
-  border: 0.125rem solid
-    var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
-  border-radius: 0.625rem; /* Equivalent to 10px */
-}
-
-/* Style the form navigation */
-.navigation-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navigation-container p {
-  font-size: 1.2rem; /* Equivalent to 14px */
-  color: #777;
-}
-
-.navigation-container button {
-  display: flex;
-  font-family: Fredoka;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  gap: 0.625rem; /* Equivalent to 10px */
-  font-size: 1.125rem; /* Equivalent to 18px */
-  border-radius: 2.5rem; /* Equivalent to 40px */
-  padding: 0.8rem 2rem 0.8rem 2rem; /* Equivalent to 8px 30px 8px 35px */
-  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-.navigation-container button:hover {
-  background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
-  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
-  gap: 0.8rem; /* Equivalent to 10px */
-}
-
-/* For industries page */
-/* Style the form description */
-.description {
-  margin-bottom: 2rem;
-  font-size: 1.2rem; /* Equivalent to 14px */
-  color: #777;
-}
-.description-box input {
-  height: 22rem;
-  border-radius: 3px;
-  border: 0.5px solid var(--Foundation-Dark-Neutrals-dark-neutrals-100, #b3b6b6);
-  background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15) inset;
-}
-input {
-  font-size: 1.125rem; /* Equivalent to 18px */
+.t-essentials-page-counter {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: rgba(60, 65, 68, 1);
 }

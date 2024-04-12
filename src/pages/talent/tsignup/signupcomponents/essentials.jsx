@@ -4,30 +4,26 @@ import "./essentials.css";
 
 function Essentials({ onButtonClick }) {
   return (
-    <div className="card-container">
-      <div className="title">
-        <h2>Essentials</h2>
+    <div className="t-essentials-main-container">
+      <div className="t-essentials-title">
+        <h2>Essential</h2>
+        <p>
+          Please mention your full name below. Recruiters will know you by this
+          name...
+        </p>
       </div>
-      <div className="form-container">
-        <form>
-          <div>
-            <input type="text" placeholder="Name" />
-          </div>
-          <div>
-            <input type="email" placeholder="Email" />
-          </div>
-          <div>
-            <input type="password" placeholder="Password" />
-          </div>
-          <div>
-            <input type="password" placeholder="Repeat your password" />
-          </div>
-        </form>
+
+      <div className="t-essentials-input-container">
+        <input type="text" placeholder="Name" />
       </div>
-      <div className="navigation-container">
-        <p>1/5</p>
+
+      <div className="t-essentials-navigation-container">
+        <div className="t-essentials-essentials-page-number-info">
+          <p className="t-essentials-page-number">1</p>
+          <p className="t-essentials-page-counter">/5</p>
+        </div>
         <button onClick={onButtonClick}>
-          Next
+          <p>Next</p>
           <img src={rightArrow} alt="arrow" />
         </button>
       </div>

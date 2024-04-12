@@ -1,118 +1,117 @@
 /* Style the form container */
 
 .card-container {
-	max-width: 40.625rem; /* Equivalent to 650px */
-	margin: 0 auto;
-	padding: 2rem; /* Equivalent to 32px */
-	border-radius: 0.5rem; /* Equivalent to 8px */
-	box-shadow: 0 0.125rem 0.25rem rgba(94, 88, 88, 0.1);
+  max-width: 40.625rem; /* Equivalent to 650px */
+  margin: 0 auto;
+  padding: 2rem; /* Equivalent to 32px */
+  border-radius: 0.5rem; /* Equivalent to 8px */
+  box-shadow: 0 0.125rem 0.25rem rgba(94, 88, 88, 0.1);
 }
 .title {
-	margin-bottom: 2rem; /* Equivalent to 32px */
+  margin-bottom: 2rem; /* Equivalent to 32px */
 }
 /* Style the form title */
 .title h2 {
-	font-size: 2.25rem; /* Equivalent to 36px */
-	background: var(
-		--Linear-toughest-orange,
-		linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
-	);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  font-size: 2.25rem; /* Equivalent to 36px */
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Style the form input fields */
 .form-container input {
-	width: 100%;
-	padding: 1.125rem 0 1.125rem 1.25rem; /* Equivalent to 18px 0 18px 20px */
-	margin-bottom: 2rem;
-	border: 0.125rem solid
-		var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
-	border-radius: 0.625rem; /* Equivalent to 10px */
+  width: 100%;
+  padding: 1.125rem 0 1.125rem 1.25rem; /* Equivalent to 18px 0 18px 20px */
+  margin-bottom: 2rem;
+  border: 0.125rem solid
+    var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
+  border-radius: 0.625rem; /* Equivalent to 10px */
 }
 
 /* Style the form navigation */
 .navigation-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navigation-container p {
-	font-size: 1.2rem; /* Equivalent to 14px */
-	color: #777;
+  font-size: 1.2rem; /* Equivalent to 14px */
+  color: #777;
 }
 
 .navigation-container button {
-	display: flex;
-	font-family: Fredoka;
-	justify-content: center;
-	align-items: center;
-	font-weight: 500;
-	gap: 0.625rem; /* Equivalent to 10px */
-	font-size: 1.125rem; /* Equivalent to 18px */
-	border-radius: 2.5rem; /* Equivalent to 40px */
-	padding: 0.8rem 2rem 0.8rem 2rem; /* Equivalent to 8px 30px 8px 35px */
-	background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
-	color: #fff;
-	border: none;
-	cursor: pointer;
+  display: flex;
+  font-family: Fredoka;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 0.625rem; /* Equivalent to 10px */
+  font-size: 1.125rem; /* Equivalent to 18px */
+  border-radius: 2.5rem; /* Equivalent to 40px */
+  padding: 0.8rem 2rem 0.8rem 2rem; /* Equivalent to 8px 30px 8px 35px */
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 .navigation-container button:hover {
-	background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
-	box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
-	gap: 0.8rem; /* Equivalent to 10px */
+  background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
+  gap: 0.8rem; /* Equivalent to 10px */
 }
 
 /* For industries page */
 /* Style the form description */
 .description {
-	font-size: 1.2rem; /* Equivalent to 14px */
-	color: #777;
+  font-size: 1.2rem; /* Equivalent to 14px */
+  color: #777;
 }
 .description-box input {
-	height: 22rem;
-	border-radius: 3px;
-	border: 0.5px solid
-		var(--Foundation-Dark-Neutrals-dark-neutrals-100, #b3b6b6);
-	background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
-	box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15) inset;
+  height: 22rem;
+  border-radius: 3px;
+  border: 0.5px solid var(--Foundation-Dark-Neutrals-dark-neutrals-100, #b3b6b6);
+  background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15) inset;
 }
 input {
-	font-size: 1.125rem; /* Equivalent to 18px */
+  font-size: 1.125rem; /* Equivalent to 18px */
 }
 /* styles.css */
 .industryLabel {
-	border: 2px solid var(--Linear-hard-orange, #ff7e33);
+  border: 2px solid var(--Linear-hard-orange, #ff7e33);
 
-	cursor: pointer;
-	border-radius: 2.5rem; /* rounded-lg */
-	border-width: 0.125rem; /* border-2 */
-	border-color: #ccc; /* border-gray-200 */
-	padding: 0.75rem 1.5rem; /* py-3 px-6 */
-	font-weight: bold; /* font-bold */
-	color: #ff7e33; /* text-[#FF7E33] */
-	transition-property: background-color, color, border-color; /* transition-colors */
-	transition-duration: 0.2s; /* duration-200 */
-	transition-timing-function: ease-in-out; /* ease-in-out */
+  cursor: pointer;
+  border-radius: 2.5rem; /* rounded-lg */
+  border-width: 0.125rem; /* border-2 */
+  border-color: #ccc; /* border-gray-200 */
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  font-weight: bold; /* font-bold */
+  color: #ff7e33; /* text-[#FF7E33] */
+  transition-property: background-color, color, border-color; /* transition-colors */
+  transition-duration: 0.2s; /* duration-200 */
+  transition-timing-function: ease-in-out; /* ease-in-out */
 }
 
 .industryLabel:checked {
-	background: var(
-		--Linear-hard-orange,
-		linear-gradient(159deg, #ff7e33 0%, #ff5e00 100%)
-	);
+  background: var(
+    --Linear-hard-orange,
+    linear-gradient(159deg, #ff7e33 0%, #ff5e00 100%)
+  );
 }
 .hidden input {
-	visibility: hidden;
+  visibility: hidden;
 }
 form {
-	display: flex;
-	flex-wrap: wrap;
-	max-height: 350px;
-	overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 350px;
+  overflow-y: auto;
 }
 .form-container {
-	margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
