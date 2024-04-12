@@ -12,7 +12,11 @@ const HomePage = () => {
   const { user } = useUser();
 
   const talentClicked = () => {
-    router.push('/api/auth/login');
+    if (user) {
+      router.push('/talent/create');
+    } else {
+      router.push(`/api/auth/login?returnTo=${encodeURIComponent('/talent/create')}`);
+    }
   }
 
   useEffect(() => {
@@ -21,7 +25,13 @@ const HomePage = () => {
         const accounts = await getAllAccounts();
         if (accounts) {
           const account = accounts.find((account: any) => account.auth0Id === sub);
-          console.log("Account:", account);
+          if (account) {
+            if (account.type === "talent") {
+              router.push('/talent');
+            } else if (account.type === "recruiter") {
+              router.push('/recruiter');
+            }
+          }
         }
       }
       catch (error) {
@@ -29,7 +39,6 @@ const HomePage = () => {
       }
     }
     if (user) {
-      // ACCOUNT API CALL
       fetchData(user.sub);
     }
   }, [user]);
@@ -51,7 +60,6 @@ const HomePage = () => {
             <small className="md:text-[18px] text-[14px]">For the ones who seek new job opportunities!</small>
           </div>
         </div>
-        {JSON.stringify(user, null, 2)}
         <div className="border md:rounded-[60px] rounded-[40px] bg-cover bg-no-repeat bg-gray-300 bg-[url('/images/landing/recuriter-bg.webp')] overflow-hidden">
           <div className="flex flex-col min-h-[400px] max-h-[610px] min-w-[400px] md:max-w-[610px] bg-[#ffffffba] px-8 py-12 content-center justify-center items-center">
             <Button variant="outline" onClick={() => router.push(`/api/auth/login`)} className="md:w-[300px] md:h-[80px] min-w-[150px] border rounded-[40px] text-white bg-[#5496ee] mb-4 font-medium md:text-[24px] px-8 py-6 text-[18px]">Recruiter</Button>
