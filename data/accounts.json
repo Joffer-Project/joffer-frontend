@@ -1,0 +1,792 @@
+[
+    {
+      "id": 42,
+      "auth0Id": "string",
+      "name": "string",
+      "password": "string",
+      "accountType": "string",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 43,
+      "auth0Id": "auth0|23232323",
+      "name": "Berend",
+      "password": "string",
+      "accountType": "string",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 44,
+      "auth0Id": "string",
+      "name": "string",
+      "password": "string",
+      "accountType": "string",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 46,
+      "auth0Id": "string",
+      "name": "Testaus",
+      "password": "test",
+      "accountType": "Applicant",
+      "email": "testing@testing.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 47,
+      "auth0Id": "string",
+      "name": "Emilia",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "testing3@testing.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 50,
+      "auth0Id": "auth0|121221",
+      "name": "Henk",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "henk@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 51,
+      "auth0Id": "auth0|121221",
+      "name": "Henk",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "henk@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 52,
+      "auth0Id": "auth0|121221",
+      "name": "Henk",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "henk@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 53,
+      "auth0Id": "auth0|121221",
+      "name": "Henk2",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "henk2@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 54,
+      "auth0Id": "auth0|121221",
+      "name": "Henk2",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "henk2@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 55,
+      "auth0Id": "auth0|9818181818981",
+      "name": "Fransje",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "fransje@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 56,
+      "auth0Id": "auth0|1111111111",
+      "name": "Berend",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "berend@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 57,
+      "auth0Id": "auth0|12",
+      "name": "Silvan",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "silvan@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 58,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 59,
+      "auth0Id": "abcdef123456",
+      "name": "John Doe",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "johndoe@example.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 60,
+      "auth0Id": "string",
+      "name": "Mobile",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "mobileteam@mobile.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 61,
+      "auth0Id": "abc123xyz",
+      "name": "John Doe",
+      "password": "NOPASSWORD",
+      "accountType": "Applicant",
+      "email": "johndoe@example.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 62,
+      "auth0Id": "string",
+      "name": "Mobile",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "mobileteam1@mobile.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 63,
+      "auth0Id": "string",
+      "name": "Mobile",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "mobileteam1@mobile.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 64,
+      "auth0Id": "string",
+      "name": "Mobile",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "mobileteam1@mobile.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 65,
+      "auth0Id": "auth0|9898",
+      "name": "Frebert",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "frebert@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 66,
+      "auth0Id": "string",
+      "name": "Mobile",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "mobileteam1@mobile.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 67,
+      "auth0Id": "auth0|9898",
+      "name": "Frebert",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "frebert2@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 68,
+      "auth0Id": "string",
+      "name": "Emilia",
+      "password": "emilia",
+      "accountType": "Applicant",
+      "email": "testausta@testi.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 70,
+      "auth0Id": "auth0|9",
+      "name": "Johnny",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "johnny@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 71,
+      "auth0Id": "auth0|98",
+      "name": "Bert",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "bert@gmail.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 73,
+      "auth0Id": "auth0|2",
+      "name": "Berend",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "berend3",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 76,
+      "auth0Id": "auth0|1",
+      "name": "Wordt verwijderd.",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "Wordt verwijderd.",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 72,
+      "auth0Id": "auth0|1",
+      "name": "Jan",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "jan@gmail.com",
+      "isPremium": true,
+      "isActive": false
+    },
+    {
+      "id": 77,
+      "auth0Id": "auth0|12832782787823",
+      "name": "Wordt verwijderd.",
+      "password": "",
+      "accountType": "Applicant",
+      "email": "Wordt verwijderd.",
+      "isPremium": true,
+      "isActive": false
+    },
+    {
+      "id": 108,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 109,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 110,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 111,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 112,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 113,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 78,
+      "auth0Id": "auth0|65fd7e9515fcff92de06f900",
+      "name": "string",
+      "password": "NO PASSWORD",
+      "accountType": "Applicant",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 81,
+      "auth0Id": "string",
+      "name": "Fontys",
+      "password": "",
+      "accountType": "Company",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 82,
+      "auth0Id": "string",
+      "name": "Fontys",
+      "password": "",
+      "accountType": "Company",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 83,
+      "auth0Id": "string",
+      "name": "Fontys",
+      "password": "",
+      "accountType": "Company",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 84,
+      "auth0Id": "string",
+      "name": "Fontys",
+      "password": "",
+      "accountType": "Company",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 85,
+      "auth0Id": "aaaaaaaaaaa",
+      "name": "Fontys2",
+      "password": "",
+      "accountType": "Company",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 86,
+      "auth0Id": "gamma|123",
+      "name": "Gamma",
+      "password": "",
+      "accountType": "Company",
+      "email": "gamma@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 48,
+      "auth0Id": "auth0|65fc318ba106c1b2fc2c42bf",
+      "name": "Silvan2.0",
+      "password": "NO PASSWORD",
+      "accountType": "Company",
+      "email": "silvan.company@company.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 45,
+      "auth0Id": "auth0|323232332",
+      "name": "IKEA",
+      "password": "ikea123#",
+      "accountType": "Company",
+      "email": "string",
+      "isPremium": true,
+      "isActive": false
+    },
+    {
+      "id": 87,
+      "auth0Id": "string",
+      "name": "string",
+      "password": "string",
+      "accountType": "string",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 88,
+      "auth0Id": "string",
+      "name": "string",
+      "password": "string",
+      "accountType": "string",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 89,
+      "auth0Id": "string",
+      "name": "string",
+      "password": "string",
+      "accountType": "string",
+      "email": "string",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 90,
+      "auth0Id": "string",
+      "name": "Maito",
+      "password": "kiisu",
+      "accountType": "string",
+      "email": "Maito@kiisu.com",
+      "isPremium": true,
+      "isActive": true
+    },
+    {
+      "id": 91,
+      "auth0Id": "string",
+      "name": "Nokia",
+      "password": "1234",
+      "accountType": "Applicant",
+      "email": "nokia@nokia.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 92,
+      "auth0Id": "string",
+      "name": "Nokia",
+      "password": "1234",
+      "accountType": "Company",
+      "email": "nokia@nokia.fi",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 93,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 94,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 95,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 96,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 97,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 98,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 99,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 100,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 101,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 102,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 103,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 104,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 105,
+      "auth0Id": "string",
+      "name": "Nk",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kj@kk.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 106,
+      "auth0Id": "string",
+      "name": "Kissa",
+      "password": "772i2",
+      "accountType": "Company",
+      "email": "Kissa@email.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 107,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 114,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 115,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 116,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 117,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 118,
+      "auth0Id": "string",
+      "name": "",
+      "password": "",
+      "accountType": "Company",
+      "email": "",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 119,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 120,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 121,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 122,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 123,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 124,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 125,
+      "auth0Id": "string",
+      "name": "Milla",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    },
+    {
+      "id": 126,
+      "auth0Id": "string",
+      "name": "Kissa",
+      "password": "Kissa",
+      "accountType": "Company",
+      "email": "Kissa@gmail.com",
+      "isPremium": false,
+      "isActive": true
+    }
+  ]
