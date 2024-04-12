@@ -1,0 +1,61 @@
+.ind-font-bold {
+    font-weight: bold;
+}
+
+.ind-text3xl {
+    font-size: 1.875rem;
+}
+
+.ind-mb4 {
+    margin-bottom: 1rem;
+}
+
+.ind-orange {
+    color: #ff7e33;
+}
+
+.ind-font-medium {
+    font-weight: 500;
+}
+
+.ind-textxl {
+    font-size: 1.25rem;
+}
+
+.ind-mb6 {
+    margin-bottom: 1.5rem;
+}
+
+.ind-industries-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.ind-industry-item {
+    display: flex;
+}
+
+.ind-industry-label {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    color: #ff7e33;
+    border: 2px solid #ccc;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+}
+
+.ind-industry-label:hover {
+    background-color: #ff7e33;
+    color: #fff;
+}
+
+.ind-industry-item input:checked+.ind-industry-label {
+    background-color: #ccc;
+    color: #333;
+    border-color: #ccc;
+}

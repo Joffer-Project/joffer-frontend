@@ -1,0 +1,61 @@
+.ro-font-bold {
+    font-weight: bold;
+}
+
+.ro-text3xl {
+    font-size: 1.875rem;
+}
+
+.ro-mb4 {
+    margin-bottom: 1rem;
+}
+
+.ro-orange {
+    color: #ff7e33;
+}
+
+.ro-font-medium {
+    font-weight: 500;
+}
+
+.ro-textxl {
+    font-size: 1.25rem;
+}
+
+.ro-mb6 {
+    margin-bottom: 1.5rem;
+}
+
+.ro-roles-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.ro-role-item {
+    display: flex;
+}
+
+.ro-role-label {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    color: #ff7e33;
+    border: 2px solid #ccc;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+}
+
+.ro-role-label:hover {
+    background-color: #ff7e33;
+    color: #fff;
+}
+
+.ro-role-item input:checked+.ro-role-label {
+    background-color: #ccc;
+    color: #333;
+    border-color: #ccc;
+}

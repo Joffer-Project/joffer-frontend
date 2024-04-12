@@ -1,0 +1,35 @@
+.il-images-links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.il-section-title {
+    font-weight: bold;
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+}
+
+.il-input-group {
+    display: flex;
+    gap: 2rem;
+}
+
+.il-input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.il-input-label {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.il-input-field {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    padding: 1rem;
+}

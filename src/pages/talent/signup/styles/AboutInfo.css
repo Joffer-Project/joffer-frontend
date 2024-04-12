@@ -1,0 +1,50 @@
+.ai-heading {
+    font-size: 1.875rem;
+    margin-bottom: 1rem;
+}
+
+.ai-bold {
+    font-weight: bold;
+}
+
+.ai-text3xl {
+    font-size: 1.875rem;
+}
+
+.ai-orange {
+    color: #FF7E33;
+}
+
+.ai-medium {
+    font-weight: 500;
+}
+
+.ai-textxl {
+    font-size: 1.25rem;
+}
+
+.ai-mb6 {
+    margin-bottom: 1.5rem;
+}
+
+.ai-formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.ai-block {
+    display: block;
+}
+
+.ai-mb2 {
+    margin-bottom: 0.5rem;
+}
+
+.ai-inputField {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #FF7E33;
+    border-radius: 0.25rem;
+    resize: vertical;
+}
