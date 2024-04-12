@@ -26,7 +26,7 @@ function Industries({ onButtonClick, onPrevButtonClick }) {
   ];
 
   return (
-    <div className="t-industries-card-container">
+    <div className="t-industries-main-container">
       <div className="t-industries-title">
         <h2>Industries</h2>
         <p>
@@ -36,14 +36,12 @@ function Industries({ onButtonClick, onPrevButtonClick }) {
       </div>
 
       <div className="t-industries-form-container">
-        <form>
-          {industries.map((industry, index) => (
-            <div key={index} className="checkbox-container">
-              <input type="checkbox" id={industry} />
-              <label htmlFor={industry}>{industry}</label>
-            </div>
-          ))}
-        </form>
+        {industries.map((industry, index) => (
+          <label key={index} className="checkbox-container">
+            {industry}
+            <input type="checkbox" id={industry} />
+          </label>
+        ))}
       </div>
 
       <div className="t-industries-navigation-container">
