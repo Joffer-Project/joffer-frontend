@@ -1,0 +1,28 @@
+.new-talent-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .submit-button {
+    background-color: #FF7E33;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #FF6C15;
+  }
+  

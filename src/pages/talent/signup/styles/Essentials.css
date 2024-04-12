@@ -1,0 +1,40 @@
+.ess-font-bold {
+    font-weight: bold;
+}
+
+.ess-text3xl {
+    font-size: 1.875rem;
+}
+
+.ess-mb6 {
+    margin-bottom: 1.5rem;
+}
+
+.ess-orange {
+    color: #FF7E33;
+}
+
+.ess-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.ess-block {
+    display: block;
+}
+
+.ess-mb2 {
+    margin-bottom: 0.5rem;
+}
+
+.ess-input-field {
+    height: 3rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #3C4144;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.ess-error-message {
+    color: red;
+}

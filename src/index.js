@@ -6,6 +6,7 @@ import ErrorPage from "./pages/error-page";
 import App from "./App";
 import BackgroundCarousel from "../src/pages/talent/tlogin/tlogin.jsx";
 import Login from "../src/pages/talent/tsignup/tsignup.jsx";
+import NewTalentForm from "../src/pages/talent/signup/index.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
 	{
 		path: "recruiter",
 		element: <div>Sign up for our talent program!</div>,
+	},
+	{
+		path: "talent/signup/test",
+		element: <NewTalentForm />,
 	},
 ]);
 
