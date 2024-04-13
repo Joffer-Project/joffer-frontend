@@ -1,50 +1,85 @@
-.ai-heading {
-    font-size: 1.875rem;
-    margin-bottom: 1rem;
+/* ---------------------- TITLE------------------------ */
+.ai-title {
+  font-family: "Fredoka";
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.4rem;
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 4rem;
+  margin-left: 3rem;
 }
 
-.ai-bold {
-    font-weight: bold;
-}
-
-.ai-text3xl {
-    font-size: 1.875rem;
-}
-
-.ai-orange {
-    color: #FF7E33;
-}
-
-.ai-medium {
-    font-weight: 500;
-}
-
-.ai-textxl {
-    font-size: 1.25rem;
-}
-
-.ai-mb6 {
-    margin-bottom: 1.5rem;
+/* ---------------------- SUBTITLE ------------------------ */
+.ai-subtitle {
+  font-family: "Fredoka";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 5.4rem;
+  color: rgba(92, 96, 98, 1);
+  margin-top: 1rem;
+  margin-bottom: 1.6rem;
+  margin-right: 5.4rem;
 }
 
 .ai-formGroup {
-    margin-bottom: 1.5rem;
-}
-
-.ai-block {
-    display: block;
-}
-
-.ai-mb2 {
-    margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .ai-inputField {
-    width: 100%;
-    min-height: 100px;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #FF7E33;
-    border-radius: 0.25rem;
-    resize: vertical;
+  font-family: "Fredoka";
+  width: 88%;
+  height: 31.5rem;
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 1.2rem;
+  border: 2px solid rgba(19, 19, 19, 0.5);
+  background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
+  box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.01);
+  border-radius: 0.3rem;
+  margin-top: 0.3rem;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.ai-inputField::placeholder {
+  font-family: "Fredoka";
+  opacity: 1;
+  color: rgba(92, 96, 98, 0.5);
+  padding-top: 14rem;
+}
+
+.ai-inputField:hover {
+  border: 2px solid rgba(19, 19, 19);
+  background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
+  box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  margin-top: 0.3rem;
+  transition: 0.3s;
+}
+
+.ai-inputField::placeholder {
+  font-family: "Fredoka";
+  opacity: 1;
+  color: rgba(92, 96, 98, 0.5);
+}
+
+.ai-inputField:focus {
+  outline: none;
+  align-items: flex-start;
+  text-align: left;
+  border: 2px solid rgba(19, 19, 19);
+  box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ai-inputField:focus::placeholder {
+  opacity: 0;
 }
