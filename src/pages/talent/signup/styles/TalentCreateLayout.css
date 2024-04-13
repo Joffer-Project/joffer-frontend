@@ -61,6 +61,13 @@
   position: relative;
 }
 
+.new-talent-form {
+  padding: 0;
+}
+
+.form-container {
+  gap: 0;
+}
 /* ---------------------- MEDIA QUERIES ------------------------ */
 
 /* ----- 1440px ----- */

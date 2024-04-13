@@ -37,16 +37,20 @@ const Roles = () => {
 
   return (
     <>
-      <h2 className="ind-title">Roles</h2>
-      <p className="ind-subtitle">
+      <h2 className="roles-title">Roles</h2>
+      <p className="roles-subtitle">
         Select the roles that align best with your interests, knowledge,
         experience, and wishes.
       </p>
-      <div className="ind-industries-list">
+      <div className="roles-list">
         {roles.map((role, index) => (
-          <div className="ind-industry-item" key={index}>
-            <input type="checkbox" id={`ro-${role}`} className="ind-checkbox" />
-            <label htmlFor={`ro-${role}`} className="ind-industry-label">
+          <div className="roles-item" key={index}>
+            <input
+              type="checkbox"
+              id={`ro-${role}`}
+              className="roles-checkbox"
+            />
+            <label htmlFor={`ro-${role}`} className="roles-label">
               {role}
             </label>
           </div>

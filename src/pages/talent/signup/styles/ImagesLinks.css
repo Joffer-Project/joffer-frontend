@@ -1,35 +1,149 @@
-.il-images-links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+/* ---------------------- TITLE------------------------ */
+.il-title {
+  font-family: "Fredoka";
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.4rem;
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 4rem;
+  margin-left: 3rem;
 }
+
+/* ---------------------- SUBTITLE ------------------------ */
+
+.ind-subtitle {
+  font-family: "Fredoka";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 5.4rem;
+  color: rgba(92, 96, 98, 1);
+  margin-top: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+/* ---------------------- IMAGES SECTION MAIN CONTAINER(Including title) ------------------------ */
+.il-images-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 5.4rem;
+  padding-top: 1.6rem;
+}
+
+/* ---------------------- IMAGES & LINKS TITLE ------------------------ */
 
 .il-section-title {
-    font-weight: bold;
-    font-size: 1.375rem;
-    margin-bottom: 1rem;
+  font-family: "Fredoka";
+  letter-spacing: 0.09rem;
+  font-size: 2rem;
+  font-style: bold;
+  line-height: 32px; /* 133.333% */
+  color: rgba(92, 96, 98, 1);
 }
 
+/* ---------------------- IMAGE BUTTONS MAIN CONTAINER(Only buttons) ------------------------ */
+
+/* ---------------------- Buttons main container ------------------------ */
 .il-input-group {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1.6rem;
+  margin-top: 1rem;
+  padding-left: 2rem;
 }
 
-.il-input-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+/* ---------------------- Button styles ------------------------ */
+
+/* ----- Profile img ----- */
+.il-img-upload-container {
+  display: inline-block;
+  text-align: center;
+}
+.profile-img-upload-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  height: 8rem;
+  border: 0.2rem solid #ff5e00;
+  border-radius: 0.8rem;
+  cursor: pointer;
 }
 
-.il-input-label {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
+.profile-img-upload-button img {
+  transition: all 0.3s ease-in-out;
 }
 
-.il-input-field {
-    width: 100%;
-    height: 50px;
-    border: 1px solid #ccc;
-    border-radius: 40px;
-    padding: 1rem;
+.profile-img-upload-button:hover img {
+  transform: scale(1.1);
+}
+
+.il-talent-upload-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.il-img-picture-label {
+  font-family: "Fredoka";
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6rem; /* 114.286% */
+  letter-spacing: 0.07px;
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.4rem;
+}
+
+/* ----- Normal img ----- */
+.img-upload-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 7rem;
+  border: 0.2rem solid rgba(92, 96, 98, 1);
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-bottom: 2.2rem;
+}
+
+.img-upload-button img {
+  transition: all 0.3s ease-in-out;
+}
+
+.img-upload-button:hover img {
+  transform: scale(1.1);
+}
+
+.il-neutral-upload-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+/* ---------------------- IMAGES SECTION MAIN CONTAINER(Including title) ------------------------ */
+.il-links-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 5.4rem;
+  margin-top: 1rem;
 }

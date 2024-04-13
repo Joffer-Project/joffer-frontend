@@ -1,6 +1,6 @@
 /* ---------------------- TITLE ------------------------ */
 
-.ind-title {
+.roles-title {
   font-family: "Fredoka";
   font-size: 3.6rem;
   font-style: normal;
@@ -19,45 +19,49 @@
 
 /* ---------------------- SUBTITLE ------------------------ */
 
-.ind-subtitle {
+.roles-subtitle {
   font-family: "Fredoka";
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   margin-left: 5.4rem;
   color: rgba(92, 96, 98, 1);
+  margin-top: 1rem;
+  margin-bottom: 1.6rem;
 }
 
 /* ---------------------- INDUSTRY LIST ------------------------ */
 
-.ind-industries-list {
+.roles-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   width: 100%;
-  max-height: 27.5rem;
+  height: 30rem;
   overflow-y: auto;
   background-color: var(--light-grey-background, #f0f0f0);
   padding: 1rem;
-  border-radius: 0.4rem;
-  border: 2px solid black;
-  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  box-shadow: inset 0 8px 32px rgba(0, 0, 0, 0.1);
   scrollbar-color: #ff7e33 #f0f0f0;
   scrollbar-width: thin;
+  margin-top: 3.2rem;
+  margin-bottom: 1rem;
 }
 
-.ind-industry-item {
+.roles-item {
   display: flex;
 }
 
-.ind-checkbox {
+.roles-checkbox {
   display: none;
 }
 
-.ind-industry-label {
+.roles-label {
   display: inline-flex;
   padding: 14px 30px;
   justify-content: center;
@@ -76,13 +80,13 @@
   color: #ff7e33; /* Initially using the primary orange color for text */
 }
 
-.ind-industry-label:hover {
+.roles-industry-label:hover {
   border: 2px solid #58d336;
   color: #58d336; /* Text color on hover */
   background: #fdfdfd; /* Maintain white background on hover */
 }
 
-.ind-industry-item input:checked + .ind-industry-label {
+.roles-industry-item input:checked + .roles-industry-label {
   background: linear-gradient(94deg, #58d336 0%, #3e9626 100.01%);
   color: rgba(253, 253, 253, 1); /* White text color to ensure visibility */
   border-color: #58d336;

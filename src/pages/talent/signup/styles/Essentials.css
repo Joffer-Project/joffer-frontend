@@ -24,14 +24,15 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  gap: 1.5rem;
-  margin-top: 2.4rem;
+  gap: 1.6rem;
+  margin-top: 3.2rem;
+  margin-bottom: 4.8rem;
 }
 
 /* ---------------------- INPUT FIELDS ------------------------ */
 .ess-input-field {
   display: flex;
-  width: 55rem;
+  width: 60rem;
   height: 6.5rem;
   padding: 18px 0px 18px 20px;
   align-items: center;
