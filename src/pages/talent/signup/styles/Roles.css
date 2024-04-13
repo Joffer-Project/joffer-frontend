@@ -80,13 +80,13 @@
   color: #ff7e33; /* Initially using the primary orange color for text */
 }
 
-.roles-industry-label:hover {
+.roles-label:hover {
   border: 2px solid #58d336;
   color: #58d336; /* Text color on hover */
   background: #fdfdfd; /* Maintain white background on hover */
 }
 
-.roles-industry-item input:checked + .roles-industry-label {
+.roles-item input:checked + .roles-label {
   background: linear-gradient(94deg, #58d336 0%, #3e9626 100.01%);
   color: rgba(253, 253, 253, 1); /* White text color to ensure visibility */
   border-color: #58d336;

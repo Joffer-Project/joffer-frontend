@@ -1,6 +1,12 @@
 import React from "react";
+import DribbleLogo from "../../../../images/svg-icons/light-dribble-logo.svg";
+import GihubLogo from "../../../../images/svg-icons/light-github-logo.svg";
+import LinkedinLogo from "../../../../images/svg-icons/light-linkedin-logo.svg";
+import MediumLogo from "../../../../images/svg-icons/light-medium-logo.svg";
+import PersonalLogo from "../../../../images/svg-icons/light-personal-logo.svg";
 import plusNeutral from "../../../../images/svg-icons/plus-neutral.svg";
 import plusTalent from "../../../../images/svg-icons/plus-talent.svg";
+
 import "../styles/ImagesLinks.css";
 
 const ImagesLinks = ({ form }) => {
@@ -115,100 +121,69 @@ const ImagesLinks = ({ form }) => {
       </div>
 
       {/* LINKS MAIN CONTAINER */}
-      {/* LINKS MAIN CONTAINER */}
       <div className="il-links-section">
         {/* Links titles */}
         <h2 className="il-section-title">Links</h2>
 
         {/* Links input container */}
-        <div className="il-input-group">
-          {/* Link upload button */}
-          <div className="il-img-upload-container">
-            <input
-              type="file"
-              id="profileImage"
-              name="profileImage"
-              className="il-input-field"
-              style={{ display: "none" }}
-            />
-            <label htmlFor="profileImage" className="img-upload-button">
+        <div className="il-link-input-group">
+          {/* Github Link upload button */}
+          <div className="il-link-upload-container">
+            <label htmlFor="githubLink" className="link-upload-button">
               <img
-                src={plusNeutral}
-                alt="Add"
-                className="il-neutral-upload-icon"
+                src={GihubLogo}
+                alt="Github"
+                className="il-link-upload-icon"
               />
+              <span className="il-link-label">Github</span>
             </label>
           </div>
 
-          {/* Link upload button */}
-          <div className="il-img-upload-container">
-            <input
-              type="file"
-              id="profileImage"
-              name="profileImage"
-              className="il-input-field"
-              style={{ display: "none" }}
-            />
-            <label htmlFor="profileImage" className="img-upload-button">
+          {/* Linkedin Link upload button */}
+          <div className="il-link-upload-container">
+            <label htmlFor="linkedinLink" className="link-upload-button">
               <img
-                src={plusNeutral}
-                alt="Add"
-                className="il-neutral-upload-icon"
+                src={LinkedinLogo}
+                alt="Linkedin"
+                className="il-link-upload-icon"
               />
+              <span className="il-link-label">Linkedin</span>
             </label>
           </div>
 
-          {/* Link upload button */}
-          <div className="il-img-upload-container">
-            <input
-              type="file"
-              id="profileImage"
-              name="profileImage"
-              className="il-input-field"
-              style={{ display: "none" }}
-            />
-            <label htmlFor="profileImage" className="img-upload-button">
+          {/* Medium Link upload button */}
+          <div className="il-link-upload-container">
+            <label htmlFor="mediumLink" className="link-upload-button">
               <img
-                src={plusNeutral}
-                alt="Add"
-                className="il-neutral-upload-icon"
+                src={MediumLogo}
+                alt="Medium"
+                className="il-link-upload-icon"
               />
+              <span className="il-link-label">Medium</span>
             </label>
           </div>
 
-          {/* Link upload button */}
-          <div className="il-img-upload-container">
-            <input
-              type="file"
-              id="profileImage"
-              name="profileImage"
-              className="il-input-field"
-              style={{ display: "none" }}
-            />
-            <label htmlFor="profileImage" className="img-upload-button">
+          {/* Dribble Link upload button */}
+          <div className="il-link-upload-container">
+            <label htmlFor="dribbleLink" className="link-upload-button">
               <img
-                src={plusNeutral}
-                alt="Add"
-                className="il-neutral-upload-icon"
+                src={DribbleLogo}
+                alt="Dribble"
+                className="il-link-upload-icon"
               />
+              <span className="il-link-label">Dribble</span>
             </label>
           </div>
 
-          {/* Link upload button */}
-          <div className="il-img-upload-container">
-            <input
-              type="file"
-              id="profileImage"
-              name="profileImage"
-              className="il-input-field"
-              style={{ display: "none" }}
-            />
-            <label htmlFor="profileImage" className="img-upload-button">
+          {/* Personal Link upload button */}
+          <div className="il-link-upload-container">
+            <label htmlFor="personalLink" className="link-upload-button">
               <img
-                src={plusNeutral}
-                alt="Add"
-                className="il-neutral-upload-icon"
+                src={PersonalLogo}
+                alt="Personal"
+                className="il-link-upload-icon"
               />
+              <span className="il-link-label">Personal</span>
             </label>
           </div>
         </div>
