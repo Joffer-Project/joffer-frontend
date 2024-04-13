@@ -32,6 +32,12 @@ const schema = z.object({
   image3Url: z.string().url(),
   image4Url: z.string().url(),
   image5Url: z.string().url(),
+  industries: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "You have to select at least one item.",
+  }),
+  roles: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "You have to select at least one item.",
+  }),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -46,6 +52,8 @@ const defaultValues: FormValues = {
   image3Url: "",
   image4Url: "",
   image5Url: "",
+  industries: [],
+  roles: []
 };
 
 interface NewTalentFormProps extends React.HTMLAttributes<HTMLDivElement> { }
@@ -74,17 +82,37 @@ const NewTalentForm = withPageAuthRequired(({ className, ...props }: NewTalentFo
     setStep(step);
   };
 
+  const onSubmit = async (data: FormValues) => {
+    try {
+      console.log(data);
+      // setLoading(true);
+      // if (initialData) {
+      //   await axios.patch(`/api/${params.storeId}/colors/${params.colorId}`, data);
+      // } else {
+      //   await axios.post(`/api/${params.storeId}/colors`, data);
+      // }
+      // router.refresh();
+      // router.push(`/${params.storeId}/colors`);
+      // toast.success(toastMessage);
+    } catch (error: any) {
+      toast.error('Something went wrong.');
+    } finally {
+      // setLoading(false);
+    }
+  };
+
+
   return (
     <>
       <div className={cn("flex flex-col gap-6 p-4 md:p-12 h-full justify-center", className)} {...props}>
         <Form {...form}>
-          <form>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
 
             {step === 1 && <Essentials form={form} />}
 
-            {step === 2 && <Industries />}
+            {step === 2 && <Industries form={form} />}
 
-            {step === 3 && <Roles />}
+            {step === 3 && <Roles form={form} />}
 
             {step === 4 && <ImagesLinks form={form} />}
 

@@ -34,7 +34,7 @@ const Steps: React.FC<StepsProps> = ({
             )}
 
             {step === 5 ? (
-                <Button type="button" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
+                <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
                     Start
                 </Button>
             ) : (
