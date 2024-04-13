@@ -1,31 +1,170 @@
+/* ---------------------- MAIN CONTAINER ------------------------ */
+
 .steps-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 5rem 2rem 5rem;
 }
 
-.step-button {
-    background-color: #FF7E33;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* ---------------------- NEXT BUTTON ------------------------ */
+
+.step-next-button {
+  display: inline-flex;
+  padding: 0.8rem 3rem 0.8rem 3.5rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 4rem;
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  border: none;
+  transition: 0.3s ease-in-out;
 }
 
-.step-button:hover {
-    background-color: #FF6C15;
+.step-next-button:hover {
+  background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
+  cursor: pointer;
 }
 
-.step-icon {
-    margin-left: 0.5rem;
+.step-next-button img {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.3s ease-in-out;
+  margin-left: auto;
 }
+
+.step-next-button:hover img {
+  transform: translateX(1rem);
+}
+
+.step-next-button p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 3.2rem;
+  color: #fdfdfd;
+  font-family: "Fredoka";
+  padding-right: 1rem;
+}
+
+/* ---------------------- PREVIOUS BUTTON ------------------------ */
+
+.step-previous-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 3rem;
+  border-radius: 4rem;
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+
+.step-previous-button:hover {
+  background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
+  cursor: pointer;
+}
+
+.step-previous-button img {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.step-previous-button:hover img {
+  transform: translateX(-1rem);
+}
+
+.step-previous-button p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 3.2rem;
+  color: #fdfdfd;
+  font-family: "Fredoka";
+  margin: 0;
+  padding-left: 1rem;
+}
+
+/* ---------------------- PREVIEW BUTTON ------------------------ */
+
+.step-preview-button {
+  display: inline-flex;
+  padding: 0.8rem 3rem 0.8rem 2.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 4rem;
+  background: var(--Foundation-Dark-Neutrals-dark-neutrals-300, #5c6062);
+  border: none;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.step-preview-button:hover {
+  border-radius: 4rem;
+  background: var(--Foundation-Dark-Neutrals-dark-neutrals-500, #0b1215);
+  cursor: pointer;
+}
+
+.step-preview-button img {
+  height: 2.3rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.step-preview-button:hover img {
+  transform: scale(1.2);
+}
+
+.step-preview-button p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 3.2rem;
+  color: #fdfdfd;
+  font-family: "Fredoka";
+  margin: 0;
+  padding-left: 1rem;
+}
+
+/* ---------------------- START BUTTON ------------------------ */
+
+.step-start-button {
+  display: inline-flex;
+  padding: 0.8rem 4.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 4rem;
+  background: linear-gradient(94deg, #ff7e33 0%, #ff5e00 100.01%);
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.step-start-button:hover {
+  background: linear-gradient(95deg, #ff5e00 0%, #b54300 100%);
+  cursor: pointer;
+}
+
+.step-start-button p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 3.2rem;
+  color: #fdfdfd;
+  font-family: "Fredoka";
+  margin: 0;
+  padding-left: 1rem;
+}
+
+/* ---------------------- STEP NUMBER ------------------------ */
 
 .step-number {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #FF7E33;
+  font-family: "Fredoka";
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4rem; /* 125% */
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 2rem;
 }

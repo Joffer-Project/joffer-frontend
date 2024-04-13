@@ -1,4 +1,4 @@
-import eye from "../../../images/Eye icon.svg";
+import eye from "../../../images/eye-icon.svg";
 import leftArrow from "../../../images/Left.svg";
 import rightArrow from "../../../images/Right.svg";
 import "./tsignup.css";

@@ -1,40 +1,75 @@
-.ess-font-bold {
-    font-weight: bold;
+/* ---------------------- TITLE------------------------ */
+.ess-title {
+  font-family: "Fredoka";
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.4rem; /* 122.222% */
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 4rem;
+  margin-left: 3rem;
 }
 
-.ess-text3xl {
-    font-size: 1.875rem;
+/* ---------------------- FORM CONTAINER ------------------------ */
+
+.ess-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+  margin-top: 2.4rem;
 }
 
-.ess-mb6 {
-    margin-bottom: 1.5rem;
-}
-
-.ess-orange {
-    color: #FF7E33;
-}
-
-.ess-form-group {
-    margin-bottom: 1.5rem;
-}
-
-.ess-block {
-    display: block;
-}
-
-.ess-mb2 {
-    margin-bottom: 0.5rem;
-}
-
+/* ---------------------- INPUT FIELDS ------------------------ */
 .ess-input-field {
-    height: 3rem;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #3C4144;
-    border-radius: 0.25rem;
-    width: 100%;
+  display: flex;
+  width: 55rem;
+  height: 6.5rem;
+  padding: 18px 0px 18px 20px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 0.2rem solid
+    var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
+}
+
+.ess-input-field::placeholder {
+  font-family: "Fredoka";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: rgba(60, 65, 68, 1);
+}
+
+.ess-input-field:hover {
+  border: 3px solid var(--Linear-toughest-orange, #ff5e00);
+}
+
+.ess-input-field:hover::placeholder {
+  font-weight: 600;
+  color: var(--Linear-toughest-orange, #ff5e00);
+}
+
+.ess-input-field:focus {
+  border: 0.3rem solid
+    var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
+}
+
+.ess-input-field:focus::placeholder {
+  color: var(--Foundation-Dark-Neutrals-dark-neutrals-400, #3c4144);
+  opacity: 0.2;
 }
 
 .ess-error-message {
-    color: red;
+  color: red;
 }

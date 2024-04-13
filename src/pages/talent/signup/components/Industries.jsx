@@ -1,32 +1,44 @@
 import React from "react";
-import "../styles/Industries.css"; 
+import "../styles/Industries.css";
 
-const Industries = ({}) => {
+const Industries = () => {
   const industries = [
-    "IT",
-    "Finance",
-    "Healthcare",
-    "Education",
-    "Marketing",
-    "Sales",
-    "Engineering",
-    "Retail",
-    "Human Resources",
-    "Manufacturing",
-    "Legal",
-    "Construction",
-    "Hospitality",
-    "Media",
-    "Agriculture",
-    "Transportation",
-    "Non-profit",
-    "Other",
+    "Software Development",
+    "Telecommunications",
+    "Internet service provision",
+    "EdTech",
+    "Cybersecurity",
+    "Wearables",
+    "Data Analytics and Business Intelligence",
+    "Cloud",
+    "Mobile app development",
+    "E-commerce",
+    "Social media",
+    "Artificial Intelligence",
+    "FinTech",
+    "Internet of Things (IoT)",
+    "Robotics and Automation",
+    "AR and VR",
+    "Digital Marketing",
+    "Web Development and Design",
+    "IT Consulting",
+    "Network infrastructures",
+    "Big Data Management",
+    "Gaming",
+    "HealthTech",
+    "Smart Cities",
+    "Content Creation SW",
+    "Hardware",
+    "Biometrics",
+    "Quantum Computing",
+    "Blockchain",
+    "GIS(geographic Information Systems)",
   ];
 
   return (
     <>
-      <h2 className="ind-font-bold ind-text3xl ind-mb4 ind-orange">Industries</h2>
-      <p className="ind-font-medium ind-textxl ind-mb6">
+      <h2 className="ind-title">Industries</h2>
+      <p className="ind-subtitle">
         Select the industries that align best with your interests, knowledge,
         experience, and wishes.
       </p>
@@ -36,12 +48,9 @@ const Industries = ({}) => {
             <input
               type="checkbox"
               id={`ind-${industry}`}
-              className="hidden"
+              className="ind-checkbox"
             />
-            <label
-              htmlFor={`ind-${industry}`}
-              className="ind-industry-label"
-            >
+            <label htmlFor={`ind-${industry}`} className="ind-industry-label">
               {industry}
             </label>
           </div>

@@ -1,61 +1,89 @@
-.ind-font-bold {
-    font-weight: bold;
+/* ---------------------- TITLE ------------------------ */
+
+.ind-title {
+  font-family: "Fredoka";
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.4rem;
+  background: var(
+    --Linear-toughest-orange,
+    linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 4rem;
+  margin-left: 3rem;
 }
 
-.ind-text3xl {
-    font-size: 1.875rem;
+/* ---------------------- SUBTITLE ------------------------ */
+
+.ind-subtitle {
+  font-family: "Fredoka";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 5.4rem;
+  color: rgba(92, 96, 98, 1);
 }
 
-.ind-mb4 {
-    margin-bottom: 1rem;
-}
-
-.ind-orange {
-    color: #ff7e33;
-}
-
-.ind-font-medium {
-    font-weight: 500;
-}
-
-.ind-textxl {
-    font-size: 1.25rem;
-}
-
-.ind-mb6 {
-    margin-bottom: 1.5rem;
-}
+/* ---------------------- INDUSTRY LIST ------------------------ */
 
 .ind-industries-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    max-height: 200px;
-    overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-height: 27.5rem;
+  overflow-y: auto;
+  background-color: var(--light-grey-background, #f0f0f0);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  border: 2px solid black;
+  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
+  scrollbar-color: #ff7e33 #f0f0f0;
+  scrollbar-width: thin;
 }
 
 .ind-industry-item {
-    display: flex;
+  display: flex;
+}
+
+.ind-checkbox {
+  display: none;
 }
 
 .ind-industry-label {
-    cursor: pointer;
-    padding: 0.75rem 1.5rem;
-    font-weight: bold;
-    color: #ff7e33;
-    border: 2px solid #ccc;
-    border-radius: 0.5rem;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
-        border-color 0.2s ease-in-out;
+  display: inline-flex;
+  padding: 14px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  border: 2px solid #ff7e33; /* Default border color */
+  background: #fdfdfd; /* White background by default */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: "Fredoka";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  color: #ff7e33; /* Initially using the primary orange color for text */
 }
 
 .ind-industry-label:hover {
-    background-color: #ff7e33;
-    color: #fff;
+  border: 2px solid #58d336;
+  color: #58d336; /* Text color on hover */
+  background: #fdfdfd; /* Maintain white background on hover */
 }
 
-.ind-industry-item input:checked+.ind-industry-label {
-    background-color: #ccc;
-    color: #333;
-    border-color: #ccc;
+.ind-industry-item input:checked + .ind-industry-label {
+  background: linear-gradient(94deg, #58d336 0%, #3e9626 100.01%);
+  color: rgba(253, 253, 253, 1); /* White text color to ensure visibility */
+  border-color: #58d336;
 }
