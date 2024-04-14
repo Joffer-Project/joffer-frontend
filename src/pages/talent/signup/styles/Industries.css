@@ -42,9 +42,9 @@
   overflow-y: auto;
   background-color: var(--light-grey-background, #f0f0f0);
   padding: 1rem;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  box-shadow: inset 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-top: 0.2rem solid black;
+  border-bottom: 0.2rem solid black;
+  box-shadow: inset 0 0.8rem 3.2rem rgba(0, 0, 0, 0.1);
   scrollbar-color: #ff7e33 #f0f0f0;
   scrollbar-width: thin;
   margin-top: 1.19rem;
@@ -61,25 +61,25 @@
 
 .ind-industry-label {
   display: inline-flex;
-  padding: 14px 30px;
+  padding: 1.4rem 3rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 40px;
-  border: 2px solid #ff7e33; /* Default border color */
+  gap: 1rem;
+  border-radius: 4rem;
+  border: 0.2rem solid #ff7e33; /* Default border color */
   background: #fdfdfd; /* White background by default */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-family: "Fredoka";
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px;
+  line-height: 3.2rem;
   color: #ff7e33; /* Initially using the primary orange color for text */
 }
 
 .ind-industry-label:hover {
-  border: 2px solid #58d336;
+  border: 0.2rem solid #58d336;
   color: #58d336; /* Text color on hover */
   background: #fdfdfd; /* Maintain white background on hover */
 }

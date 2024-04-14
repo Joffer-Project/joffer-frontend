@@ -102,7 +102,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 1.6rem; /* 114.286% */
-  letter-spacing: 0.07px;
+  letter-spacing: 0.007rem;
   background: var(
     --Linear-toughest-orange,
     linear-gradient(91deg, #ff5e00 0.03%, #b54300 100.03%)

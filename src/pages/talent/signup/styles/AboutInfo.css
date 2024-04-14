@@ -43,7 +43,7 @@
   font-size: 1.2rem;
   border: 2px solid rgba(19, 19, 19, 0.5);
   background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
-  box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.01);
   border-radius: 0.3rem;
   margin-top: 0.3rem;
   transition: all 0.3s ease-in-out;
@@ -60,7 +60,7 @@
 .ai-inputField:hover {
   border: 2px solid rgba(19, 19, 19);
   background: var(--Foundation-Light-Neutrals-light-neutrals-200, #f4f4f4);
-  box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   margin-top: 0.3rem;
   transition: 0.3s;
@@ -76,8 +76,8 @@
   outline: none;
   align-items: flex-start;
   text-align: left;
-  border: 2px solid rgba(19, 19, 19);
-  box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.2);
+  border: 0.2rem solid rgba(19, 19, 19);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .ai-inputField:focus::placeholder {
