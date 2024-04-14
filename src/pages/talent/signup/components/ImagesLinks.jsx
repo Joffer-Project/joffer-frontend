@@ -15,7 +15,7 @@ const ImagesLinks = ({ form }) => {
       {/* MAIN TITLE */}
       <h2 className="il-title">Images & Links</h2>
       {/* SUBTITLE */}
-      <p className="ind-subtitle">
+      <p className="il-subtitle">
         The images and links that you added will be shown on your profile as
         listed below. You can always update your images in the settings.
       </p>

@@ -89,3 +89,178 @@
   color: rgba(253, 253, 253, 1); /* White text color to ensure visibility */
   border-color: #58d336;
 }
+
+/* ---------------------- MEDIA QUERIES ------------------------ */
+
+/* ----- 1440px ----- */
+@media (max-width: 90em) {
+  .ind-title {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .ind-subtitle {
+    font-size: 1.6rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .ind-industries-list {
+    height: 33.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1300px ----- */
+@media (max-width: 81.25em) {
+  .ind-title {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .ind-subtitle {
+    padding-right: 5.4rem;
+    font-size: 1.6rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .ind-industries-list {
+    height: 32rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1200px ----- */
+@media (max-width: 75em) {
+  .ind-title {
+    font-size: 4.2rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .ind-subtitle {
+    padding-right: 5rem;
+    font-size: 1.9rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .ind-industries-list {
+    height: 41rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1150px ----- */
+@media (max-width: 71.875em) {
+  .ind-industries-list {
+    height: 38rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1000px ----- */
+@media (max-width: 62.5em) {
+  .ind-industries-list {
+    height: 41rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 900px ----- */
+@media (max-width: 56.25em) {
+  .ind-industries-list {
+    height: 59rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 820px ----- */
+@media (max-width: 51.25em) {
+  .ind-title {
+    font-size: 5.4rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .ind-subtitle {
+    padding-right: 5rem;
+    font-size: 2.4rem;
+    margin-left: 6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .ind-industries-list {
+    height: 75rem;
+    margin-top: 0.8rem;
+  }
+
+  .ind-industry-label {
+    font-size: 2.4rem;
+  }
+}
+
+/* ----- 720px ----- */
+@media (max-width: 45em) {
+  .ind-title {
+    font-size: 5.4rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .ind-subtitle {
+    padding-right: 5rem;
+    font-size: 2.4rem;
+    margin-left: 6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .ind-industries-list {
+    height: 104rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .ind-industry-label {
+    font-size: 2.4rem;
+  }
+}
+
+/* ----- 620px ----- */
+@media (max-width: 38.75em) {
+  .ind-industries-list {
+    height: 110rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 480px ----- */
+
+@media (max-width: 30em) {
+  .ind-industries-list {
+    height: 103rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 380px ----- */
+@media (max-width: 23.75em) {
+  .ind-industries-list {
+    height: 105rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 280px ----- */
+
+@media (max-width: 17.5em) {
+}
