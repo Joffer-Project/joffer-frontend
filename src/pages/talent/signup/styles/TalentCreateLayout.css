@@ -20,7 +20,6 @@
 
 .layout-bg-img {
   position: relative;
-  background-color: #d7e703;
 }
 
 .layout-bg-right-side {
@@ -70,15 +69,15 @@
 }
 /* ---------------------- MEDIA QUERIES ------------------------ */
 
-/* ----- 1440px ----- */
+/* ----- 1440px  ----- */
 @media (max-width: 90em) {
   .main-layout-bg {
     grid-template-columns: 2.572fr 4fr;
   }
   .inner-layout-container {
     width: 65%;
-    height: 60%;
-    grid-template-columns: 2fr 4fr;
+    height: 61rem;
+    grid-template-columns: 1.995fr 4fr;
   }
 }
 
@@ -90,7 +89,20 @@
 
   .inner-layout-container {
     width: 67%;
-    height: 60%;
+    height: 61rem;
+    grid-template-columns: 2.1fr 4fr;
+  }
+}
+
+/* ----- 1200px ----- */
+@media (max-width: 75em) {
+  .main-layout-bg {
+    grid-template-columns: 2.62fr 4fr;
+  }
+
+  .inner-layout-container {
+    width: 67%;
+    height: 73rem;
     grid-template-columns: 2.1fr 4fr;
   }
 }
@@ -106,7 +118,23 @@
   }
   .inner-layout-container {
     width: 68%;
-    height: 55%;
+    height: 70rem;
+    grid-template-columns: 2.2fr 4fr;
+  }
+}
+
+/* ----- 1000px ----- */
+@media (max-width: 62.5em) {
+  .main-layout-bg {
+    grid-template-columns: 1fr 0fr;
+  }
+
+  .layout-bg-right-side {
+    display: none;
+  }
+  .inner-layout-container {
+    width: 68%;
+    height: 73rem;
     grid-template-columns: 2.2fr 4fr;
   }
 }
@@ -114,24 +142,49 @@
 /* ----- 900px ----- */
 @media (max-width: 56.25em) {
   .inner-layout-container {
-    width: 75%;
-    height: 50%;
+    width: 55%;
+    height: 90rem;
     grid-template-columns: 0fr 1fr;
+  }
+}
+
+/* ----- 820px ----- */
+@media (max-width: 51.25em) {
+  .inner-layout-container {
+    width: 100rem;
+    height: 110rem;
   }
 }
 
 /* ----- 720px ----- */
 @media (max-width: 45em) {
   .inner-layout-container {
-    width: 85%;
-    height: 80%;
+    width: 110rem;
+    height: 140rem;
+  }
+}
+
+/* ----- 620px ----- */
+@media (max-width: 38.75em) {
+  .inner-layout-container {
+    width: 70%;
+    height: 150rem;
   }
 }
 
 /* ----- 550px ----- */
 @media (max-width: 34.375em) {
   .inner-layout-container {
+    width: 90rem;
+    height: 150rem;
+  }
+}
+
+/* ----- 480px ----- */
+
+@media (max-width: 30em) {
+  .inner-layout-container {
     width: 90%;
-    height: 95%;
+    height: 140rem;
   }
 }

@@ -168,3 +168,272 @@
   -webkit-text-fill-color: transparent;
   margin-top: 2rem;
 }
+
+/* ---------------------- MEDIA QUERIES ------------------------ */
+
+/* ----- 1300px ----- */
+@media (max-width: 81.25em) {
+  .steps-container {
+    padding-right: 6rem;
+    padding-left: 6rem;
+  }
+}
+
+/* ----- 1200px ----- */
+@media (max-width: 75em) {
+  .steps-container {
+    padding-right: 6rem;
+    padding-left: 6rem;
+  }
+
+  .step-next-button {
+    padding: 1.2rem 3rem 1.2rem 3.5rem;
+  }
+
+  .step-number {
+    font-size: 2.8rem;
+    padding-bottom: 1.8rem;
+    font-size: 3.2rem;
+    padding-left: 1rem;
+  }
+}
+
+/* ----- 900px ----- */
+@media (max-width: 56.25em) {
+  .steps-container {
+    padding-right: 10rem;
+    padding-left: 10rem;
+  }
+
+  .step-next-button {
+    padding: 1.2rem 3rem 1.2rem 3.5rem;
+  }
+
+  .step-next-button p {
+    font-size: 2.4rem;
+  }
+
+  .step-next-button img {
+    width: 4rem;
+    height: 3rem;
+  }
+
+  .step-number {
+    padding-left: 1rem;
+    padding-bottom: 1.5rem;
+    font-size: 3.2rem;
+  }
+}
+
+/* ----- 820px ----- */
+
+@media (max-width: 51.25em) {
+  .steps-container {
+    padding-right: 10rem;
+    padding-left: 10rem;
+  }
+
+  .step-next-button {
+    padding: 1.2rem 3rem 1.2rem 3.5rem;
+  }
+
+  .step-next-button p {
+    font-size: 2.4rem;
+  }
+
+  .step-next-button img {
+    width: 4rem;
+    height: 3rem;
+  }
+
+  .step-number {
+    padding-left: 1rem;
+    font-size: 3.2rem;
+  }
+}
+
+/* ----- 720px ----- */
+
+@media (max-width: 45em) {
+  .steps-container {
+    padding-right: 8rem;
+    padding-left: 7rem;
+  }
+
+  .step-next-button {
+    padding: 2rem 3rem 2rem 3.5rem;
+  }
+
+  .step-next-button p {
+    font-size: 3.8rem;
+  }
+
+  .step-next-button img {
+    width: 5rem;
+    height: 4rem;
+  }
+
+  .step-previous-button {
+    padding: 2rem 3.5rem 2rem 3rem;
+  }
+
+  .step-previous-button p {
+    font-size: 3.8rem;
+  }
+
+  .step-previous-button img {
+    width: 5rem;
+    height: 4rem;
+  }
+
+  .step-preview-button {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding: 2rem 3rem 2rem 3.5rem;
+  }
+
+  .step-preview-button p {
+    font-size: 3.8rem;
+  }
+
+  .step-preview-button img {
+    width: 5rem;
+    height: 4rem;
+  }
+
+  .step-start-button {
+    padding: 2.5rem 4rem 2.5rem 4rem;
+  }
+
+  .step-start-button p {
+    font-size: 4rem;
+  }
+
+  .step-number {
+    font-size: 4.2rem;
+  }
+}
+
+/* ----- 600px ----- */
+
+@media (max-width: 37.5em) {
+  .steps-container {
+    padding-right: 12rem;
+    padding-left: 9rem;
+  }
+
+  .step-next-button {
+    padding: 2rem 3rem 2rem 3.5rem;
+  }
+
+  .step-next-button p {
+    font-size: 3.2rem;
+  }
+
+  .step-next-button img {
+    width: 5rem;
+    height: 4rem;
+  }
+
+  .step-previous-button {
+    padding: 2rem 3.5rem 2rem 3rem;
+  }
+
+  .step-previous-button p {
+    font-size: 3.2rem;
+  }
+
+  .step-previous-button img {
+    width: 5rem;
+    height: 4rem;
+  }
+
+  .step-preview-button {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding: 2rem 3rem 2rem 3.5rem;
+  }
+
+  .step-preview-button p {
+    font-size: 3.2rem;
+  }
+
+  .step-preview-button img {
+    width: 5rem;
+    height: 4rem;
+  }
+
+  .step-start-button {
+    padding: 2.5rem 4rem 2.5rem 4rem;
+  }
+
+  .step-start-button p {
+    font-size: 4rem;
+  }
+
+  .step-number {
+    font-size: 3.8rem;
+  }
+}
+
+/* ----- 280px ----- */
+
+@media (max-width: 17.5em) {
+  .steps-container {
+    padding-right: 9rem;
+    padding-left: 5rem;
+  }
+
+  .step-next-button {
+    padding: 1rem 2rem 1rem 2.5rem;
+  }
+
+  .step-next-button p {
+    font-size: 2.4rem;
+  }
+
+  .step-next-button img {
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .step-previous-button {
+    padding: 1rem 2rem 1rem 2.5rem;
+  }
+
+  .step-previous-button p {
+    font-size: 2.4rem;
+  }
+
+  .step-previous-button img {
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .step-preview-button {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding: 1rem 2rem 1rem 2.5rem;
+  }
+
+  .step-preview-button p {
+    font-size: 2.4rem;
+  }
+
+  .step-preview-button img {
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .step-start-button {
+    padding: 1rem 2rem 1rem 2.5rem;
+  }
+
+  .step-start-button p {
+    font-size: 2.4rem;
+  }
+
+  .step-number {
+    font-size: 2.4rem;
+  }
+}
