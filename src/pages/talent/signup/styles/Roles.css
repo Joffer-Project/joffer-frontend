@@ -92,3 +92,173 @@
   color: rgba(253, 253, 253, 1); /* White text color to ensure visibility */
   border-color: #58d336;
 }
+
+/* ---------------------- MEDIA QUERIES ------------------------ */
+
+/* ----- 1440px ----- */
+@media (max-width: 90em) {
+  .roles-title {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .roles-subtitle {
+    font-size: 1.6rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .roles-list {
+    height: 33.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1300px ----- */
+@media (max-width: 81.25em) {
+  .roles-title {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .roles-subtitle {
+    padding-right: 5.4rem;
+    font-size: 1.6rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .roles-list {
+    height: 32rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1200px ----- */
+@media (max-width: 75em) {
+  .roles-title {
+    font-size: 4.2rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .roles-subtitle {
+    padding-right: 5rem;
+    font-size: 1.9rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .roles-list {
+    height: 41rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1150px ----- */
+@media (max-width: 71.875em) {
+  .roles-list {
+    height: 38rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 1000px ----- */
+@media (max-width: 62.5em) {
+  .roles-list {
+    height: 41rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 900px ----- */
+@media (max-width: 56.25em) {
+  .roles-list {
+    height: 59rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* ----- 820px ----- */
+@media (max-width: 51.25em) {
+  .roles-title {
+    font-size: 5.4rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .roles-subtitle {
+    padding-right: 5rem;
+    font-size: 2.4rem;
+    margin-left: 6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .roles-list {
+    height: 75rem;
+    margin-top: 0.8rem;
+  }
+
+  .roles-label {
+    font-size: 2.4rem;
+  }
+}
+
+/* ----- 720px ----- */
+@media (max-width: 45em) {
+  .roles-title {
+    font-size: 5.4rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .roles-subtitle {
+    padding-right: 5rem;
+    font-size: 2.4rem;
+    margin-left: 6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .roles-list {
+    height: 104rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .roles-label {
+    font-size: 2.4rem;
+  }
+}
+
+/* ----- 620px ----- */
+@media (max-width: 38.75em) {
+  .roles-list {
+    height: 110rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 480px ----- */
+
+@media (max-width: 30em) {
+  .roles-list {
+    height: 103rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 380px ----- */
+@media (max-width: 23.75em) {
+  .roles-list {
+    height: 105rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
