@@ -1,9 +1,9 @@
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 import type { Metadata } from "next";
-import { UserProvider } from '@auth0/nextjs-auth0/client';
-import { Inter } from "next/font/google";
+import { Fredoka } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const fredoka = Fredoka({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <UserProvider>
-      <body className={inter.className}>{children}</body>
+        <body className={fredoka.className}>{children}</body>
       </UserProvider>
     </html>
   );
