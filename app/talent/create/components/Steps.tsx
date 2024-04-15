@@ -38,7 +38,7 @@ const Steps: React.FC<StepsProps> = ({
                     Start
                 </Button>
             ) : (
-                <Button type="button" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg" onClick={() => setStep(step + 1)}>
+                <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg" onClick={() => setStep(step + 1)}>
                     Next <ChevronRight />
                 </Button>
             )}

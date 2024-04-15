@@ -1,45 +1,95 @@
-"use client";
-
-import React from "react";
+import React from 'react'
 import {
+    Form,
     FormControl,
     FormField,
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 
+const schema = z.object({
+    description: z.string().min(20).max(200),
+});
+
+type FormValues = z.infer<typeof schema>;
+
+const defaultValues: FormValues = {
+    description: "",
+};
+
+
 interface AboutInfoProps {
-    form: any;
+    setStep: (step: number) => void;
 }
 
 const AboutInfo: React.FC<AboutInfoProps> = ({
-    form
+    setStep
 }) => {
 
+    const form = useForm<FormValues>({
+        resolver: zodResolver(schema),
+        defaultValues,
+    });
 
+    const onSubmit = async (data: FormValues) => {
+        try {
+            console.log(data);
+        } catch (error: any) {
+            toast.error('Something went wrong.');
+        } finally {
+            // setLoading(false);
+            // setStep(2);
+        }
+    };
 
     return (
         <>
             <h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Final step</h2>
             <p className="font-medium text-xl mb-6">Share some information about your career path. Remember to keep it direct, these pieces of information can place you ahead.</p>
-            <FormField
-                control={form.control}
-                name="description"
-                render={({ field }) => (
-                    <FormItem>
-                        <FormControl> 
-                            <Textarea
-                                placeholder="Tell us a little bit about yourself"
-                                className="rounded-md border border-[#FF7E33] resize-y max-h-[200px] md:h-[200px]"
-                                {...field}
-                            />
-                        </FormControl>
-                        <FormMessage />
-                    </FormItem>
-                )}
-            />
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                    <FormField
+                        control={form.control}
+                        name="description"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <Textarea
+                                        placeholder="Tell us a little bit about yourself"
+                                        className="rounded-md border border-[#FF7E33] resize-y max-h-[200px] md:h-[200px]"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <div className="flex justify-between items-center pt-8">
+                        <Button
+                            onClick={() => setStep(4)}
+                            className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg"
+                        >
+                            <ChevronLeft /> Back
+                        </Button>
+                        <div className="flex flex-row justify-center items-center mx-auto py-6">
+                            <p className="text-[22px] font-medium tracking-[5px]">
+                                <span className="text-[#FF7E33]">5</span>/5
+                            </p>
+                        </div>
+                        <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
+                            Start <ChevronRight />
+                        </Button>
+
+                    </div>
+                </form>
+            </Form>
         </>
     );
 };
