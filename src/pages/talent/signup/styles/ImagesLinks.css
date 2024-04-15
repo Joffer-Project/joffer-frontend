@@ -169,11 +169,11 @@
   justify-content: center;
   width: 9rem;
   height: 7rem;
-  border: 0.2rem solid rgba(92, 96, 98, 1); /* Match the border style */
-  border-radius: 0.8rem; /* Match the border-radius */
+  border: 0.2rem solid rgba(92, 96, 98, 1);
+  border-radius: 0.8rem;
   cursor: pointer;
-  background: #fff; /* Assuming white background */
-  padding: 5rem 4rem 5rem 4rem; /* Padding to center the icon */
+  background: #fff;
+  padding: 5rem 4rem 5rem 4rem;
 }
 
 .il-link-upload-icon {
@@ -197,5 +197,114 @@
 }
 
 .link-upload-button:hover img {
-  color: #ff5e00; /* Change text color on hover to match the hover style of the icons */
+  color: #ff5e00;
+}
+
+/* ---------------------- MEDIA QUERIES ------------------------ */
+
+/* ----- 1440px ----- */
+@media (max-width: 90em) {
+  .il-title {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .il-subtitle {
+    font-size: 1.6rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 1300px ----- */
+@media (max-width: 81.25em) {
+  .il-title {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .il-subtitle {
+    padding-right: 5.4rem;
+    font-size: 1.6rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 1200px ----- */
+@media (max-width: 75em) {
+  .il-title {
+    font-size: 4.2rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .il-subtitle {
+    padding-right: 5rem;
+    font-size: 1.9rem;
+    margin-left: 6rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 1150px ----- */
+@media (max-width: 71.875em) {
+}
+
+/* ----- 1000px ----- */
+@media (max-width: 62.5em) {
+}
+
+/* ----- 900px ----- */
+@media (max-width: 56.25em) {
+}
+
+/* ----- 820px ----- */
+@media (max-width: 51.25em) {
+  .il-title {
+    font-size: 5.4rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .il-subtitle {
+    padding-right: 5rem;
+    font-size: 2.4rem;
+    margin-left: 6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 720px ----- */
+@media (max-width: 45em) {
+  .il-title {
+    font-size: 5.4rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+
+  .il-subtitle {
+    padding-right: 5rem;
+    font-size: 2.4rem;
+    margin-left: 6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ----- 620px ----- */
+@media (max-width: 38.75em) {
+}
+
+/* ----- 480px ----- */
+
+@media (max-width: 30em) {
+}
+
+/* ----- 380px ----- */
+@media (max-width: 23.75em) {
 }
