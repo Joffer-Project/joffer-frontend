@@ -14,19 +14,13 @@ import toast from "react-hot-toast";
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Checkbox } from "@/components/ui/checkbox";
+import useTalent from '@/hooks/talent-store';
 
 const schema = z.object({
     roles: z.array(z.string()).refine((value) => value.some((item) => item), {
         message: "You have to select at least one item.",
     }),
 });
-
-type FormValues = z.infer<typeof schema>;
-
-const defaultValues: FormValues = {
-    roles: [],
-};
-
 
 interface RolesProps {
     setStep: (step: number) => void;
@@ -35,6 +29,13 @@ interface RolesProps {
 const Roles: React.FC<RolesProps> = ({
     setStep
 }) => {
+
+    const talentStore = useTalent();
+    type FormValues = z.infer<typeof schema>;
+
+    const defaultValues: FormValues = {
+        roles: talentStore.formData.roles || [],
+    };
 
     const roles = [
         { id: "software-engineer", label: "Software Engineer" },
@@ -77,11 +78,10 @@ const Roles: React.FC<RolesProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            console.log(data);
+            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
-            // setLoading(false);
             setStep(4);
         }
     };
@@ -138,7 +138,7 @@ const Roles: React.FC<RolesProps> = ({
                         />
                     </div>
                     <div className="flex justify-between items-center pt-8">
-                    <Button
+                        <Button
                             onClick={() => setStep(2)}
                             className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg"
                         >

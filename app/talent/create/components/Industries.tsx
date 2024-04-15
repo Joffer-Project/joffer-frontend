@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Checkbox } from "@/components/ui/checkbox";
+import useTalent from '@/hooks/talent-store';
 
 const schema = z.object({
     industries: z.array(z.string()).refine((value) => value.some((item) => item), {
@@ -21,11 +22,6 @@ const schema = z.object({
     }),
 });
 
-type FormValues = z.infer<typeof schema>;
-
-const defaultValues: FormValues = {
-    industries: [],
-};
 
 interface IndustriesProps {
     setStep: (step: number) => void;
@@ -34,6 +30,13 @@ interface IndustriesProps {
 const Industries: React.FC<IndustriesProps> = ({
     setStep
 }) => {
+
+    const talentStore = useTalent();
+    type FormValues = z.infer<typeof schema>;
+
+    const defaultValues: FormValues = {
+        industries: talentStore.formData.industries || [],
+    };
 
     const industries = [
         { id: "finance", label: "Finance" },
@@ -68,11 +71,10 @@ const Industries: React.FC<IndustriesProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            console.log(data);
+            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
-            // setLoading(false);
             setStep(3);
         }
     };
@@ -129,7 +131,7 @@ const Industries: React.FC<IndustriesProps> = ({
                         />
                     </div>
                     <div className="flex justify-between items-center pt-8">
-                    <Button
+                        <Button
                             onClick={() => setStep(1)}
                             className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg"
                         >

@@ -31,21 +31,20 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import useTalent from '@/hooks/talent-store';
 
 const schema = z.object({
-    profileImage: z.string().url(),
+    avatarUrl: z.string().url(),
     image2Url: z.string().url().optional(),
     image3Url: z.string().url().optional(),
     image4Url: z.string().url().optional(),
     image5Url: z.string().url().optional(),
+    gitHubUrl: z.string().url().optional(),
+    linkedInUrl: z.string().url().optional(),
+    mediumUrl: z.string().url().optional(),
+    dribbleUrl: z.string().url().optional(),
+    personalUrl: z.string().url().optional(),
 });
-
-type FormValues = z.infer<typeof schema>;
-
-const defaultValues: FormValues = {
-    profileImage: "",
-};
-
 
 interface ImagesLinksProps {
     setStep: (step: number) => void;
@@ -56,14 +55,21 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
     setStep
 }) => {
 
+    const talentStore = useTalent();
+    type FormValues = z.infer<typeof schema>;
+
+    const defaultValues: FormValues = {
+        avatarUrl: talentStore.formData.avatarUrl || "",
+    };
+
 
     const [currentBox, setCurrentBox] = React.useState("");
     const [currentLink, setCurrentLink] = React.useState("");
-    const [githubLink, setGithubLink] = React.useState("");
-    const [linkedinLink, setLinkedinLink] = React.useState("");
-    const [mediumLink, setMediumLink] = React.useState("");
-    const [dribbleLink, setDribbleLink] = React.useState("");
-    const [personalLink, setPersonalLink] = React.useState("");
+    const [githubLink, setGithubLink] = React.useState(talentStore.formData.gitHubUrl || "");
+    const [linkedinLink, setLinkedinLink] = React.useState(talentStore.formData.linkedInUrl || "");
+    const [mediumLink, setMediumLink] = React.useState(talentStore.formData.mediumUrl || "");
+    const [dribbleLink, setDribbleLink] = React.useState(talentStore.formData.dribbleUrl || "");
+    const [personalLink, setPersonalLink] = React.useState(talentStore.formData.personalUrl || "");
 
     const saveLink = () => {
         if (currentBox === "github") {
@@ -86,11 +92,10 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            console.log(data);
+            talentStore.setState({ formData: { ...talentStore.formData, ...data, gitHubUrl: githubLink, linkedInUrl: linkedinLink, mediumUrl: mediumLink, dribbleUrl: dribbleLink, personalUrl: personalLink } });  
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
-            // setLoading(false);
             setStep(5);
         }
     };
@@ -104,7 +109,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                         <div className="flex gap-3 overflow-auto justify-between">
                             <FormField
                                 control={form.control}
-                                name="profileImage"
+                                name="avatarUrl"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
@@ -305,7 +310,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                         </DialogFooter>
                     </DialogContent>
                     <div className="flex justify-between items-center pt-8">
-                    <Button
+                        <Button
                             onClick={() => setStep(3)}
                             className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg"
                         >

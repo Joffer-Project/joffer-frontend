@@ -12,18 +12,12 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import useTalent from '@/hooks/talent-store';
 
 const schema = z.object({
     name: z.string().min(3).max(100),
 });
-
-type FormValues = z.infer<typeof schema>;
-
-const defaultValues: FormValues = {
-    name: "",
-};
-
 
 interface EssentialsProps {
     setStep: (step: number) => void;
@@ -32,6 +26,13 @@ interface EssentialsProps {
 const Essentials: React.FC<EssentialsProps> = (
     { setStep }
 ) => {
+    const talentStore = useTalent();
+    type FormValues = z.infer<typeof schema>;
+
+    const defaultValues: FormValues = {
+        name: talentStore.formData.name || "",
+    };
+
     const form = useForm<FormValues>({
         resolver: zodResolver(schema),
         defaultValues,
@@ -39,11 +40,10 @@ const Essentials: React.FC<EssentialsProps> = (
 
     const onSubmit = async (data: FormValues) => {
         try {
-            console.log(data);
+            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
-            // setLoading(false);
             setStep(2);
         }
     };

@@ -13,16 +13,11 @@ import toast from "react-hot-toast";
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
+import useTalent from '@/hooks/talent-store';
 
 const schema = z.object({
-    description: z.string().min(20).max(200),
+    aboutMe: z.string().min(20).max(200),
 });
-
-type FormValues = z.infer<typeof schema>;
-
-const defaultValues: FormValues = {
-    description: "",
-};
 
 
 interface AboutInfoProps {
@@ -33,6 +28,13 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
     setStep
 }) => {
 
+    const talentStore = useTalent();
+    type FormValues = z.infer<typeof schema>;
+
+    const defaultValues: FormValues = {
+        aboutMe: talentStore.formData.aboutMe || "",
+    };
+
     const form = useForm<FormValues>({
         resolver: zodResolver(schema),
         defaultValues,
@@ -40,7 +42,8 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            console.log(data);
+            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
+            console.log(talentStore.action());
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
@@ -57,7 +60,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                     <FormField
                         control={form.control}
-                        name="description"
+                        name="aboutMe"
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
