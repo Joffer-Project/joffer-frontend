@@ -4,14 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-
-interface LogoAreaProps {
-    isCollapsed: boolean
-}
-
-export function LogoArea({
-    isCollapsed,
-}: LogoAreaProps) {
+export function LogoArea() {
 
 
     return (
@@ -19,12 +12,9 @@ export function LogoArea({
             <img
                 src="/images/logo.png"
                 alt="logo"
-                className={cn("h-16 w-auto")}
+                className={cn("h-12 w-auto")}
             />
-
-            {!isCollapsed && (
-                <div className="text-2xl font-medium text-white">Latest Matchs</div>
-            )}
+                <div className="text-2xl font-medium text-white ml-4">Latest Matchs</div>
 
         </div>
     )
