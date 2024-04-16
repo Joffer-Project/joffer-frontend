@@ -14,6 +14,12 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import useTalent from '@/hooks/talent-store';
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { createAccount } from '@/actions/account';
+import { createTalent } from '@/actions/talent';
+import { createRole } from '@/actions/roles';
+import { createIndustry } from '@/actions/industry';
+import { useRouter } from 'next/navigation'
 
 const schema = z.object({
     aboutMe: z.string().min(20).max(200),
@@ -27,7 +33,8 @@ interface AboutInfoProps {
 const AboutInfo: React.FC<AboutInfoProps> = ({
     setStep
 }) => {
-
+    const router = useRouter()
+    const { user } = useUser();
     const talentStore = useTalent();
     type FormValues = z.infer<typeof schema>;
 
@@ -42,13 +49,30 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
-            console.log(talentStore.action());
+            talentStore.setState({ formData: { 
+                ...talentStore.formData, 
+                ...data,
+             } });
+             toast.success('Account created successfully');
+            // account create
+            await createAccount({
+                auth0Id: user?.sub || "",
+                name: talentStore.action().name,
+                email: user?.email || "",
+                accountType: "talent",
+            });
+            // post talent data
+            await createTalent(talentStore.formData);
+            // post roles data
+            await createRole(talentStore.formData.roles);
+            // post industries data
+            await createIndustry(talentStore.formData.industries);
+            // redrict to dashboard
+            router.push('/talent');
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
             // setLoading(false);
-            // setStep(2);
         }
     };
 
@@ -89,7 +113,6 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                         <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
                             Start <ChevronRight />
                         </Button>
-
                     </div>
                 </form>
             </Form>
