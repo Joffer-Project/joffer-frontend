@@ -55,7 +55,7 @@ const HomePage = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <main className="flex min-h-screen flex-col items-center justify-center p-18 md:p-24 bg-gradient-to-br from-rose-500 to-sky-500">
+      <main className="flex min-h-screen flex-col items-center justify-center p-18 md:p-24 bg-gradient-to-br from-orange-300 to-sky-500">
 
         <header className="flex flex-col items-center justify-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-4">JOFFER</h1>
