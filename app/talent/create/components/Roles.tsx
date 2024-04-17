@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Form,
     FormControl,
@@ -15,6 +15,8 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Checkbox } from "@/components/ui/checkbox";
 import useTalent from '@/hooks/talent-store';
+import { getRoles } from '@/actions/roles';
+import { Role } from '@/types';
 
 const schema = z.object({
     roles: z.array(z.string()).refine((value) => value.some((item) => item), {
@@ -30,46 +32,32 @@ const Roles: React.FC<RolesProps> = ({
     setStep
 }) => {
 
-    const talentStore = useTalent();
-    type FormValues = z.infer<typeof schema>;
+    const [data, setData] = useState<Role[] | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<Error | null>(null);
 
+    const talentStore = useTalent();
+
+    type FormValues = z.infer<typeof schema>;
     const defaultValues: FormValues = {
-        roles: talentStore.formData.roles || [],
+        roles: talentStore.getState().selectedRoles,
     };
 
-    const roles = [
-        { id: "software-engineer", label: "Software Engineer" },
-        { id: "product-manager", label: "Product Manager" },
-        { id: "data-scientist", label: "Data Scientist" },
-        { id: "ux-ui-designer", label: "UX/UI Designer" },
-        { id: "business-analyst", label: "Business Analyst" },
-        { id: "sales-marketing", label: "Sales & Marketing" },
-        { id: "customer-support", label: "Customer Support" },
-        { id: "operations", label: "Operations" },
-        { id: "human-resources", label: "Human Resources" },
-        { id: "finance", label: "Finance" },
-        { id: "healthcare", label: "Healthcare" },
-        { id: "technology", label: "Technology" },
-        { id: "education", label: "Education" },
-        { id: "real-estate", label: "Real Estate" },
-        { id: "manufacturing", label: "Manufacturing" },
-        { id: "retail", label: "Retail" },
-        { id: "automotive", label: "Automotive" },
-        { id: "construction", label: "Construction" },
-        { id: "entertainment", label: "Entertainment" },
-        { id: "media", label: "Media" },
-        { id: "telecommunications", label: "Telecommunications" },
-        { id: "transportation", label: "Transportation" },
-        { id: "utilities", label: "Utilities" },
-        { id: "agriculture", label: "Agriculture" },
-        { id: "food", label: "Food" },
-        { id: "hospitality", label: "Hospitality" },
-        { id: "tourism", label: "Tourism" },
-        { id: "sports", label: "Sports" },
-        { id: "non-profit", label: "Non-Profit" },
-        { id: "government", label: "Government" },
-        { id: "other", label: "Other" },
-    ];
+    useEffect(() => {
+        const getData = async () => {
+            setIsLoading(true);
+            try {
+                const fetchedData: Role[] = await getRoles();
+                setData(fetchedData);
+            } catch (error) {
+                setError(error as Error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        getData();
+    }, []);
 
     const form = useForm<FormValues>({
         resolver: zodResolver(schema),
@@ -78,13 +66,22 @@ const Roles: React.FC<RolesProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
+            talentStore.setState({ selectedRoles: data.roles });
+            // console.log(talentStore.getState().selectedRoles);
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
             setStep(4);
         }
     };
+
+    if (isLoading) {
+        return <p className='text-center w-full'>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <>
@@ -93,12 +90,13 @@ const Roles: React.FC<RolesProps> = ({
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                     <div className="max-h-[200px] overflow-y-auto">
-                        <FormField
+                    <FormField
                             control={form.control}
                             name="roles"
                             render={() => (
                                 <FormItem className="flex flex-wrap gap-2 justify-center items-center px-2">
-                                    {roles.map((item) => (
+                                    <FormMessage className='w-full text-center -mt-2 text-lg' />
+                                    {data?.length && data.map((item) => (
                                         <FormField
                                             key={item.id}
                                             control={form.control}
@@ -112,20 +110,18 @@ const Roles: React.FC<RolesProps> = ({
                                                         <FormControl>
                                                             <Checkbox
                                                                 className="hidden"
-                                                                checked={field.value?.includes(item.id)}
+                                                                checked={field.value?.includes(item.id.toString())}
                                                                 onCheckedChange={(checked) => {
-                                                                    return checked
-                                                                        ? field.onChange([...field.value, item.id])
-                                                                        : field.onChange(
-                                                                            field.value?.filter(
-                                                                                (value: string) => value !== item.id
-                                                                            )
-                                                                        )
+                                                                    if (checked) {
+                                                                        field.onChange([...(field.value || []), item.id.toString()]);
+                                                                    } else {
+                                                                        field.onChange(field.value?.filter((value) => value !== item.id.toString()));
+                                                                    }
                                                                 }}
                                                             />
                                                         </FormControl>
-                                                        <FormLabel className={`border-2 rounded-[40px] !mt-0 px-[30px] py-[14px] border-[#FF7E33] hover:border-[#58D336] hover:text-[#58D336] cursor-pointer font-medium text-[18px] ${field.value?.includes(item.id) ? "text-[#ffffff] bg-gradient-to-br from-[#58D336] to-[#3E9626] border-[#ffffff] hover:text-[#ffffff]" : "text-[#FF7E33]"}`}>
-                                                            {item.label}
+                                                        <FormLabel className={`border-2 rounded-[40px] !mt-0 px-[30px] py-[14px] border-[#FF7E33] hover:border-[#58D336] hover:text-[#58D336] cursor-pointer font-medium text-[18px] ${field.value?.includes(item.id.toString()) ? "text-[#ffffff] bg-gradient-to-br from-[#58D336] to-[#3E9626] border-[#ffffff] hover:text-[#ffffff]" : "text-[#FF7E33]"}`}>
+                                                            {item.name}
                                                         </FormLabel>
                                                     </FormItem>
                                                 )

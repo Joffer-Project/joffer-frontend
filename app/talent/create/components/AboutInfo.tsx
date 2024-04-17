@@ -15,14 +15,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Textarea } from "@/components/ui/textarea";
 import useTalent from '@/hooks/talent-store';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { createAccount } from '@/actions/account';
 import { createTalent } from '@/actions/talent';
 import { createRole } from '@/actions/roles';
 import { createIndustry } from '@/actions/industry';
 import { useRouter } from 'next/navigation'
 
 const schema = z.object({
-    aboutMe: z.string().min(20).max(200),
+    aboutMe: z.string().min(20).max(1000),
 });
 
 
@@ -52,21 +51,20 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
             talentStore.setState({ formData: { 
                 ...talentStore.formData, 
                 ...data,
+                employmentStatus: "string",
              } });
              toast.success('Account created successfully');
-            // account create
-            await createAccount({
-                auth0Id: user?.sub || "",
-                name: talentStore.action().name,
-                email: user?.email || "",
-                accountType: "talent",
-            });
+             console.log(talentStore);
+
             // post talent data
             await createTalent(talentStore.formData);
+
             // post roles data
-            await createRole(talentStore.formData.roles);
+            await createRole(talentStore.roles);
+
             // post industries data
-            await createIndustry(talentStore.formData.industries);
+            await createIndustry(talentStore.industries);
+
             // redrict to dashboard
             router.push('/talent');
         } catch (error: any) {

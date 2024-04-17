@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Form,
     FormControl,
@@ -15,6 +15,8 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Checkbox } from "@/components/ui/checkbox";
 import useTalent from '@/hooks/talent-store';
+import { Industry } from '@/types';
+import { getIndustries } from '@/actions/industry';
 
 const schema = z.object({
     industries: z.array(z.string()).refine((value) => value.some((item) => item), {
@@ -31,38 +33,31 @@ const Industries: React.FC<IndustriesProps> = ({
     setStep
 }) => {
 
+    const [data, setData] = useState<Industry[] | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<Error | null>(null);
     const talentStore = useTalent();
+    
     type FormValues = z.infer<typeof schema>;
-
     const defaultValues: FormValues = {
-        industries: talentStore.formData.industries || [],
+        industries: talentStore.getState().selectedIndustries,
     };
 
-    const industries = [
-        { id: "finance", label: "Finance" },
-        { id: "healthcare", label: "Healthcare" },
-        { id: "technology", label: "Technology" },
-        { id: "education", label: "Education" },
-        { id: "real-estate", label: "Real Estate" },
-        { id: "manufacturing", label: "Manufacturing" },
-        { id: "retail", label: "Retail" },
-        { id: "automotive", label: "Automotive" },
-        { id: "construction", label: "Construction" },
-        { id: "entertainment", label: "Entertainment" },
-        { id: "media", label: "Media" },
-        { id: "telecommunications", label: "Telecommunications" },
-        { id: "transportation", label: "Transportation" },
-        { id: "utilities", label: "Utilities" },
-        { id: "agriculture", label: "Agriculture" },
-        { id: "food", label: "Food" },
-        { id: "hospitality", label: "Hospitality" },
-        { id: "tourism", label: "Tourism" },
-        { id: "sports", label: "Sports" },
-        { id: "non-profit", label: "Non-Profit" },
-        { id: "government", label: "Government" },
-        { id: "other", label: "Other" },
-    ];
+    useEffect(() => {
+        const getData = async () => {
+            setIsLoading(true);
+            try {
+                const fetchedData: Industry[] = await getIndustries();
+                setData(fetchedData);
+            } catch (error) {
+                setError(error as Error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
 
+        getData();
+    }, []);
 
     const form = useForm<FormValues>({
         resolver: zodResolver(schema),
@@ -71,13 +66,22 @@ const Industries: React.FC<IndustriesProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            talentStore.setState({ formData: { ...talentStore.formData, ...data } });
+            talentStore.setState({ selectedIndustries: data.industries });
+            // console.log(talentStore.getState().selectedIndustries);
         } catch (error: any) {
             toast.error('Something went wrong.');
         } finally {
             setStep(3);
         }
     };
+
+    if (isLoading) {
+        return <p className='text-center w-full'>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <>
@@ -91,7 +95,8 @@ const Industries: React.FC<IndustriesProps> = ({
                             name="industries"
                             render={() => (
                                 <FormItem className="flex flex-wrap gap-2 justify-center items-center px-2">
-                                    {industries.map((item) => (
+                                    <FormMessage className='w-full text-center -mt-2 text-lg' />
+                                    {data?.length && data.map((item) => (
                                         <FormField
                                             key={item.id}
                                             control={form.control}
@@ -105,27 +110,24 @@ const Industries: React.FC<IndustriesProps> = ({
                                                         <FormControl>
                                                             <Checkbox
                                                                 className="hidden"
-                                                                checked={field.value?.includes(item.id)}
+                                                                checked={field.value?.includes(item.id.toString())}
                                                                 onCheckedChange={(checked) => {
-                                                                    return checked
-                                                                        ? field.onChange([...field.value, item.id])
-                                                                        : field.onChange(
-                                                                            field.value?.filter(
-                                                                                (value: string) => value !== item.id
-                                                                            )
-                                                                        )
+                                                                    if (checked) {
+                                                                        field.onChange([...(field.value || []), item.id.toString()]);
+                                                                    } else {
+                                                                        field.onChange(field.value?.filter((value) => value !== item.id.toString()));
+                                                                    }
                                                                 }}
                                                             />
                                                         </FormControl>
-                                                        <FormLabel className={`border-2 rounded-[40px] !mt-0 px-[30px] py-[14px] border-[#FF7E33] hover:border-[#58D336] hover:text-[#58D336] cursor-pointer font-medium text-[18px] ${field.value?.includes(item.id) ? "text-[#ffffff] bg-gradient-to-br from-[#58D336] to-[#3E9626] border-[#ffffff] hover:text-[#ffffff]" : "text-[#FF7E33]"}`}>
-                                                            {item.label}
+                                                        <FormLabel className={`border-2 rounded-[40px] !mt-0 px-[30px] py-[14px] border-[#FF7E33] hover:border-[#58D336] hover:text-[#58D336] cursor-pointer font-medium text-[18px] ${field.value?.includes(item.id.toString()) ? "text-[#ffffff] bg-gradient-to-br from-[#58D336] to-[#3E9626] border-[#ffffff] hover:text-[#ffffff]" : "text-[#FF7E33]"}`}>
+                                                            {item.name}
                                                         </FormLabel>
                                                     </FormItem>
                                                 )
                                             }}
                                         />
                                     ))}
-                                    <FormMessage />
                                 </FormItem>
                             )}
                         />

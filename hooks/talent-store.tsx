@@ -1,20 +1,25 @@
 import { create } from "zustand";
 
-import { Talent } from "@/types";
+import { Talent, Industry, Role } from "@/types";
 
 interface TalentStore {
   formData: Talent;
+  roles: Role[];
+  selectedRoles: string[];
+  industries: Industry[];
+  selectedIndustries: string[];
   setState: (state: Partial<TalentStore>) => void;
-  action: () => Talent;
+  getState: () => TalentStore;
 }
 
 const useTalent = create<TalentStore>((set, get) => ({
   formData: {} as Talent,
+  roles: [],
+  selectedRoles: [],
+  selectedIndustries: [],
+  industries: [],
   setState: (state) => set(state),
-  action: () => {
-    const state = get();
-    return state.formData as Talent;
-  },
+  getState: () => get(),
 }));
 
 export default useTalent;

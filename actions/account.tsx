@@ -1,24 +1,20 @@
 import { Account } from "@/types";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
-// import data from '@/data/accounts.json'
-const getAllAccounts = async () => {
-    const res = await fetch(`${URL}/Accounts/GetAll`);
-    return res.json();
-};
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/Account`;
 
-const createAccount = async (data: Account) => {
-    console.log(data);
-    return;
-    const res = await fetch(`${URL}/Account/Create`, {
-        method: 'POST',
+const getAccount = async (token: String) => {
+    const response = await fetch(URL, {
+        method: "GET",
         headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+        }
     });
-    return res.json();
+    if (!response.ok) {
+        throw new Error("An error occurred while fetching the account data.");
+    }
+    const data = await response.json();
+    return data as Account[];
 };
 
-
-export { getAllAccounts, createAccount };
+export { getAccount };

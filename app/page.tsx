@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
-
-import { getAllAccounts } from "@/actions/account";
+import { getAccessToken } from '@auth0/nextjs-auth0';
+import { getAccount } from "@/actions/account";
 import { Button } from "@/components/ui/button"
 import Loader from "@/components/ui/loader";
 import useAccount from "@/hooks/account-store";
@@ -25,19 +25,21 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async (sub: any) => {
       try {
-        const accounts = await getAllAccounts();
-        if (accounts) {
-          const account = accounts.find((account: any) => account.auth0Id === sub);
+        const { accessToken } = await getAccessToken();
+        if (accessToken) {
+          const account = await getAccount(accessToken);
           if (account) {
-            accountStore.setActive(account);
-            if (account.type === "talent") {
+            accountStore.setActive(account[0]);
+            if (account[0].accountType === "talent") {
               router.push('/talent');
-            } else if (account.type === "recruiter") {
+            } else if (account[0].accountType === "recruiter") {
               router.push('/recruiter');
             }
           } else {
             accountStore.setActive({} as any);
           }
+        } else {
+          accountStore.setActive({} as any);
         }
       }
       catch (error) {
