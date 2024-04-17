@@ -24,7 +24,7 @@ export function TalentHome() {
   const [mobileMenu, setMobileMenu] = React.useState(false)
 
   return (
-    <div className="flex h-screen relative">
+    <div className="flex relative">
       {/* mobile menu icon */}
       <div className="absolute top-4 left-4 cursor-pointer block 2xl:hidden border border-black rounded-md p-1 hover:bg-white hover:text-[#FF7626]" onClick={() => setMobileMenu(true)}>
         <Menu />
@@ -84,7 +84,7 @@ export function TalentHome() {
           </div>
         </div>
       </div>
-      <div className="py-16 px-12">
+      <div className="py-16 px-12 w-full">
         <Suggestions />
         <ActionBar />
       </div>
