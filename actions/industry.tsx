@@ -1,12 +1,12 @@
 import { Industry } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
-const createIndustry = async (selectedIndustryIds: string[], token: string | undefined, industrys: Industry[]): Promise<boolean> => {
+const createIndustry = async (selectedIndustryIds: string[], token: string | undefined, industries: Industry[]): Promise<boolean> => {
     let allCreated: boolean = true;
-
+    console.log("selectedIndustryIds", selectedIndustryIds,  industries);
     for (const industryId of selectedIndustryIds) {
 
-        const industry: Industry | undefined = industrys.find(industry => industry.id.toString() === industryId);
+        const industry: Industry | undefined = industries.find(industry => industry.id.toString() === industryId);
 
         if (industry) {
             const data = {
