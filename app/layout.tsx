@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-import { Inter } from "next/font/google";
+import { Fredoka, Inter } from "next/font/google";
 import "./globals.css";
 import ToastProvider from "@/providers/toast-provider";
 import { ModalProvider } from "@/providers/modal-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const fredoka = Fredoka({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Joffer - Your Job Offer Finder",
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <UserProvider>
-        <body className={inter.className}>
+        <body className={fredoka.className}>
           <ToastProvider />
           <ModalProvider />
           {children}
