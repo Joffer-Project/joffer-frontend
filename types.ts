@@ -35,3 +35,33 @@ export interface Industry {
   name: string;
   isActive: boolean;
 };
+
+export interface Match {
+  title: string;
+  role: string;
+  date: string;
+  logoUrl: string;
+  email: string;
+  type: string;
+};
+
+export interface Job {
+  title: string;
+  type: string;
+  datePosted: string;
+  salary: number;
+  description: string;
+  company: {
+    name: string;
+    about: string;
+    logoUrl: string;
+    slider1Url: string;
+    slider2Url: string;
+    slider3Url: string;
+    websiteUrl: string;
+    linkedInUrl: string;
+    twitterUrl: string;
+    instagramUrl: string;
+    youtubeUrl: string;
+  }
+};

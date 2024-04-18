@@ -1,0 +1,83 @@
+[
+    {
+      "title": "Software Engineer",
+      "type": "Full-time",
+      "datePosted": "2024-04-18",
+      "salary": 95000,
+      "description": "We are looking for a highly skilled software engineer to join our team. You will be responsible for developing high-quality software solutions and ensuring our systems are secure and reliable.",
+      "company": {
+        "name": "Tech Innovations Inc.",
+        "about": "Tech Innovations Inc. is a leading technology company specializing in software development and IT solutions. We strive to create innovative solutions that empower businesses and individuals.",
+        "logoUrl": "https://example.com/tech-innovations-logo.png",
+        "slider1Url": "https://example.com/slider1-image.png",
+        "slider2Url": "https://example.com/slider2-image.png",
+        "slider3Url": "https://example.com/slider3-image.png",
+        "websiteUrl": "https://techinnovations.com",
+        "linkedInUrl": "https://linkedin.com/company/techinnovations",
+        "twitterUrl": "https://twitter.com/techinnovations",
+        "instagramUrl": "https://instagram.com/techinnovations",
+        "youtubeUrl": "https://youtube.com/techinnovations"
+      }
+    },
+    {
+      "title": "Data Scientist",
+      "type": "Remote",
+      "datePosted": "2024-04-18",
+      "salary": 110000,
+      "description": "Join our data science team and work on cutting-edge projects that leverage advanced analytics and machine learning techniques. You will analyze large datasets to extract valuable insights and drive decision-making.",
+      "company": {
+        "name": "Data Insights Co.",
+        "about": "Data Insights Co. is a data-driven company focused on delivering actionable insights to businesses. We leverage the latest technologies and methodologies to unlock the power of data.",
+        "logoUrl": "https://example.com/data-insights-logo.png",
+        "slider1Url": "https://example.com/slider1-image.png",
+        "slider2Url": "https://example.com/slider2-image.png",
+        "slider3Url": "https://example.com/slider3-image.png",
+        "websiteUrl": "https://datainsightsco.com",
+        "linkedInUrl": "https://linkedin.com/company/datainsightsco",
+        "twitterUrl": "https://twitter.com/datainsightsco",
+        "instagramUrl": "https://instagram.com/datainsightsco",
+        "youtubeUrl": "https://youtube.com/datainsightsco"
+      }
+    },
+    {
+      "title": "UX Designer",
+      "type": "Contract",
+      "datePosted": "2024-04-18",
+      "salary": 80000,
+      "description": "We are seeking a talented UX designer to create intuitive and engaging user experiences for our digital products. You will collaborate with cross-functional teams to design and prototype user interfaces.",
+      "company": {
+        "name": "Creative Solutions Ltd.",
+        "about": "Creative Solutions Ltd. is a design-focused company that specializes in creating innovative digital experiences. We are passionate about design and strive to deliver exceptional solutions to our clients.",
+        "logoUrl": "https://example.com/creative-solutions-logo.png",
+        "slider1Url": "https://example.com/slider1-image.png",
+        "slider2Url": "https://example.com/slider2-image.png",
+        "slider3Url": "https://example.com/slider3-image.png",
+        "websiteUrl": "https://creativesolutions.com",
+        "linkedInUrl": "https://linkedin.com/company/creativesolutions",
+        "twitterUrl": "https://twitter.com/creativesolutions",
+        "instagramUrl": "https://instagram.com/creativesolutions",
+        "youtubeUrl": "https://youtube.com/creativesolutions"
+      }
+    },
+    {
+      "title": "Product Manager",
+      "type": "Full-time",
+      "datePosted": "2024-04-18",
+      "salary": 120000,
+      "description": "We are looking for an experienced product manager to lead the development and launch of new products. You will work closely with cross-functional teams to define product requirements and drive product strategy.",
+      "company": {
+        "name": "Innovate Labs Inc.",
+        "about": "Innovate Labs Inc. is a technology company that focuses on developing innovative products and solutions. We are dedicated to pushing the boundaries of technology and creating products that make a difference.",
+        "logoUrl": "https://example.com/innovate-labs-logo.png",
+        "slider1Url": "https://example.com/slider1-image.png",
+        "slider2Url": "https://example.com/slider2-image.png",
+        "slider3Url": "https://example.com/slider3-image.png",
+        "websiteUrl": "https://innovatelabs.com",
+        "linkedInUrl": "https://linkedin.com/company/innovatelabs",
+        "twitterUrl": "https://twitter.com/innovatelabs",
+        "instagramUrl": "https://instagram.com/innovatelabs",
+        "youtubeUrl": "https://youtube.com/innovatelabs"
+      }
+    }
+  ]
+  
