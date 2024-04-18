@@ -10,8 +10,9 @@ import useAccount from "@/hooks/account-store";
 
 const HomePage = () => {
   const router = useRouter();
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
   const accountStore = useAccount();
+  const [isLoading, setIsLoading] = useState(true);
 
   const talentClicked = () => {
     if (user) {
@@ -24,15 +25,17 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async (sub: any) => {
       try {
+        setIsLoading(true);
         const response = await fetch("/api/token");
         const { accessToken } = await response.json();
         if (accessToken) {
           const account = await getAccount(accessToken);
+          console.log("Account:", account);
           if (account) {
-            accountStore.setActive(account[0]);
-            if (account[0].accountType === "talent") {
+            accountStore.setActive(account);
+            if (account.accountType === "Applicant") {
               router.push('/talent');
-            } else if (account[0].accountType === "recruiter") {
+            } else if (account.accountType === "recruiter") {
               router.push('/recruiter');
             }
           } else {
@@ -45,11 +48,14 @@ const HomePage = () => {
       catch (error) {
         console.error("Error fetching Accounts:", error);
       }
+      finally {
+        setIsLoading(false);
+      }
     }
     if (user) {
       fetchData(user.sub);
     }
-  }, [user, accountStore]);
+  }, [user]);
 
   return (
     <>

@@ -12,14 +12,15 @@ import {
 
 import { cn } from "@/lib/utils"
 import { LogoArea } from "./logo-area"
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
-import { TooltipProvider } from "@/components/ui/tooltip"
 import { Matches } from "./matches"
 import ActionBar from "./action-bar"
 import Suggestions from "./suggestions"
+import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 
-export function TalentHome() {
+interface NewTalentHomeProps extends React.HTMLAttributes<HTMLDivElement> { }
+
+const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeProps) => {
 
   const [mobileMenu, setMobileMenu] = React.useState(false)
 
@@ -42,35 +43,7 @@ export function TalentHome() {
             <X />
           </div>
         </div>
-        <Matches
-          links={[
-            {
-              title: "Twitter",
-              role: "UI/UX Researcher",
-              date: "11.03.2024",
-              icon: X,
-            },
-            {
-              title: "LinkedIn",
-              role: "Frontend Developer",
-              date: "04.02.2024",
-              icon: Linkedin,
-            },
-            {
-              title: "Messages",
-              role: "Backend Developer",
-              date: "01.01.2024",
-              icon: MessagesSquare,
-            },
-            {
-              title: "Instagram",
-              role: "Fullstack Developer",
-              date: "11.03.2024",
-              icon: Instagram,
-            },
-
-          ]}
-        />
+        <Matches />
         <div
           className={cn(
             "flex h-[80px] items-center bg-gradient-to-r from-sky-500 to-indigo-500 mt-auto px-2"
@@ -90,4 +63,6 @@ export function TalentHome() {
       </div>
     </div>
   )
-}
+});
+
+export default TalentHome;
