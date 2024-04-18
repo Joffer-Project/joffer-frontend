@@ -1,17 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useUser } from '@auth0/nextjs-auth0/client';
 import { getAccount } from "@/actions/account";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/ui/loader";
 import useAccount from "@/hooks/account-store";
-import { getAccessToken } from '@auth0/nextjs-auth0';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+
 
 const HomePage = () => {
   const router = useRouter();
