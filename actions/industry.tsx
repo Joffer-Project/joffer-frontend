@@ -1,18 +1,49 @@
 import { Industry } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
-const createIndustry = async (data: any) => {
-    console.log(data);
-    return;
-    const res = await fetch(`${URL}/industry`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-    return res.json();
+const createIndustry = async (selectedIndustryIds: string[], token: string | undefined, industrys: Industry[]): Promise<boolean> => {
+    let allCreated: boolean = true;
+
+    for (const industryId of selectedIndustryIds) {
+
+        const industry: Industry | undefined = industrys.find(industry => industry.id.toString() === industryId);
+
+        if (industry) {
+            const data = {
+                id: industry.id,
+                name: industry.name,
+                isActive: industry.isActive
+            };
+
+            try {
+                const res = await fetch(`${URL}/Industry/Account/${industry.id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (res.ok) {
+                    console.log(`Industry ${industry.name} posted successfully`);
+                } else {
+                    console.error(`Failed to post industry ${industry.name}. Status: ${res.status}`);
+                    allCreated = false;
+                }
+            } catch (error: any) {
+                console.error(`Error posting industry ${industry.name}: ${error.message}`);
+                allCreated = false;
+            }
+        } else {
+            console.error(`Industry with ID ${industryId} not found`);
+            allCreated = false;
+        }
+    }
+
+    return allCreated;
 };
+
 
 const getIndustries = async () => {
     const response = await fetch(`${URL}/Industries/GetAll`, {

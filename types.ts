@@ -21,6 +21,7 @@ export interface Talent {
   personalUrl: string;
   name: string;
   auth0Id: string;
+  email: string;
 };
 
 export interface Role {

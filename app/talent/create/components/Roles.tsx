@@ -48,6 +48,7 @@ const Roles: React.FC<RolesProps> = ({
             setIsLoading(true);
             try {
                 const fetchedData: Role[] = await getRoles();
+                talentStore.setState({ roles: fetchedData });
                 setData(fetchedData);
             } catch (error) {
                 setError(error as Error);

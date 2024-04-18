@@ -2,8 +2,6 @@ import { Talent } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
 const createTalent = async (data: Talent) => {
-    console.log(data);
-    return;
     const res = await fetch(`${URL}/Talent`, {
         method: 'POST',
         headers: {
@@ -11,7 +9,8 @@ const createTalent = async (data: Talent) => {
         },
         body: JSON.stringify(data),
     });
-    return res.json();
+    
+    return res.status === 201;
 };
 
 
