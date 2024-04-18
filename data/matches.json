@@ -1,0 +1,35 @@
+[
+    {
+      "title": "Nokia",
+      "role": "Software Engineer",
+      "date": "2024-04-18",
+      "logoUrl": "https://example.com/nokia-logo.png",
+      "email": "contact@nokia.com",
+      "type": "Remote"
+    },
+    {
+      "title": "Google",
+      "role": "Product Manager",
+      "date": "2024-04-18",
+      "logoUrl": "https://example.com/google-logo.png",
+      "email": "contact@google.com",
+      "type": "On-site"
+    },
+    {
+      "title": "Amazon",
+      "role": "Data Scientist",
+      "date": "2024-04-18",
+      "logoUrl": "https://example.com/amazon-logo.png",
+      "email": "contact@amazon.com",
+      "type": "Hybrid"
+    },
+    {
+      "title": "Microsoft",
+      "role": "Software Developer",
+      "date": "2024-04-18",
+      "logoUrl": "https://example.com/microsoft-logo.png",
+      "email": "contact@microsoft.com",
+      "type": "Remote"
+    }
+  ]
+  

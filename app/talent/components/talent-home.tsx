@@ -16,6 +16,8 @@ import { Matches } from "./matches"
 import ActionBar from "./action-bar"
 import Suggestions from "./suggestions"
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+import useDashboard from "@/hooks/dashboard-store"
+import { useEffect } from "react"
 
 
 interface NewTalentHomeProps extends React.HTMLAttributes<HTMLDivElement> { }
@@ -23,7 +25,25 @@ interface NewTalentHomeProps extends React.HTMLAttributes<HTMLDivElement> { }
 const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeProps) => {
 
   const [mobileMenu, setMobileMenu] = React.useState(false)
-
+  const dashboardStore = useDashboard();
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/token");
+        const { accessToken } = await response.json();
+        if (accessToken) {
+          dashboardStore.setState({ token: accessToken });
+        } else {
+          dashboardStore.setState({ token: "" });
+        }
+      }
+      catch (error) {
+        console.error("Error fetching token in dashboard:", error);
+      }
+    }
+      fetchData();
+  }, []);
   return (
     <div className="flex relative">
       {/* mobile menu icon */}

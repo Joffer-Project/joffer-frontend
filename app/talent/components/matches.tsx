@@ -1,59 +1,39 @@
 "use client"
 
 import Link from "next/link"
-import { LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { buttonVariants } from "@/components/ui/button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Match } from "@/types"
+import { getMatches } from "@/actions/dashboard"
+import useDashboard from "@/hooks/dashboard-store"
 
-interface NavProps {
-  links: {
-    title: string
-    date: string
-    role: string
-    icon: LucideIcon
-  }[]
-}
 
-const demoData = [
-  {
-    title: "Twitter",
-    role: "UI/UX Researcher",
-    date: "11.03.2024",
-    logoUrl: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/demo-4-890074.png',
-  },
-  {
-    title: "LinkedIn",
-    role: "Frontend Developer",
-    date: "04.02.2024",
-    logoUrl: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/demo-4-890074.png',
-  },
-  {
-    title: "Messages",
-    role: "Backend Developer",
-    date: "01.01.2024",
-    logoUrl: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/demo-4-890074.png',
-  },
-  {
-    title: "Instagram",
-    role: "Fullstack Developer",
-    date: "11.03.2024",
-    logoUrl: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/demo-4-890074.png',
-  },
 
-]
 
 export function Matches() {
-  // get all matches
-  const [matches, setMatches] = useState(demoData)
+  const [data, setData] = useState<Match[] | null>(null);
+  const dashboardStore = useDashboard();
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const token = dashboardStore.getState().token;
+        if (!token) return;
+        const fetchedData: Match[] = await getMatches(token);
+        dashboardStore.setState({ matches: fetchedData });
+        setData(fetchedData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getData();
+  }, []);
   return (
-    <div
-      className="group flex flex-col gap-4 py-8 data-[collapsed=true]:py-2"
-    >
+    <div className="group flex flex-col gap-4 py-8 data-[collapsed=true]:py-2">
       <nav className="grid gap-2 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
-        {matches.map((link, index) =>
+        {data?.length && data.map((link, index) =>
           <Link
             key={index}
             href="#"
