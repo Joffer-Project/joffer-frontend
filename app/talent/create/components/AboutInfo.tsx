@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Form,
     FormControl,
@@ -19,6 +19,7 @@ import { createTalent } from '@/actions/talent';
 import { createRole } from '@/actions/roles';
 import { createIndustry } from '@/actions/industry';
 import { useRouter } from 'next/navigation'
+import Loader from '@/components/ui/loader';
 
 const schema = z.object({
     aboutMe: z.string().min(20).max(1000),
@@ -35,6 +36,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
     const router = useRouter()
     const { user } = useUser();
     const talentStore = useTalent();
+    const [loading, setLoading] = useState<boolean>(false);
     type FormValues = z.infer<typeof schema>;
 
     const defaultValues: FormValues = {
@@ -48,29 +50,37 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
 
     const onSubmit = async (data: FormValues) => {
         try {
-            talentStore.setState({ formData: { 
-                ...talentStore.formData, 
-                ...data,
-                employmentStatus: "string",
-             } });
-             toast.success('Account created successfully');
-             console.log(talentStore);
+            setLoading(true);
+            talentStore.setState({
+                formData: {
+                    ...talentStore.formData,
+                    ...data,
+                    employmentStatus: "string",
+                    auth0Id: user?.sub || "",
+                    email: user?.email || "",
+                }
+            });
 
             // post talent data
-            await createTalent(talentStore.formData);
-
-            // post roles data
-            await createRole(talentStore.roles);
-
-            // post industries data
-            await createIndustry(talentStore.industries);
-
-            // redrict to dashboard
-            router.push('/talent');
+            const res = await createTalent(talentStore.getState().formData);
+            if (res) {
+                const response = await fetch("/api/token");
+                const { accessToken } = await response.json();
+                const roleRes = await createRole(talentStore.getState().selectedRoles, accessToken, talentStore.getState().roles);
+                const industryRes = await createIndustry(talentStore.getState().selectedIndustries, accessToken, talentStore.getState().industries);
+                if (roleRes && industryRes) {
+                    toast.success('Account created successfully');
+                    router.push('/talent');
+                } else {
+                    toast.error('Something went wrong.');
+                    console.log('Error creating roles and industries', roleRes, industryRes);
+                }
+            }
         } catch (error: any) {
             toast.error('Something went wrong.');
+            console.log(error);
         } finally {
-            // setLoading(false);
+            setLoading(false);
         }
     };
 
@@ -99,7 +109,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                     <div className="flex justify-between items-center pt-8">
                         <Button
                             onClick={() => setStep(4)}
-                            className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg"
+                            className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg" disabled={loading}
                         >
                             <ChevronLeft /> Back
                         </Button>
@@ -108,8 +118,12 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                                 <span className="text-[#FF7E33]">5</span>/5
                             </p>
                         </div>
-                        <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
-                            Start <ChevronRight />
+                        <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg" disabled={loading}>
+                            {
+                                loading ? 'Creating Profile' : <>
+                                    Finish <ChevronRight />
+                                </>
+                            }
                         </Button>
                     </div>
                 </form>

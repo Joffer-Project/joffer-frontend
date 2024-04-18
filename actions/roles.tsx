@@ -1,17 +1,48 @@
 import { Role } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
-const createRole = async (data: any) => {
-    console.log(data);
-    return;
-    const res = await fetch(`${URL}/roles`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-    return res.json();
+
+const createRole = async (selectedRoleIds: string[], token: string | undefined, roles: Role[]): Promise<boolean> => {
+    let allCreated: boolean = true;
+
+    for (const roleId of selectedRoleIds) {
+
+        const role: Role | undefined = roles.find(role => role.id.toString() === roleId);
+
+        if (role) {
+            const data = {
+                id: role.id,
+                name: role.name,
+                isActive: role.isActive
+            };
+
+            try {
+                const res = await fetch(`${URL}/Role/Account/${role.id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (res.ok) {
+                    console.log(`Role ${role.name} posted successfully`);
+                } else {
+                    console.error(`Failed to post role ${role.name}. Status: ${res.status}`);
+                    allCreated = false;
+                }
+            } catch (error: any) {
+                console.error(`Error posting role ${role.name}: ${error.message}`);
+                allCreated = false;
+            }
+        } else {
+            console.error(`Role with ID ${roleId} not found`);
+            allCreated = false;
+        }
+    }
+
+    return allCreated;
 };
 
 const getRoles = async () => {

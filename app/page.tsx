@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { getAccessToken } from '@auth0/nextjs-auth0';
 import { getAccount } from "@/actions/account";
 import { Button } from "@/components/ui/button"
 import Loader from "@/components/ui/loader";
@@ -25,7 +24,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async (sub: any) => {
       try {
-        const { accessToken } = await getAccessToken();
+        const response = await fetch("/api/token");
+        const { accessToken } = await response.json();
         if (accessToken) {
           const account = await getAccount(accessToken);
           if (account) {
@@ -50,7 +50,6 @@ const HomePage = () => {
       fetchData(user.sub);
     }
   }, [user, accountStore]);
-
 
   return (
     <>
