@@ -14,7 +14,7 @@ const getAccount = async (token: String) => {
         throw new Error("An error occurred while fetching the account data.");
     }
     const data = await response.json();
-    return data as Account[];
+    return data as Account;
 };
 
 export { getAccount };

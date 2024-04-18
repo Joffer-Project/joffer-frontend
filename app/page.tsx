@@ -7,13 +7,14 @@ import useAccount from "@/hooks/account-store";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const HomePage = () => {
   const router = useRouter();
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
   const accountStore = useAccount();
+  const [isLoading, setIsLoading] = useState(true);
 
   const talentClicked = () => {
     if (user) {
@@ -26,15 +27,17 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async (sub: any) => {
       try {
+        setIsLoading(true);
         const response = await fetch("/api/token");
         const { accessToken } = await response.json();
         if (accessToken) {
           const account = await getAccount(accessToken);
+          console.log("Account:", account);
           if (account) {
-            accountStore.setActive(account[0]);
-            if (account[0].accountType === "talent") {
+            accountStore.setActive(account);
+            if (account.accountType === "Applicant") {
               router.push('/talent');
-            } else if (account[0].accountType === "recruiter") {
+            } else if (account.accountType === "recruiter") {
               router.push('/recruiter');
             }
           } else {
@@ -47,11 +50,14 @@ const HomePage = () => {
       catch (error) {
         console.error("Error fetching Accounts:", error);
       }
+      finally {
+        setIsLoading(false);
+      }
     }
     if (user) {
       fetchData(user.sub);
     }
-  }, [user, accountStore]);
+  }, [user]);
 
   return (
     <>
@@ -59,7 +65,7 @@ const HomePage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#FFCDB0] to-[#B0CFF7]">
 
         <header className="flex flex-col items-center justify-center mb-12">
-        <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <h1 className="text-6xl font-regular text-stone-950">JOFFER</h1>
             <Image src="/images/landing/logo-hq.png" alt="logo" width={50} height={50} />
           </div>

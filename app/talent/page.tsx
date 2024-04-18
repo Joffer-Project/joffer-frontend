@@ -1,4 +1,4 @@
-import { TalentHome } from "./components/talent-home"
+import TalentHome  from "./components/talent-home"
 
 export default function TalentPage() {
   return (
