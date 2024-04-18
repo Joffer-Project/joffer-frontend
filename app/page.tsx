@@ -14,7 +14,7 @@ const HomePage = () => {
   const router = useRouter();
   const { user } = useUser();
   const accountStore = useAccount();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const talentClicked = () => {
     if (user) {
@@ -61,7 +61,7 @@ const HomePage = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading ? <Loader /> :
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#FFCDB0] to-[#B0CFF7]">
 
         <header className="flex flex-col items-center justify-center mb-12">
@@ -112,7 +112,7 @@ const HomePage = () => {
           </div>
 
         </div>
-      </main>
+      </main>}
     </>
   );
 }

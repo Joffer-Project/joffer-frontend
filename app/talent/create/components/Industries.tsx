@@ -48,6 +48,7 @@ const Industries: React.FC<IndustriesProps> = ({
             setIsLoading(true);
             try {
                 const fetchedData: Industry[] = await getIndustries();
+                talentStore.setState({ industries: fetchedData });
                 setData(fetchedData);
             } catch (error) {
                 setError(error as Error);

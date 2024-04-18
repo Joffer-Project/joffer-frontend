@@ -4,7 +4,6 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
 
 const createRole = async (selectedRoleIds: string[], token: string | undefined, roles: Role[]): Promise<boolean> => {
     let allCreated: boolean = true;
-
     for (const roleId of selectedRoleIds) {
 
         const role: Role | undefined = roles.find(role => role.id.toString() === roleId);
