@@ -7,7 +7,7 @@ import useAccount from "@/hooks/account-store";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const HomePage = () => {
@@ -65,7 +65,7 @@ const HomePage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#FFCDB0] to-[#B0CFF7]">
 
         <header className="flex flex-col items-center justify-center mb-12">
-        <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <h1 className="text-6xl font-regular text-stone-950">JOFFER</h1>
             <Image src="/images/landing/logo-hq.png" alt="logo" width={50} height={50} />
           </div>
