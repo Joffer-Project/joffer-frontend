@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { getIndustries } from '@/actions/industry';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from "@/components/ui/checkbox";
 import {
     Form,
     FormControl,
@@ -7,16 +9,14 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from "@hookform/resolvers/zod";
-import toast from "react-hot-toast";
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Checkbox } from "@/components/ui/checkbox";
 import useTalent from '@/hooks/talent-store';
 import { Industry } from '@/types';
-import { getIndustries } from '@/actions/industry';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import toast from "react-hot-toast";
+import { z } from 'zod';
 
 const schema = z.object({
     industries: z.array(z.string()).refine((value) => value.some((item) => item), {
@@ -86,11 +86,100 @@ const Industries: React.FC<IndustriesProps> = ({
 
     return (
         <>
-            <h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Industries</h2>
-            <p className="font-medium text-xl mb-6">Select the industries that align best with your interests, knowledge, experience, and wishes. </p>
+            <h2 className="font-normal text-4xl bg-gradient-to-r from-[#FF5E00] to-[#B54300] inline-block text-transparent bg-clip-text
+            
+            xls:text-[28px]
+            xls:mt-[0px]
+            xls:ml-[0px]
+            xls:mb-[-25px] 
+            xxs:text-[28px]
+            xxs:mt-[16px]
+            xxs:ml-[5px]
+            xxs:mb-[-25px] 
+            sm:text-[28px]
+            sm:mt-[16px]
+            sm:ml-[5px]
+            sm:mb-[-25px] 
+            md:text-[28px]
+            md:mt-[10px]
+            md:ml-[-30px]
+            md:mb-[-25px]  
+            ml:text-[28px]
+            ml:mt-[10px]
+            ml:ml-[-30px]
+            ml:mb-[-25px] 
+            xl:text-[36px]
+            xl:mt-[28px]
+            xl:ml-[-10px]
+            xl:mb-[-20px]
+            2xl:text-4xl
+            2xl:mt-[20px]
+            2xl:mb-[-20px]
+            2xl:ml-[-10px]
+            ">Industries</h2>
+            <p className="font-400 text-[#5C6062] leading-5
+            
+            xls:text-[14px]
+            xls:w-[22 0px]
+            xls:mb-[-10px]
+            xls:ml-[0px]
+            xxs:text-[12px]
+            xxs:w-[300px]
+            xxs:mb-[-5px]
+            xxs:ml-[20px]
+            sm:text-[14px]
+            sm:w-[400px]
+            sm:mb-[-5px]
+            sm:ml-[20px]
+            md:text-[14px]
+            md:w-[450px]
+            md:mb-[2px]
+            md:ml-[-10px]
+            ml:text-[14px]
+            ml:w-[500px]
+            ml:mb-[-2px]
+            ml:ml-[-10px]
+            xl:text-[16px]
+            xl:w-[530px]
+            xl:mb-[0px]
+            xl:ml-[20px]
+            2xl:text-[18px]
+            2xl:w-[620px]
+            2xl:mb-[18px]
+            2xl:ml-[20px]
+            ">Select the industries that align best with your interests, knowledge, experience, and wishes. </p>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className="max-h-[200px] overflow-y-auto">
+                    <div className="overflow-y-auto bg-[#E6E6E6] p-[10px] w-[649px] ml-[-47px] h-[315px] border-t-[2px] border-b-[2px] border-[#3C4144] shadow-inner
+            
+            xls:h-[250px]
+            xls:ml-[-15px]        
+            xls:w-[238.5px]   
+            xls:mb-[-20px]
+            xxs:h-[450px]
+            xxs:ml-[-15px]        
+            xxs:w-[348.5px]   
+            xxs:mb-[-20px]
+            sm:h-[450px]
+            sm:ml-[-15px]        
+            sm:w-[408.5px]   
+            sm:mb-[-20px]
+            md:h-[470px]
+            md:ml-[-47px]        
+            md:w-[498.5px]   
+            md:mb-[-10px]
+            ml:h-[270px]
+            ml:ml-[-47px]        
+            ml:w-[556.5px]   
+            ml:mb-[-2px]
+            xl:h-[310px]
+            xl:ml-[-47px]        
+            xl:w-[606.5px]   
+            xl:mb-[-20px]
+            2xl:h-[315px]
+            2xl:ml-[-47px]        
+            2xl:w-[649px]   
+            2xl:mb-[10px]">
                         <FormField
                             control={form.control}
                             name="industries"
@@ -121,7 +210,7 @@ const Industries: React.FC<IndustriesProps> = ({
                                                                 }}
                                                             />
                                                         </FormControl>
-                                                        <FormLabel className={`border-2 rounded-[40px] !mt-0 px-[30px] py-[14px] border-[#FF7E33] hover:border-[#58D336] hover:text-[#58D336] cursor-pointer font-medium text-[18px] ${field.value?.includes(item.id.toString()) ? "text-[#ffffff] bg-gradient-to-br from-[#58D336] to-[#3E9626] border-[#ffffff] hover:text-[#ffffff]" : "text-[#FF7E33]"}`}>
+                                                        <FormLabel className={`border-2 rounded-[40px] bg-[#fff] !mt-0 px-[30px] py-[14px] border-[#FF7E33] hover:border-[#58D336] hover:text-[#58D336] cursor-pointer font-medium text-[18px] ${field.value?.includes(item.id.toString()) ? "text-[#ffffff] bg-gradient-to-br from-[#58D336] to-[#3E9626] border-[#ffffff] hover:text-[#ffffff]" : "text-[#FF7E33]"}`}>
                                                             {item.name}
                                                         </FormLabel>
                                                     </FormItem>
