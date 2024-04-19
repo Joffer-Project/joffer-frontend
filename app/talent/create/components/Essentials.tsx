@@ -50,16 +50,41 @@ const Essentials: React.FC<EssentialsProps> = (
 
     return (
         <>
-            <h2 className="font-bold text-3xl mb-6 text-[#FF7E33]">Essentials</h2>
+            <h2 className="font-normal text-4xl bg-gradient-to-r from-[#FF5E00] to-[#B54300] inline-block text-transparent bg-clip-text
+            
+            xls:text-3xl
+            xls:mb-8 
+            xxs:text-3xl
+            xxs:mt-4
+            xxs:mb-8
+            sm:text-3xl
+            sm:mt-6
+            md:text-4xl
+            md:mb-6
+            lg:text-4xl
+            lg:mb-2
+            xl:text-4xl
+            xl:mb-4
+            2xl:text-4xl
+            2xl:mb-6">Essentials</h2>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                     <FormField
                         control={form.control}
                         name="name"
                         render={({ field }) => (
-                            <FormItem>
-                                <FormControl className="mb-4 h-12 border rounded-sm border-[#3C4144]">
-                                    <Input placeholder="Name" {...field} className="py-4 text-lg" />
+                            <FormItem className=' 
+                            xls:mb-48
+                            xxs:mb-96
+                            sm:mb-96
+                            md:mb-82    
+                            lg:mb-40
+                            xl:mb-48
+                            2xl:mb-56'>
+                                <FormControl className=" h-12 border rounded-sm border-[#3C4144]">
+                                    <Input placeholder="Name" {...field} className="py-4 border-2 border-[#3C4144] text-lg h-[65px] rounded-[10px] hover:border-[#FF5E00] hover:border-[3px] transition-all-[0.3s]
+                                    ease-in-out hover:placeholder-[#FF5E00] 
+                                    focus:placeholder-opacity-0" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
