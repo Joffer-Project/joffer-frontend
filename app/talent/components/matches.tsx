@@ -30,6 +30,10 @@ export function Matches() {
 
     getData();
   }, []);
+
+  if (!data) return <h1 className="text-[#3C4144] text-2xl font-semibold text-center m-auto">No match found</h1>;
+
+
   return (
     <div className="group flex flex-col gap-4 py-8 data-[collapsed=true]:py-2">
       <nav className="grid gap-2 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">

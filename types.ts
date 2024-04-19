@@ -51,17 +51,19 @@ export interface Job {
   datePosted: string;
   salary: number;
   description: string;
-  company: {
-    name: string;
-    about: string;
-    logoUrl: string;
-    slider1Url: string;
-    slider2Url: string;
-    slider3Url: string;
-    websiteUrl: string;
-    linkedInUrl: string;
-    twitterUrl: string;
-    instagramUrl: string;
-    youtubeUrl: string;
-  }
+  company: Company;
 };
+
+export interface Company {
+  name: string;
+  about: string;
+  logoUrl: string;
+  slider1Url: string;
+  slider2Url: string;
+  slider3Url: string;
+  websiteUrl: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  instagramUrl: string;
+  youtubeUrl: string;
+}

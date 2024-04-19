@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -8,13 +8,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Company } from "@/types"
 
-export function Slider() {
-  const images = [
-    "/images/slider/tesla1.jpg",
-    "/images/slider/tesla2.jpg",
-    "/images/slider/tesla3.jpg",
-  ]
+interface SliderProps {
+  data: Company | undefined | null
+}
+
+const Slider: React.FC<SliderProps> = ({ data }) => {
+  const notFoundUrl = '/images/slider/404.png'
+
+  const images = [data?.slider1Url, data?.slider2Url, data?.slider3Url]
 
   return (
     <Carousel className="w-full">
@@ -24,7 +27,7 @@ export function Slider() {
             <div className="p-0">
               <Card>
                 <CardContent className="flex h-[250px] items-center justify-center p-0">
-                  <img src={url} alt="" className="w-full h-full object-cover rounded-lg" />
+                  <img src={url ? url : notFoundUrl} alt="" className="w-full h-full object-cover rounded-lg" />
                 </CardContent>
               </Card>
             </div>
@@ -36,3 +39,6 @@ export function Slider() {
     </Carousel>
   )
 }
+
+
+export default Slider

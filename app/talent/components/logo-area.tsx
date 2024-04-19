@@ -10,7 +10,7 @@ export function LogoArea() {
     return (
         <div className={cn("flex items-center py-8")}>
             <img
-                src="/images/logo.png"
+                src="/images/logo-hq.png"
                 alt="logo"
                 className={cn("h-12 w-auto")}
             />
