@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { HowItWorksModal } from '@/components/modals/how-it-works';
+import { SettingsModal } from '@/components/modals/settings';
 
 interface ActionBarProps {
     likeAction: (like: boolean) => void; 
@@ -8,11 +9,17 @@ interface ActionBarProps {
 
 const ActionBar: React.FC<ActionBarProps> = ({ likeAction }) => {
     const [open, setOpen] = useState(false);
+    const [settingsOpen, setSettingsOpen] = useState(false);
     return (
         <>
             <HowItWorksModal
                 isOpen={open}
                 onClose={() => setOpen(false)}
+            />
+            
+            <SettingsModal
+                isOpen={settingsOpen}
+                onClose={() => setSettingsOpen(false)}
             />
             <div className="flex justify-between items-center gap-2 py-8 w-full">
                 <div className="flex flex-col justify-center items-center gap-1">
@@ -43,7 +50,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ likeAction }) => {
                         onClick={() => likeAction(true)}
                     />
                 </div>
-                <div className="flex flex-col justify-center items-center gap-1">
+                <div className="flex flex-col justify-center items-center gap-1" onClick={() => setSettingsOpen(true)}>
                     <img
                         src="/images/settings.png"
                         alt="logo"

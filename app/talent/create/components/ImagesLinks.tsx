@@ -58,8 +58,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
     const talentStore = useTalent();
     type FormValues = z.infer<typeof schema>;
 
-    const defaultValues: FormValues = {
-        avatarUrl: talentStore.formData.avatarUrl || "",
+    const defaultValues: FormValues = {        avatarUrl: talentStore.formData.avatarUrl || "",
     };
 
 
@@ -83,6 +82,8 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
         } else if (currentBox === "personal") {
             setPersonalLink(currentLink);
         }
+
+        setCurrentLink("");
     }
 
     const form = useForm<FormValues>({
