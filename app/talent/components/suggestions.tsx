@@ -1,29 +1,15 @@
 import Slider from '@/components/slider'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AboutCompany from './about-company'
 import Links from './links'
 import AboutJob from './about-job'
-import useDashboard from '@/hooks/dashboard-store'
 import { Job } from '@/types'
-import { getJobOffer } from '@/actions/dashboard'
 
-export default function Suggestions() {
-    const [data, setData] = useState<Job | null>(null);
-    const dashboardStore = useDashboard();
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const token = dashboardStore.getState().token;
-                if (!token) return;
-                const fetchedData: Job = await getJobOffer(token);
-                dashboardStore.setState({ activeJobOffer: fetchedData });
-                setData(fetchedData);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        getData();
-    }, []);
+interface SuggestionsProps {
+    data: Job | null | undefined;
+}
+const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
+
     return (
         <>
             {
@@ -59,3 +45,5 @@ export default function Suggestions() {
         </>
     )
 }
+
+export default Suggestions;

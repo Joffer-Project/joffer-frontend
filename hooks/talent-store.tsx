@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { Talent, Industry, Role } from "@/types";
+import { Talent, Industry, Role, Match, Job } from "@/types";
 
 interface TalentStore {
   formData: Talent;
@@ -8,6 +8,10 @@ interface TalentStore {
   selectedRoles: string[];
   industries: Industry[];
   selectedIndustries: string[];
+  matches: Match[];
+  activeJobOffer: Job;
+  jibOffers: Job[];
+  token: string;
   setState: (state: Partial<TalentStore>) => void;
   getState: () => TalentStore;
 }
@@ -18,6 +22,10 @@ const useTalent = create<TalentStore>((set, get) => ({
   selectedRoles: [],
   selectedIndustries: [],
   industries: [],
+  matches: [],
+  activeJobOffer: {} as Job,
+  jibOffers: [],  
+  token: '',
   setState: (state) => set(state),
   getState: () => get(),
 }));

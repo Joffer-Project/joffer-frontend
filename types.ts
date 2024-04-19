@@ -46,12 +46,18 @@ export interface Match {
 };
 
 export interface Job {
+  id: number;
   title: string;
-  type: string;
-  datePosted: string;
-  salary: number;
   description: string;
-  company: Company;
+  minSalary: number;
+  maxSalary: number;
+  employmentStatus: string;
+  companyId: number;
+  isActive: boolean;
+  company: any | null;
+  jobOfferSwipes: [];
+  jobOfferIndustries: Industry[] | null;
+  jobOfferRoles: Role[] | null;
 };
 
 export interface Company {

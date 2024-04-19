@@ -1,27 +1,23 @@
-"use client"
-
+import React from "react"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { useEffect, useState } from "react"
 import { Match } from "@/types"
-import { getMatches } from "@/actions/dashboard"
-import useDashboard from "@/hooks/dashboard-store"
-
-
-
+import { getMatches } from "@/actions/talent"
+import useTalent from "@/hooks/talent-store"
 
 export function Matches() {
   const [data, setData] = useState<Match[] | null>(null);
-  const dashboardStore = useDashboard();
+  const talentStore = useTalent();
   useEffect(() => {
     const getData = async () => {
       try {
-        const token = dashboardStore.getState().token;
+        const token = talentStore.getState().token;
         if (!token) return;
         const fetchedData: Match[] = await getMatches(token);
-        dashboardStore.setState({ matches: fetchedData });
+        talentStore.setState({ matches: fetchedData });
         setData(fetchedData);
       } catch (error) {
         console.error(error);
@@ -29,10 +25,10 @@ export function Matches() {
     };
 
     getData();
+
   }, []);
 
   if (!data) return <h1 className="text-[#3C4144] text-2xl font-semibold text-center m-auto">No match found</h1>;
-
 
   return (
     <div className="group flex flex-col gap-4 py-8 data-[collapsed=true]:py-2">

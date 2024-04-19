@@ -16,34 +16,57 @@ import { Matches } from "./matches"
 import ActionBar from "./action-bar"
 import Suggestions from "./suggestions"
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import useDashboard from "@/hooks/dashboard-store"
-import { useEffect } from "react"
+import { HTMLAttributes, useEffect, useState } from "react"
+import useTalent from "@/hooks/talent-store"
+import { Job } from "@/types"
+import { getJobOffer, talentLike } from "@/actions/talent"
 
 
-interface NewTalentHomeProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface NewTalentHomeProps extends HTMLAttributes<HTMLDivElement> { }
 
 const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeProps) => {
 
-  const [mobileMenu, setMobileMenu] = React.useState(false)
-  const dashboardStore = useDashboard();
-  
+  const [mobileMenu, setMobileMenu] = useState(false)
+  const [data, setData] = useState<Job | null>(null);
+  const talentStore = useTalent();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("/api/token");
         const { accessToken } = await response.json();
         if (accessToken) {
-          dashboardStore.setState({ token: accessToken });
+          talentStore.setState({ token: accessToken });
+          const fetchedData: Job[] = await getJobOffer(accessToken);
+          talentStore.setState({ jibOffers: fetchedData });
+          setData(fetchedData[0]);
         } else {
-          dashboardStore.setState({ token: "" });
+          talentStore.setState({ token: "" });
         }
       }
       catch (error) {
         console.error("Error fetching token in dashboard:", error);
       }
     }
-      fetchData();
+    fetchData();
   }, []);
+
+  const likeAction = async () => {
+    try {
+      const token = talentStore.getState().token;
+      if (!token) return;
+      const jobOfferId = data?.id;
+      const res = await talentLike(token, jobOfferId);
+      if (res) {
+        const fetchedData: Job[] = await getJobOffer(token);
+        talentStore.setState({ jibOffers: fetchedData });
+        setData(fetchedData[0]);
+      }
+    } catch (error) {
+      console.error("Error liking job offer:", error);
+    }
+  }
+
   return (
     <div className="flex relative">
       {/* mobile menu icon */}
@@ -78,8 +101,8 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
         </div>
       </div>
       <div className="py-16 px-12 w-full">
-        <Suggestions />
-        <ActionBar />
+        <Suggestions data={data} />
+        <ActionBar likeAction={likeAction} />
       </div>
     </div>
   )
