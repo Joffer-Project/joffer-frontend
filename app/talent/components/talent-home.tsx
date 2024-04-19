@@ -28,11 +28,13 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
 
   const [mobileMenu, setMobileMenu] = useState(false)
   const [data, setData] = useState<Job | null>(null);
+  const [loading, setLoading] = useState(false);
   const talentStore = useTalent();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await fetch("/api/token");
         const { accessToken } = await response.json();
         if (accessToken) {
@@ -46,6 +48,8 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
       }
       catch (error) {
         console.error("Error fetching token in dashboard:", error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
@@ -53,6 +57,7 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
 
   const likeAction = async (like: boolean) => {
     try {
+      setLoading(true);
       const token = talentStore.getState().token;
       if (!token) return;
       const jobOfferId = data?.id;
@@ -70,6 +75,8 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
       }
     } catch (error) {
       console.error("Error liking job offer:", error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -107,7 +114,13 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
         </div>
       </div>
       <div className="py-16 px-12 w-full">
-        <Suggestions data={data} />
+        {
+          loading ? <div className="flex justify-center items-center h-[70vh] w-full">
+            <h1 className="text-[#3C4144] text-2xl font-semibold">
+              <img src="/images/loader.gif" alt="loading" />
+            </h1>
+          </div> : <Suggestions data={data} />
+        }
         <ActionBar likeAction={likeAction} />
       </div>
     </div>
