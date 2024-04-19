@@ -1,6 +1,4 @@
 import { Talent } from "@/types";
-import { Match } from "@/types";
-import { Job } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
 const createTalent = async (data: Talent) => {
@@ -45,7 +43,7 @@ const talentLike = async (token: string, jobOfferId: any) => {
             'Authorization': `Bearer ${token}`,
         },
     });
-    
+
     return res.status;
 };
 
@@ -57,25 +55,14 @@ const talentDislike = async (token: string, jobOfferId: any) => {
             'Authorization': `Bearer ${token}`,
         },
     });
-    return res.json();
+    return res.status;
 }
 
-const superlike = async (token: string, jobOfferId: any) => {
-    const res = await fetch(`${URL}/superlike/${jobOfferId}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        },
-    });
-    return res.json();
-}
 
 export {
     createTalent, 
     getJobOffer,
     getMatches,
     talentLike,
-    talentDislike,
-    superlike,
+    talentDislike
 };

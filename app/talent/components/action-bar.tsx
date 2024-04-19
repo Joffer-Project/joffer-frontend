@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import { HowItWorksModal } from '@/components/modals/how-it-works';
 
 interface ActionBarProps {
-    likeAction: () => void;
+    likeAction: (like: boolean) => void; 
 }
 
 const ActionBar: React.FC<ActionBarProps> = ({ likeAction }) => {
@@ -29,17 +29,18 @@ const ActionBar: React.FC<ActionBarProps> = ({ likeAction }) => {
                         src="/images/Close.png"
                         alt="logo"
                         className={cn("h-12 md:h-16 lg:h-20 w-auto cursor-pointer transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-200")}
+                        onClick={() => likeAction(false)}
                     />
                     <img
                         src="/images/Superlike.png"
                         alt="logo"
-                        className={cn("h-20 md:h-24 lg:h-36 w-auto cursor-pointer transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-200")}
+                        className={cn("h-20 md:h-24 lg:h-36 w-auto cursor-no-drop transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-200")}
                     />
                     <img
                         src="/images/Like.png"
                         alt="logo"
                         className={cn("h-12 md:h-16 lg:h-20 w-auto cursor-pointer transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-200")}
-                        onClick={likeAction}
+                        onClick={() => likeAction(true)}
                     />
                 </div>
                 <div className="flex flex-col justify-center items-center gap-1">

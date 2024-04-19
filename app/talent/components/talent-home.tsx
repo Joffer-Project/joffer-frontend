@@ -19,7 +19,7 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { HTMLAttributes, useEffect, useState } from "react"
 import useTalent from "@/hooks/talent-store"
 import { Job } from "@/types"
-import { getJobOffer, talentLike } from "@/actions/talent"
+import { getJobOffer, talentDislike, talentLike } from "@/actions/talent"
 
 
 interface NewTalentHomeProps extends HTMLAttributes<HTMLDivElement> { }
@@ -51,12 +51,18 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
     fetchData();
   }, []);
 
-  const likeAction = async () => {
+  const likeAction = async (like: boolean) => {
     try {
       const token = talentStore.getState().token;
       if (!token) return;
       const jobOfferId = data?.id;
-      const res = await talentLike(token, jobOfferId);
+      let res = undefined;
+
+      if (like) {
+        res = await talentLike(token, jobOfferId);
+      } else {
+        res = await talentDislike(token, jobOfferId);
+      }
       if (res) {
         const fetchedData: Job[] = await getJobOffer(token);
         talentStore.setState({ jibOffers: fetchedData });
@@ -92,7 +98,7 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
             "flex h-[80px] items-center bg-gradient-to-r from-sky-500 to-indigo-500 mt-auto px-2"
           )}
         >
-          <div className={cn("flex items-center gap-2 py-8")}>
+          <div className={cn("flex items-center gap-2 py-8 cursor-not-allowed")}>
 
             <Flame className="text-white" stroke="currentColor" size={42} />
             <div className="text-2xl font-medium text-white">Superlikes</div>
