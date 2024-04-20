@@ -3,10 +3,8 @@
 import * as React from "react"
 import {
   Flame,
-  Instagram,
-  Linkedin,
+  LogOut,
   Menu,
-  MessagesSquare,
   X,
 } from "lucide-react"
 
@@ -15,21 +13,35 @@ import { LogoArea } from "./logo-area"
 import { Matches } from "./matches"
 import ActionBar from "./action-bar"
 import Suggestions from "./suggestions"
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { HTMLAttributes, useEffect, useState } from "react"
-import useTalent from "@/hooks/talent-store"
+import useRecruiter from "@/hooks/recruiter-store"
 import { Job } from "@/types"
-import { getJobOffer, talentDislike, talentLike } from "@/actions/talent"
+import {getTalentMatch, recruiterDislike, recruiterLike } from "@/actions/recruiter"
+import { Button } from "@/components/ui/button"
 
 
-interface NewTalentHomeProps extends HTMLAttributes<HTMLDivElement> { }
+interface NewRecruiterHomeProps extends HTMLAttributes<HTMLDivElement> { }
 
-const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeProps) => {
+const RecruiterHome = withPageAuthRequired(({ className, ...props }: NewRecruiterHomeProps) => {
+
+  // return under development message
+
+  return (
+    <div className="flex flex-col gap-10 justify-center items-center h-screen text-center">
+      <h1 className="text-[#3C4144] text-2xl font-semibold">Your account has been created successfully. <br></br> This talent matching feature is under development.</h1>
+
+      {/* logout */}
+      <a href="/api/auth/logout" className="text-[#FF7626] text-2xl font-semibold">
+      <Button className="bg-[#5496EE] w-fit text-center h-[40px] border rounded-[40px] text-lg"><LogOut className="w-6 h-6 mr-2" />Logout</Button>
+      </a>
+    </div>
+  )
 
   const [mobileMenu, setMobileMenu] = useState(false)
   const [data, setData] = useState<Job | null>(null);
   const [loading, setLoading] = useState(false);
-  const talentStore = useTalent();
+  const recruiterStore = useRecruiter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,12 +50,12 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
         const response = await fetch("/api/token");
         const { accessToken } = await response.json();
         if (accessToken) {
-          talentStore.setState({ token: accessToken });
-          const fetchedData: Job[] = await getJobOffer(accessToken);
-          talentStore.setState({ jobOffers: fetchedData });
+          recruiterStore.setState({ token: accessToken });
+          const fetchedData: Job[] = await getTalentMatch(accessToken);
+          recruiterStore.setState({ jobOffers: fetchedData });
           setData(fetchedData[0]);
         } else {
-          talentStore.setState({ token: "" });
+          recruiterStore.setState({ token: "" });
         }
       }
       catch (error) {
@@ -58,19 +70,19 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
   const likeAction = async (like: boolean) => {
     try {
       setLoading(true);
-      const token = talentStore.getState().token;
+      const token = recruiterStore.getState().token;
       if (!token) return;
       const jobOfferId = data?.id;
       let res = undefined;
 
       if (like) {
-        res = await talentLike(token, jobOfferId);
+        res = await recruiterLike(token, jobOfferId);
       } else {
-        res = await talentDislike(token, jobOfferId);
+        res = await recruiterDislike(token, jobOfferId);
       }
       if (res) {
-        const fetchedData: Job[] = await getJobOffer(token);
-        talentStore.setState({ jobOffers: fetchedData });
+        const fetchedData: Job[] = await getTalentMatch(token);
+        recruiterStore.setState({ jobOffers: fetchedData });
         setData(fetchedData[0]);
       }
     } catch (error) {
@@ -127,4 +139,4 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
   )
 });
 
-export default TalentHome;
+export default RecruiterHome;

@@ -13,9 +13,9 @@ import useAccount from "@/hooks/account-store";
 
 
 
-interface NewTalentFormProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface NewRecruiterFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-const NewTalentForm = withPageAuthRequired(({ className, ...props }: NewTalentFormProps) => {
+const NewRecruiterForm = withPageAuthRequired(({ className, ...props }: NewRecruiterFormProps) => {
 
   const { user, isLoading } = useUser();
   const router = useRouter();
@@ -24,10 +24,10 @@ const NewTalentForm = withPageAuthRequired(({ className, ...props }: NewTalentFo
 
   useEffect(() => {
     if (accountStore.active && accountStore.active.auth0Id === user?.sub) {
-      if (accountStore.active.accountType === "talent") {
+      if (accountStore.active.accountType === "Applicant") {
         router.push('/talent');
-      } else if (accountStore.active.accountType === "Company") {
-        router.push('/recruiter');
+      } else if (accountStore.active.accountType === "talent") {
+        router.push('/talent');
       }
     }
   }, [accountStore]);
@@ -54,4 +54,4 @@ const NewTalentForm = withPageAuthRequired(({ className, ...props }: NewTalentFo
   );
 });
 
-export default NewTalentForm;
+export default NewRecruiterForm;

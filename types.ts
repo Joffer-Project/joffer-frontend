@@ -61,15 +61,25 @@ export interface Job {
 };
 
 export interface Company {
-  name: string;
-  about: string;
+  id: number;
+  accountId: number;
+  description: string;
   logoUrl: string;
-  slider1Url: string;
-  slider2Url: string;
-  slider3Url: string;
-  websiteUrl: string;
+  image2Url: string;
+  image3Url: string;
+  image4Url: string;
+  image5Url: string;
+  comapnyUrl: string;
   linkedInUrl: string;
-  twitterUrl: string;
-  instagramUrl: string;
   youtubeUrl: string;
-}
+  instaGramUrl: string;
+  twitterUrl: string;
+  recruiterToken: string;
+  tokenActiveSince: string;
+  isActive: boolean;
+  account: Account | null;
+  jobOffers: Job[];
+  email: string;
+  auth0Id: string;
+  name: string;
+};

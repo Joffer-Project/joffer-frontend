@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
-import { Talent, Industry, Role, Match, Job } from "@/types";
+import { Company, Industry, Role, Match, Job } from "@/types";
 
-interface TalentStore {
-  formData: Talent;
+interface RecruiterStore {
+  formData: Company;
   roles: Role[];
   selectedRoles: string[];
   industries: Industry[];
@@ -12,12 +12,12 @@ interface TalentStore {
   activeJobOffer: Job;
   jobOffers: Job[];
   token: string;
-  setState: (state: Partial<TalentStore>) => void;
-  getState: () => TalentStore;
+  setState: (state: Partial<RecruiterStore>) => void;
+  getState: () => RecruiterStore;
 }
 
-const useTalent = create<TalentStore>((set, get) => ({
-  formData: {} as Talent,
+const useRecruiter = create<RecruiterStore>((set, get) => ({
+  formData: {} as Company,
   roles: [],
   selectedRoles: [],
   selectedIndustries: [],
@@ -30,4 +30,4 @@ const useTalent = create<TalentStore>((set, get) => ({
   getState: () => get(),
 }));
 
-export default useTalent;
+export default useRecruiter;

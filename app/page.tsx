@@ -24,6 +24,14 @@ const HomePage = () => {
     }
   }
 
+  const recruiterClicked = () => {
+    if (user) {
+      router.push('/recruiter/create');
+    } else {
+      router.push(`/api/auth/login?returnTo=${encodeURIComponent('/recruiter/create')}`);
+    }
+  }
+
   useEffect(() => {
     const fetchData = async (sub: any) => {
       try {
@@ -37,7 +45,7 @@ const HomePage = () => {
             accountStore.setActive(account);
             if (account.accountType === "Applicant") {
               router.push('/talent');
-            } else if (account.accountType === "recruiter") {
+            } else if (account.accountType === "Company") {
               router.push('/recruiter');
             }
           } else {
@@ -105,7 +113,7 @@ const HomePage = () => {
     xl:h-[510px]
     2xl:h-[610px]
     bg-[#ffffffba] px-8 py-12 content-center justify-center items-center">
-              <Button variant="outline" onClick={() => router.push(`/api/auth/login`)} className="md:w-[300px] md:h-[80px] min-w-[10 0px] border rounded-[40px] text-white bg-gradient-to-br from-[#5496EE] to-[#0063E6] mb-2 font-medium md:text-[24px] px-8 py-6 text-[18px]
+              <Button variant="outline" onClick={recruiterClicked} className="md:w-[300px] md:h-[80px] min-w-[10 0px] border rounded-[40px] text-white bg-gradient-to-br from-[#5496EE] to-[#0063E6] mb-2 font-medium md:text-[24px] px-8 py-6 text-[18px]
                 hover:bg-gradient-to-br hover:from-[#005AD1] hover:to-[#00367F] hover:text-white">Recruiter</Button>
               <small className="font-normal text-stone-500 md:text-[16px] text-[14px]">For the ones who seek new talents to work with!</small>
             </div>

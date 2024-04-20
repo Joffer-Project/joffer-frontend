@@ -12,7 +12,7 @@ const AboutCompany: React.FC<AboutCompanyProps> = ({ data }) => {
                 <h1 className="text-[#3C4144] text-2xl font-semibold">About {data?.name ? data.name : "Company"}</h1>
             </div>
             <div className="overflow-y-auto max-h-[300px] text-[#3C4144]">
-                {data?.description ? data.description : "No data available"}
+                {data?.about ? data.about : "No data available"}
             </div>
         </div>
     );

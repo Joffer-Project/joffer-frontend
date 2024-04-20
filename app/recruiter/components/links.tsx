@@ -8,8 +8,8 @@ const Links: React.FC<LinksProps> = ({ data }) => {
     return (
         <div className="flex gap-4 justify-start items-center">
             <div className="flex border rounded-[15px] flex-col gap-2 justify-center items-center bg-white p-4 min-w-[110px]">
-                <a href={data ? data.comapnyUrl : "#"} target="_blank" rel="noreferrer">
-                    <Building2 size={32} className={cn(data && data.comapnyUrl? "text-[#8FE278]" : "text-[#909390]" )} />
+                <a href={data ? data.websiteUrl : "#"} target="_blank" rel="noreferrer">
+                    <Building2 size={32} className={cn(data && data.websiteUrl? "text-[#8FE278]" : "text-[#909390]" )} />
                     <span className="font-semibold">Company</span>
                 </a>
             </div>
@@ -26,8 +26,8 @@ const Links: React.FC<LinksProps> = ({ data }) => {
                 </a>
             </div>
             <div className="flex border rounded-[15px] flex-col gap-2 justify-center items-center bg-white p-4 min-w-[110px]">
-                <a href={data ? data.instaGramUrl : "#"} target="_blank" rel="noreferrer">
-                    <Instagram size={32} className={cn(data && data.instaGramUrl? "text-[#8FE278]" : "text-[#909390]" )} />
+                <a href={data ? data.instagramUrl : "#"} target="_blank" rel="noreferrer">
+                    <Instagram size={32} className={cn(data && data.instagramUrl? "text-[#8FE278]" : "text-[#909390]" )} />
                     <span className="font-semibold">Instagram</span>
                 </a>
             </div>
