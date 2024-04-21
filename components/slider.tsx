@@ -17,7 +17,7 @@ interface SliderProps {
 const Slider: React.FC<SliderProps> = ({ data }) => {
   const notFoundUrl = '/images/slider/404.png'
 
-  const images = [data?.slider1Url, data?.slider2Url, data?.slider3Url]
+  const images = [data?.image2Url, data?.image3Url, data?.image4Url]
 
   return (
     <Carousel className="w-full">

@@ -1,25 +1,20 @@
 "use client"
 
-import * as React from "react"
 import {
-  Flame,
-  Instagram,
-  Linkedin,
   Menu,
-  MessagesSquare,
-  X,
+  X
 } from "lucide-react"
 
+import { getJobOffer, talentDislike, talentLike } from "@/actions/talent"
+import useTalent from "@/hooks/talent-store"
 import { cn } from "@/lib/utils"
+import { Job } from "@/types"
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client"
+import { HTMLAttributes, useEffect, useState } from "react"
+import ActionBar from "./action-bar"
 import { LogoArea } from "./logo-area"
 import { Matches } from "./matches"
-import ActionBar from "./action-bar"
 import Suggestions from "./suggestions"
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import { HTMLAttributes, useEffect, useState } from "react"
-import useTalent from "@/hooks/talent-store"
-import { Job } from "@/types"
-import { getJobOffer, talentDislike, talentLike } from "@/actions/talent"
 
 
 interface NewTalentHomeProps extends HTMLAttributes<HTMLDivElement> { }
@@ -86,10 +81,10 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
       <div className="absolute top-4 left-4 cursor-pointer block 2xl:hidden border border-black rounded-md p-1 hover:bg-white hover:text-[#FF7626]" onClick={() => setMobileMenu(true)}>
         <Menu />
       </div>
-      <div className={cn("bg-[#FF7626] min-w-[400px] 2xl:flex flex-col hidden", mobileMenu && "flex absolute top-0 left-0 w-full h-full z-50")}>
+      <div className={cn("bg-gradient-to-br from-[#FF7E33] to-[#FF5E00] max-h-[100vh] min-w-[400px] 2xl:flex flex-col hidden", mobileMenu && "flex absolute top-0 left-0 w-full h-full z-50")}>
         <div
           className={cn(
-            "flex h-[80px] items-center bg-gradient-to-r from-[#E85600] to-[#8C3400] px-2 relative"
+            "flex h-[80px] items-center bg-gradient-to-br from-[#E85600] to-[#8C3400] px-2 relative"
           )}
         >
           <LogoArea />
@@ -102,13 +97,21 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
         <Matches />
         <div
           className={cn(
-            "flex h-[80px] items-center bg-gradient-to-r from-sky-500 to-indigo-500 mt-auto px-2"
+            "flex h-[70px] items-center bg-gradient-to-br from-[#005AD1] to-[#00367F] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
           )}
         >
-          <div className={cn("flex items-center gap-2 py-8 cursor-not-allowed")}>
+          <div className={cn("flex items-center gap-2")}>
+            <div className="p-6 flex  flex-row gap-4
+          
+           ">
+            <div className="text-2xl font-normal text-[#FDFDFD]">Superlikes</div>
 
-            <Flame className="text-white" stroke="currentColor" size={42} />
-            <div className="text-2xl font-medium text-white">Superlikes</div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" fill="none"
+            className="mt-[10px]">
+            <path d="M2 12.5L12 2.5L22 12.5" stroke="#FDFDFD" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+          
 
           </div>
         </div>
