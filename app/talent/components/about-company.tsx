@@ -7,11 +7,11 @@ interface AboutCompanyProps {
 
 const AboutCompany: React.FC<AboutCompanyProps> = ({ data }) => {
     return (
-        <div className="bg-white rounded-lg p-4 h-full">
-            <div className="mb-4">
-                <h1 className="text-[#3C4144] text-2xl font-semibold">About {data?.name ? data.name : "Company"}</h1>
+        <div className="bg-[#FDFDFD] rounded-sm p-4 h-full">
+            <div className="mb-1">
+                <h1 className="text-[#616161] text-[20px] font-medium">About Nokia {data?.name ? data.name : ""}</h1>
             </div>
-            <div className="overflow-y-auto max-h-[300px] text-[#3C4144]">
+            <div className="overflow-y-auto max-h-[300px] text-[#7F7F7F]">
                 {data?.description ? data.description : "No data available"}
             </div>
         </div>
