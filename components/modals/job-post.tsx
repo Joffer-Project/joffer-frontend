@@ -21,12 +21,18 @@ import { ChevronRight, Save } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Industry, Role } from "@/types";
 import { Checkbox } from "../ui/checkbox";
+import useTalent from "@/hooks/talent-store";
+import { createJob } from "@/actions/recruiter";
+import { createRole, createRoleForJob } from "@/actions/roles";
+import { createIndustry, createIndustryForJob } from "@/actions/industry";
+import { useRouter } from "next/navigation";
+import useRecruiter from "@/hooks/recruiter-store";
 
 const schema = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(1000),
-  minSalary: z.number().min(0),
-  maxSalary: z.number().min(0),
+  minSalary: z.number(),
+  maxSalary: z.number(),
   employmentStatus: z.string().min(3).max(100),
   industries: z
     .array(z.string())
@@ -54,7 +60,9 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
   token,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
-
+  const [loading, setLoading] = useState<boolean>(false);
+  const  recruiterStore = useRecruiter();
+  const router = useRouter()
   // useEffect(() => {
   //     setIsMounted(true);
   // }, []);
@@ -68,11 +76,11 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
   const defaultValues: FormValues = {
     title: "",
     description: "",
-    minSalary: 0,
-    maxSalary: 0,
     employmentStatus: "",
     industries: [],
     roles: [],
+    minSalary: 100,
+    maxSalary: 100,
   };
 
   const form = useForm<FormValues>({
@@ -82,9 +90,45 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
 
   const onSubmit = async (data: FormValues) => {
     try {
-      // api call
+      setLoading(true);
+      
+      const { roles, industries, ...rest } = data;
+      recruiterStore.setState({ selectedRoles: roles, selectedIndustries: industries });
+      const restData = { ...rest };
+      console.log(roles, industries, rest);
+      //post job data
+      const res = await createJob(restData, token);
+      if (res.id) {
+        const roleRes = await createRoleForJob(
+          recruiterStore.getState().selectedRoles,
+          token,
+          recruiterStore.getState().roles,
+          res.id
+        );
+        
+        const industryRes = await createIndustryForJob(
+          recruiterStore.getState().selectedIndustries,
+          token,
+          recruiterStore.getState().industries,
+          res.id
+        );
+        if (roleRes && industryRes) {
+          toast.success("Job posted successfully.");
+          onClose();
+        } else {
+          toast.error("Something went wrong.");
+          console.log(
+            "Error creating roles and industries",
+            roleRes,
+            industryRes
+          );
+        }
+      }
     } catch (error: any) {
       toast.error("Something went wrong.");
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -171,6 +215,7 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
                     <FormControl className=" h-12 border rounded-sm border-[#3C4144]">
                       <Input
                         placeholder="Max Salary"
+                        type="number"
                         {...field}
                         className="py-4 border-2 border-[#3C4144] text-lg h-[65px] rounded-[10px] hover:border-[#5496EE] hover:border-[3px] transition-all-[0.3s]
                                     ease-in-out hover:placeholder-[#5496EE] 
@@ -191,6 +236,7 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
                     <FormControl className=" h-12 border rounded-sm border-[#3C4144]">
                       <Input
                         placeholder="Min Salary"
+                        type="number"
                         {...field}
                         className="py-4 border-2 border-[#3C4144] text-lg h-[65px] rounded-[10px] hover:border-[#5496EE] hover:border-[3px] transition-all-[0.3s]
                                     ease-in-out hover:placeholder-[#5496EE] 
@@ -347,6 +393,7 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
 
             <Button
               type="submit"
+              disabled={loading}
               className="bg-[#5496EE] mx-auto my-8 text-center w-1/3 h-[60px] border rounded-[40px] text-lg"
             >
               Save <Save size={20} className="inline-block ml-2" />
