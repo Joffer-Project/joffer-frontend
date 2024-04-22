@@ -95,9 +95,9 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
           </div>
         </div>
         <Matches />
-        <div
+        <div 
           className={cn(
-            "flex h-[70px] items-center bg-gradient-to-br from-[#005AD1] to-[#00367F] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
+            "invisible flex h-[70px] items-center bg-gradient-to-br from-[#005AD1] to-[#00367F] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
           )}
         >
           <div className={cn("flex items-center gap-2")}>
