@@ -59,6 +59,22 @@ const getIndustries = async () => {
     return data as Industry[];
 };
 
+const getIndustriesByAccount = async (token: string) => {
+    const response = await fetch(`${URL}/Industries/Account`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${token}`,
+
+        }
+    });
+    if (!response.ok) {
+        throw new Error("An error occurred while fetching the industry data.");
+    }
+    const data = await response.json();
+    return data as Industry[];
+};
+
 
 const createIndustryForJob = async (selectedIndustryIds: string[], token: string | undefined, industries: Industry[], jobOfferId: string): Promise<boolean> => {
     let allCreated: boolean = true;
@@ -103,4 +119,4 @@ const createIndustryForJob = async (selectedIndustryIds: string[], token: string
     return allCreated;
 };
 
-export { createIndustry, getIndustries, createIndustryForJob };
+export { createIndustry, getIndustries, createIndustryForJob, getIndustriesByAccount };

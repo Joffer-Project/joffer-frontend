@@ -100,4 +100,20 @@ const createRoleForJob = async (selectedRoleIds: string[], token: string | undef
     return allCreated;
 };
 
-export { createRole, getRoles, createRoleForJob };
+const getRolesByAccount = async (token: string) => {
+    const response = await fetch(`${URL}/Roles/Account`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${token}`,
+
+        }
+    });
+    if (!response.ok) {
+        throw new Error("An error occurred while fetching the role data.");
+    }
+    const data = await response.json();
+    return data as Role[];
+};
+
+export { createRole, getRoles, createRoleForJob, getRolesByAccount };

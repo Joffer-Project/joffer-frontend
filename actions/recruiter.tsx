@@ -13,6 +13,31 @@ const createRecruiter = async (data: Company) => {
   return res.status === 201;
 };
 
+const updateRecruiter = async (data: Company, token: string) => {
+  const res = await fetch(`${URL}/Company`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  return res.status === 201;
+};
+
+const getRecruiter = async (token: string) => {
+  const res = await fetch(`${URL}/Company`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return res.json();
+};
+
 const getTalentMatch = async (token: string) => {
   const res = await fetch(`${URL}/JobOffers/Recruiter`, {
     method: "GET",
@@ -78,4 +103,6 @@ export {
   recruiterLike,
   recruiterDislike,
   createJob,
+  updateRecruiter,
+  getRecruiter
 };

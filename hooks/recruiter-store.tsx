@@ -12,16 +12,20 @@ interface RecruiterStore {
   activeJobOffer: Job;
   jobOffers: Job[];
   token: string;
+  ownIndustries: Industry[];
+  activeRecruiter: Company;
   setState: (state: Partial<RecruiterStore>) => void;
   getState: () => RecruiterStore;
 }
 
 const useRecruiter = create<RecruiterStore>((set, get) => ({
   formData: {} as Company,
+  activeRecruiter: {} as Company,
   roles: [],
   selectedRoles: [],
   selectedIndustries: [],
   industries: [],
+  ownIndustries: [],
   matches: [],
   activeJobOffer: {} as Job,
   jobOffers: [],  
