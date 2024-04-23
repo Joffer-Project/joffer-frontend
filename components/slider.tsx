@@ -26,7 +26,11 @@ const Slider: React.FC<SliderProps> = ({ data }) => {
           <CarouselItem key={index}>
             <div className="p-0">
               <Card>
-                <CardContent className="flex h-[250px] items-center justify-center p-0">
+                <CardContent className="flex 
+                 items-center justify-center p-0
+                 sm:h-[250px]
+                 xls:h-[350px]
+                 ">
                   <img src={url ? url : notFoundUrl} alt="" className="w-full h-full object-cover rounded-lg" />
                 </CardContent>
               </Card>
