@@ -1,27 +1,28 @@
 "use client";
 
-import Loader from '@/components/ui/loader';
-import { useUser } from '@auth0/nextjs-auth0/client';
-import Image from 'next/image';
+import Loader from "@/components/ui/loader";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Image from "next/image";
 interface TalentCreateLayoutProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 const TalentCreateLayout: React.FC<TalentCreateLayoutProps> = ({
-  children
+	children,
 }) => {
-  const { isLoading } = useUser();
+	const { isLoading } = useUser();
 
-  return (
-    <>
-      {isLoading && <Loader />}
-      <div className="bg-gradient-to-br from-[#FFCDB0] to-[#B0CFF7] flex justify-center items-center h-full
+	return (
+		<>
+			{isLoading && <Loader />}
+			<div
+				className="bg-gradient-to-br from-[#FFCDB0] to-[#B0CFF7] flex justify-center items-center h-full
       xls:flex-col
       sm:flex-col
       md:flex-col
       lg:flex-row
       2xl:flex-row">
-
-        <div className="flex flex-col justify-center items-center bg-gradient-to-br from-[#FF7E33] to-[#FF5E00] shadow-xl shadow-[#0c0a1b2a] rounded-l-lg px-14
+				<div
+					className="flex flex-col justify-center items-center bg-gradient-to-br from-[#FF7E33] to-[#FF5E00] shadow-xl shadow-[#0c0a1b2a] rounded-l-lg px-14
         xls:invisible
         xls:h-[0px]
         xls:w-[0px]
@@ -36,13 +37,25 @@ const TalentCreateLayout: React.FC<TalentCreateLayoutProps> = ({
         xl:h-[550px]
         2xl:h-[600px]
     ">
-          <Image src="/images/logo-hq.png" alt="logo" width={120} height={120} className='mb-[30px] sm:mb-[50px]' />
-          <div className="sm:text-[24px] text-[16px] text-center font-medium mb-[30px] sm:mb-[50px] text-[#3C4144]">Let advanced Joffer algoritms find your ideal carreer fit!</div>
-          <div className="sm:text-[32px] text-[24px] text-[#3C4144] text-center font-normal">Just Swipe!</div>
-        </div>
+					<Image
+						src="/images/logo-hq.png"
+						alt="logo"
+						width={120}
+						height={120}
+						className="mb-[30px] sm:mb-[50px]"
+					/>
+					<div className="sm:text-[24px] text-[16px] text-center font-medium mb-[30px] sm:mb-[50px] text-[#3C4144]">
+						Let advanced Joffer algorithms find your ideal career
+						fit!
+					</div>
+					<div className="sm:text-[32px] text-[24px] text-[#3C4144] text-center font-normal">
+						Just Swipe!
+					</div>
+				</div>
 
-        {/* main content */}
-        <div className="bg-[#FDFDFD] shadow-xl shadow-[#0c0a1b2a] xls:rounded-lg
+				{/* main content */}
+				<div
+					className="bg-[#FDFDFD] shadow-xl shadow-[#0c0a1b2a] xls:rounded-lg
         lg:rounded-r-lg
         lg:rounded-l-none
         xls:w-[240px]
@@ -59,11 +72,11 @@ const TalentCreateLayout: React.FC<TalentCreateLayoutProps> = ({
         lg:h-[500px]
         xl:h-[550px]
         2xl:h-[600px] ">
-          {children}
-        </div>
-      </div>
-    </>
-  );
-}
+					{children}
+				</div>
+			</div>
+		</>
+	);
+};
 
 export default TalentCreateLayout;
