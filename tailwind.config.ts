@@ -75,6 +75,7 @@ const config = {
       screens: {
         xls: "100px",
         xxs: '300px',
+        xws: '360px',
         xs: '576px',
         sm: '640px',
         md: '768px',
