@@ -52,24 +52,38 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                         </div>
 
                         {/* mobile */}
-                        < div className="bg-[#8F9293] gap-4 sm:hidden flex h-[90vh] overflow-y-auto w-fit mx-auto p-4 rounded-lg
+                        < div className="bg-[#8F9293] gap-4 sm:hidden flex h-[90vh] overflow-y-auto w-fit mx-auto p-2 rounded-lg
                         xls:h-[300px] 
                         xls:w-[300px]
                         xls:ml-[-30px]
-                        xxs:w-[90vw]
+                        xxs:w-[91.5vw]
                         xxs:h-[80vh]
-                        xs:w-[90vw]
+                        xs:w-[95vw]
                         sm:w-[95vw]
                                        
                         " >
-                            <div className="flex flex-col max-w-full gap-4 p4 sm:flex 
+                            <div className="flex flex-col max-w-full gap-2 sm:flex 
                             sm:flex-row 
                             sm:flex-wrap
                              ">
+                             <div className="w-full overflow-hidden border-none rounded-lg min-h-[250px] max-h-[250px]
+                            ">
                                 <Slider data={data?.company} />
-                                <AboutCompany data={data?.company} />
-                                <AboutJob data={data} />
+                            </div>
+                            <div>
                                 <Links data={data?.company} />
+                            </div>
+                            
+                            <div className="flex flex-col h-500px w-full gap-[4px]">
+                            <div>
+                                <AboutCompany data={data?.company}/>
+                            </div>    
+                            <div>
+                                <AboutJob data={data} />
+                            </div>
+                                
+                            </div>
+                                
                             </div>
                         </div >
                     </>
