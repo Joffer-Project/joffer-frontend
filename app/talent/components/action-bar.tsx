@@ -1,5 +1,5 @@
 import { HowItWorksModal } from '@/components/modals/how-it-works';
-import { SettingsModal } from '@/components/modals/settings';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 interface ActionBarProps {
@@ -8,18 +8,14 @@ interface ActionBarProps {
 
 const ActionBar: React.FC<ActionBarProps> = ({ likeAction }) => {
     const [open, setOpen] = useState(false);
-    const [settingsOpen, setSettingsOpen] = useState(false);
+    const router = useRouter();
     return (
         <>
             <HowItWorksModal
                 isOpen={open}
                 onClose={() => setOpen(false)}
             />
-            
-            <SettingsModal
-                isOpen={settingsOpen}
-                onClose={() => setSettingsOpen(false)}
-            />
+
             <div className="flex justify-between items-center mt-6 mb-0 py-8 w-full
             2xl:mt-6
             xl:mt-2
@@ -136,7 +132,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ likeAction }) => {
                 xls:gap-[-10px]
                 sm:mr-0
                 xls:mr-[-50px]
-                " onClick={() => setSettingsOpen(true)}>
+                " onClick={() => router.push("/talent/settings")} >
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" 
                 className='

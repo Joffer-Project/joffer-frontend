@@ -13,6 +13,19 @@ const createTalent = async (data: Talent) => {
     return res.status === 201;
 };
 
+const updateTalent = async (data: Talent, token: string) => {
+    const res = await fetch(`${URL}/Talent`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+  
+    return res.status === 201;
+  };
+
 const getJobOffer = async (token: string) => {
     const res = await fetch(`${URL}/JobOffers/Talent`, {
         method: 'GET',
@@ -58,11 +71,24 @@ const talentDislike = async (token: string, jobOfferId: any) => {
     return res.status;
 }
 
+const getTalent = async (token: string) => {
+    const res = await fetch(`${URL}/Talent`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  
+    return res.json();
+  };
 
 export {
     createTalent, 
+    getTalent, 
     getJobOffer,
     getMatches,
     talentLike,
-    talentDislike
+    talentDislike,
+    updateTalent
 };
