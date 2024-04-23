@@ -89,32 +89,12 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
         >
           <LogoArea />
           <div className={cn(
-            "absolute top-6 right-4 cursor-pointer block 2xl:hidden text-white border border-white rounded-full p-1 hover:bg-white hover:text-[#FF7626]"
+            "absolute top-6 xls:right-[25vw] xws:right-[10vw] xs:right-[2vw] xl:right-[2vw] cursor-pointer block 2xl:hidden text-white border border-white rounded-full p-1 hover:bg-white hover:text-[#FF7626]"
           )} onClick={() => setMobileMenu(false)}>
             <X />
           </div>
         </div>
         <Matches />
-        <div 
-          className={cn(
-            "invisible flex h-[70px] items-center bg-gradient-to-br from-[#005AD1] to-[#00367F] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
-          )}
-        >
-          <div className={cn("flex items-center gap-2")}>
-            <div className="p-6 flex  flex-row gap-4
-          
-           ">
-            <div className="text-2xl font-normal text-[#FDFDFD]">Superlikes</div>
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" fill="none"
-            className="mt-[10px]">
-            <path d="M2 12.5L12 2.5L22 12.5" stroke="#FDFDFD" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            </div>
-          
-
-          </div>
-        </div>
       </div>
       <div className="py-16 px-12 w-full">
         {

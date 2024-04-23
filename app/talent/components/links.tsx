@@ -8,7 +8,9 @@ const Links: React.FC<LinksProps> = ({ data }) => {
     return (
         <div className="flex gap-2 justify-center items-center w-full overflow-hidden scroll-hidden md:h-1/5 sm:h-1/6 xxs:h-[65px] xls:h-[50px]
         ">
-            <div className="flex border-none rounded-[6px] flex-col gap-2 justify-center items-center bg-[#FDFDFD] cursor-pointer hover:bg-[#f4f3f3]
+            <div className
+            
+            ="flex border-none rounded-[6px] flex-col gap-2 justify-center items-center bg-[#FDFDFD] cursor-pointer hover:bg-[#f4f3f3]
            md:pt-0
            xls:pt-[10%]
            xws:p-auto
