@@ -92,7 +92,7 @@ const RecruiterHome = withPageAuthRequired(
         if (!token) return;
         const data = recruiterStore.getState().activeTalent;
         const jobOfferId = data?.jobOfferId;
-        const talentId = data?.talentWithJobOfferId?.auth0Id;
+        const talentId = data?.auth0Id;
         console.log("like action in recruiter home", data);
         let res = undefined;
 

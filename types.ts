@@ -27,7 +27,8 @@ export interface Talent {
 
 export interface TalentWithJobOffer {
   talentWithJobOfferId: Talent;
-  jobOfferId: number; 
+  jobOfferId: number;
+  auth0Id: string;
 };
 
 export interface Role {
@@ -52,11 +53,13 @@ export interface Match {
 };
 
 export interface Job {
+  id: number;
   title: string;
   description: string;
   minSalary: number;
   maxSalary: number;
   employmentStatus: string;
+  company: Company;
 };
 
 export interface Company {

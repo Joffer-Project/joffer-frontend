@@ -1,4 +1,4 @@
-import Slider from '@/components/slider'
+import CompanySlider from '@/components/ui/company-slider'
 import { Job } from '@/types'
 import React from 'react'
 import AboutCompany from './about-company'
@@ -23,7 +23,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                         ">
                             <div className="flex flex-col w-2/5 gap-[8px]
                             ">
-                                <Slider data={data?.company} />
+                                <CompanySlider data={data?.company} />
                                 <AboutCompany data={data?.company} />
                             </div>
                             <div className="flex flex-col w-3/5 items-center max-w-full gap-[8px]">
@@ -42,7 +42,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
 
                             <div className="flex flex-col w-2/5 gap-[4px]
                             ">
-                                <Slider data={data?.company} />
+                                <CompanySlider data={data?.company} />
                                 <AboutCompany data={data?.company} />
                             </div>
                             <div className="flex flex-col w-3/5 gap-[4px]">
@@ -68,7 +68,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                              ">
                              <div className="w-full overflow-hidden border-none rounded-lg min-h-[250px] max-h-[250px]
                             ">
-                                <Slider data={data?.company} />
+                                <CompanySlider data={data?.company} />
                             </div>
                             <div>
                                 <Links data={data?.company} />

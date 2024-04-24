@@ -34,7 +34,7 @@ const TalentHome = withPageAuthRequired(({ className, ...props }: NewTalentHomeP
         const { accessToken } = await response.json();
         if (accessToken) {
           talentStore.setState({ token: accessToken });
-          const fetchedData: Job[] = await getJobOffer(accessToken);
+          const fetchedData: Job[] = await getJobOffer(accessToken);  
           talentStore.setState({ jobOffers: fetchedData });
           setData(fetchedData[0]);
         } else {
