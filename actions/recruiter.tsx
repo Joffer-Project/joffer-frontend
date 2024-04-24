@@ -23,7 +23,7 @@ const updateRecruiter = async (data: Company, token: string) => {
     body: JSON.stringify(data),
   });
 
-  return res.status === 201;
+  return res.status === 204;
 };
 
 const getRecruiter = async (token: string) => {

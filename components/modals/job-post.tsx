@@ -63,6 +63,7 @@ export const JobPostModal: React.FC<JobPostModalProps> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const  recruiterStore = useRecruiter();
   const router = useRouter()
+  console.log("recruiterStore", recruiterStore);
   // useEffect(() => {
   //     setIsMounted(true);
   // }, []);

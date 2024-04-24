@@ -55,6 +55,14 @@ const RecruiterHome = withPageAuthRequired(
                 activeRecruiter: fetchedRecruiterDetails,
               });
 
+               // fetch industry data
+            const fetchedIndData: Industry[] = await getIndustries();
+            recruiterStore.setState({ industries: fetchedIndData });
+
+            // fetch roles data
+            const fetchedRolesData: Role[] = await getRoles();
+            recruiterStore.setState({ roles: fetchedRolesData });
+
               // Api call
               const fetchedData: TalentWithJobOffer[] = await getTalentMatch(accessToken);
               recruiterStore.setState({ talents: fetchedData });
