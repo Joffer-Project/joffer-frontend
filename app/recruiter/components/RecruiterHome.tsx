@@ -1,28 +1,26 @@
 "use client";
 
-import * as React from "react";
-import { Flame, LogOut, Menu, Plus, PlusCircle, X } from "lucide-react";
+import { Menu, PlusCircle, X } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import { LogoArea } from "./logo-area";
-import { Matches } from "./matches";
-import ActionBar from "./action-bar";
-import Suggestions from "./suggestions";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import { HTMLAttributes, useEffect, useState } from "react";
-import useRecruiter from "@/hooks/recruiter-store";
-import { Company, Industry, Job, Role, Talent, TalentWithJobOffer } from "@/types";
+import { getIndustries } from "@/actions/industry";
 import {
   getRecruiter,
   getTalentMatch,
   recruiterDislike,
   recruiterLike,
 } from "@/actions/recruiter";
-import { Button } from "@/components/ui/button";
-import { JobPostModal } from "@/components/modals/job-post";
-import { getIndustries, getIndustriesByAccount } from "@/actions/industry";
 import { getRoles } from "@/actions/roles";
+import { JobPostModal } from "@/components/modals/job-post";
+import useRecruiter from "@/hooks/recruiter-store";
+import { cn } from "@/lib/utils";
+import { Company, Industry, Role, TalentWithJobOffer } from "@/types";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
+import { HTMLAttributes, useEffect, useState } from "react";
+import ActionBar from "./action-bar";
+import { LogoArea } from "./logo-area";
+import { Matches } from "./matches";
+import Suggestions from "./suggestions";
 
 interface NewRecruiterHomeProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -135,8 +133,7 @@ const RecruiterHome = withPageAuthRequired(
           </div>
           <div
             className={cn(
-              "bg-[#FF7626] min-w-[400px] 2xl:flex flex-col hidden",
-              mobileMenu && "flex absolute top-0 left-0 w-full h-full z-50"
+              "bg-gradient-to-br from-[#FF7E33] to-[#FF5E00] max-h-[100vh] min-w-[400px] 2xl:flex flex-col hidden", mobileMenu && "flex absolute top-0 left-0 w-full h-full z-50"
             )}
           >
             <div
@@ -158,16 +155,16 @@ const RecruiterHome = withPageAuthRequired(
             <div
               onClick={() => setModal(true)}
               className={cn(
-                "flex h-[80px] items-center cursor-pointer  bg-gradient-to-r from-sky-500 to-indigo-500 mt-auto px-2"
+                " flex h-[70px] items-center bg-gradient-to-br from-[#005AD1] to-[#00367F] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
               )}
             >
               <div
-                className={cn("flex items-center gap-4 py-8hover:scale-[0.9]")}
+                className={cn("flex items-center gap-2")}
               >
                 <PlusCircle
-                  className="text-white"
+                  className="text-white ml-2"
                   stroke="currentColor"
-                  size={42}
+                  size={38}
                 />
                 <div className="text-2xl font-medium text-white">
                   Add New Job

@@ -20,18 +20,18 @@ const Slider: React.FC<SliderProps> = ({ data }) => {
   const images = [data?.avatarUrl, data?.image2Url, data?.image3Url]
 
   return (
-    <Carousel className="w-full">
+    <Carousel className="w-full h-full">
       <CarouselContent>
         {images.map((url, index) => (
           <CarouselItem key={index}>
-            <div className="p-0">
-              <Card>
+            <div className="p-0 h-full">
+              <Card className="h-full">
                 <CardContent className="flex 
-                 items-center justify-center p-0
-                 sm:h-[250px]
-                 xls:h-[350px]
+                 items-center justify-center
+                 h-[100%]
+                 
                  ">
-                  <img src={url ? url : notFoundUrl} alt="" className="w-full h-full object-cover rounded-lg" />
+                  <img src={url ? url : notFoundUrl} alt="" className="w-full h-full object-cover" />
                 </CardContent>
               </Card>
             </div>
