@@ -19,13 +19,13 @@ import {
   UserCircle2,
 } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
-import { Company, Industry, Job, Role } from "@/types";
+import { Talent, Industry, Job, Role } from "@/types";
 import { Checkbox } from "@/components/ui/checkbox";
 import useTalent from "@/hooks/talent-store";
 import {
-  getRecruiter,
-  updateRecruiter,
-} from "@/actions/recruiter";
+  getTalent,
+  updateTalent,
+} from "@/actions/talent";
 import {
   createRole,
   createRoleForJob,
@@ -39,7 +39,6 @@ import {
   getIndustriesByAccount,
 } from "@/actions/industry";
 import { useRouter } from "next/navigation";
-import useRecruiter from "@/hooks/recruiter-store";
 import {
   Dialog,
   DialogClose,
@@ -54,13 +53,13 @@ import { cn } from "@/lib/utils";
 import ImageUpload from "@/components/ui/image-upload";
 import { Label } from "@/components/ui/label";
 
-const RecruiterSettings = () => {
-  const recruiterStore = useRecruiter();
+const TalentSettings = () => {
+  const talentStore = useTalent();
   const router = useRouter();
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [activeRecruiter, setActiveRecruiter] = useState<Company>(
-    {} as Company
+  const [activeTalent, setActiveTalent] = useState<Talent>(
+    {} as Talent
   );
   const [industries, setIndustries] = useState<Industry[]>([]);
   const [roles, setRoles] = useState<Role[]>([]);
@@ -74,15 +73,15 @@ const RecruiterSettings = () => {
         const response = await fetch("/api/token");
         const { accessToken } = await response.json();
         if (accessToken) {
-          recruiterStore.setState({ token: accessToken });
-          const fetchedRecruiterDetails: Company = await getRecruiter(
+          talentStore.setState({ token: accessToken });
+          const fetchedTalentDetails: Talent = await getTalent(
             accessToken
           );
           if (
-            Object.keys(fetchedRecruiterDetails).length > 0 &&
-            fetchedRecruiterDetails.id
+            Object.keys(fetchedTalentDetails).length > 0 &&
+            fetchedTalentDetails.auth0Id
           ) {
-            setActiveRecruiter(fetchedRecruiterDetails);
+            setActiveTalent(fetchedTalentDetails);
 
             const fetchIndustriesByAccount: Industry[] =
               await getIndustriesByAccount(accessToken);
@@ -103,10 +102,10 @@ const RecruiterSettings = () => {
             const fetchedRolesData: Role[] = await getRoles();
             setRoles(fetchedRolesData);
           } else {
-            router.push("/recruiter/create");
+            router.push("/talent/create");
           }
         } else {
-          recruiterStore.setState({ token: "" });
+          talentStore.setState({ token: "" });
           router.push("/");
         }
       } catch (error) {
@@ -120,42 +119,42 @@ const RecruiterSettings = () => {
 
   const [currentBox, setCurrentBox] = useState("");
   const [currentLink, setCurrentLink] = useState("");
-  const [comapnyUrl, setComapnyUrl] = useState("");
+  const [githubUrl, setGithubUrl] = useState("");
   const [linkedInUrl, setLinkedInUrl] = useState("");
-  const [twitterUrl, setTwitterUrl] = useState("");
-  const [instaGramUrl, setInstaGramUrl] = useState("");
-  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [mediumUrl, setMediumUrl] = useState("");
+  const [dribbleUrl, setDribbleUrl] = useState("");
+  const [personalUrl, setPersonalUrl] = useState("");
 
   const saveLink = () => {
     if (currentBox === "company") {
-      setComapnyUrl(currentLink);
+      setGithubUrl(currentLink);
     } else if (currentBox === "linkedin") {
       setLinkedInUrl(currentLink);
-    } else if (currentBox === "twitter") {
-      setTwitterUrl(currentLink);
-    } else if (currentBox === "instaGram") {
-      setInstaGramUrl(currentLink);
-    } else if (currentBox === "youtube") {
-      setYoutubeUrl(currentLink);
+    } else if (currentBox === "medium") {
+      setMediumUrl(currentLink);
+    } else if (currentBox === "dribble") {
+      setDribbleUrl(currentLink);
+    } else if (currentBox === "personal") {
+      setPersonalUrl(currentLink);
     }
 
     setCurrentLink("");
   };
 
   useEffect(() => {
-    setComapnyUrl(activeRecruiter.comapnyUrl);
-    setLinkedInUrl(activeRecruiter.linkedInUrl);
-    setTwitterUrl(activeRecruiter.twitterUrl);
-    setInstaGramUrl(activeRecruiter.instaGramUrl);
-    setYoutubeUrl(activeRecruiter.youtubeUrl);
-  }, [activeRecruiter]);
+    setGithubUrl(activeTalent.gitHubUrl);
+    setLinkedInUrl(activeTalent.linkedInUrl);
+    setMediumUrl(activeTalent.mediumUrl);
+    setDribbleUrl(activeTalent.dribbleUrl);
+    setPersonalUrl(activeTalent.personalUrl);
+  }, [activeTalent]);
 
   const onSubmit = async () => {
     try {
       setLoading(true);
-      const token = recruiterStore.getState().token;
+      const token = talentStore.getState().token;
       if (token) {
-        const res = await updateRecruiter(activeRecruiter, token);
+        const res = await updateTalent(activeTalent, token);
         if (res) {
           const roleRes = await createRole(ownRoles, token, roles);
           const industryRes = await createIndustry(
@@ -165,7 +164,7 @@ const RecruiterSettings = () => {
           );
           if (roleRes && industryRes) {
             toast.success("Profile updated successfully.");
-            router.push("/recruiter");
+            router.push("/talent");
           } else {
             toast.error("Something went wrong.");
           }
@@ -211,14 +210,14 @@ const RecruiterSettings = () => {
             2xl:text-4xl
             2xl:mb-6"
         >
-          Update Recruiter Profile
+          Update Talent Profile
         </h2>
         <form className="flex flex-col gap-4">
           <Input
-            placeholder="Company Name"
-            value={activeRecruiter.name}
+            placeholder="Talent Name"
+            value={activeTalent.name}
             onChange={(e) =>
-              setActiveRecruiter({ ...activeRecruiter, name: e.target.value })
+              setActiveTalent({ ...activeTalent, name: e.target.value })
             }
             className="py-4 border-2 border-[#3C4144] text-lg h-[65px] rounded-[10px] hover:border-[#5496EE] hover:border-[3px] transition-all-[0.3s]
                                     ease-in-out hover:placeholder-[#5496EE] 
@@ -226,11 +225,11 @@ const RecruiterSettings = () => {
           />
 
           <Textarea
-            placeholder="Company Description"
+            placeholder="Talent Description"
             className="rounded-md border border-[#5496EE] resize-y max-h-[200px] md:h-[200px]"
-            value={activeRecruiter.description}
-            defaultValue={activeRecruiter.description}
-            onChange={(e) => (activeRecruiter.description = e.target.value)}
+            value={activeTalent.aboutMe}
+            defaultValue={activeTalent.aboutMe}
+            onChange={(e) => (activeTalent.aboutMe = e.target.value)}
           />
 
           <p className="text-[#5496EE] w-full">Industries</p>
@@ -308,52 +307,52 @@ const RecruiterSettings = () => {
           <div className="flex flex-col gap-2">
             <div className="flex gap-3 overflow-auto justify-between">
               <ImageUpload
-                value={[activeRecruiter.logoUrl]}
+                value={[activeTalent.avatarUrl]}
                 onChange={(url) =>
-                  setActiveRecruiter({ ...activeRecruiter, logoUrl: url })
+                  setActiveTalent({ ...activeTalent, avatarUrl: url })
                 }
                 onRemove={() =>
-                  setActiveRecruiter({ ...activeRecruiter, logoUrl: "" })
+                  setActiveTalent({ ...activeTalent, avatarUrl: "" })
                 }
                 label="Logo"
               />
               <ImageUpload
-                value={[activeRecruiter.image2Url]}
+                value={[activeTalent.image2Url]}
                 onChange={(url) =>
-                  setActiveRecruiter({ ...activeRecruiter, image2Url: url })
+                  setActiveTalent({ ...activeTalent, image2Url: url })
                 }
                 onRemove={() =>
-                  setActiveRecruiter({ ...activeRecruiter, image2Url: "" })
+                  setActiveTalent({ ...activeTalent, image2Url: "" })
                 }
                 label="Image 2"
               />
               <ImageUpload
-                value={[activeRecruiter.image3Url]}
+                value={[activeTalent.image3Url]}
                 onChange={(url) =>
-                  setActiveRecruiter({ ...activeRecruiter, image3Url: url })
+                  setActiveTalent({ ...activeTalent, image3Url: url })
                 }
                 onRemove={() =>
-                  setActiveRecruiter({ ...activeRecruiter, image3Url: "" })
+                  setActiveTalent({ ...activeTalent, image3Url: "" })
                 }
                 label="Image 3"
               />
               <ImageUpload
-                value={[activeRecruiter.image4Url]}
+                value={[activeTalent.image4Url]}
                 onChange={(url) =>
-                  setActiveRecruiter({ ...activeRecruiter, image4Url: url })
+                  setActiveTalent({ ...activeTalent, image4Url: url })
                 }
                 onRemove={() =>
-                  setActiveRecruiter({ ...activeRecruiter, image4Url: "" })
+                  setActiveTalent({ ...activeTalent, image4Url: "" })
                 }
                 label="Image 4"
               />
               <ImageUpload
-                value={[activeRecruiter.image5Url]}
+                value={[activeTalent.image5Url]}
                 onChange={(url) =>
-                  setActiveRecruiter({ ...activeRecruiter, image5Url: url })
+                  setActiveTalent({ ...activeTalent, image5Url: url })
                 }
                 onRemove={() =>
-                  setActiveRecruiter({ ...activeRecruiter, image5Url: "" })
+                  setActiveTalent({ ...activeTalent, image5Url: "" })
                 }
                 label="Image 5"
               />
@@ -366,17 +365,17 @@ const RecruiterSettings = () => {
                     variant="secondary"
                     className={cn(
                       "w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2",
-                      comapnyUrl ? "border-[#5496EE]" : "border-gray-600"
+                      githubUrl ? "border-[#5496EE]" : "border-gray-600"
                     )}
                     onClick={() => setCurrentBox("company")}
                   >
                     <Globe
                       className={cn(
                         "h-8 w-8",
-                        comapnyUrl ? "text-[#5496EE]" : "text-gray-600"
+                        githubUrl ? "text-[#5496EE]" : "text-gray-600"
                       )}
                     />
-                    <small>Company</small>
+                    <small>Talent</small>
                   </Button>
                 </DialogTrigger>
               </div>
@@ -408,14 +407,14 @@ const RecruiterSettings = () => {
                     variant="secondary"
                     className={cn(
                       "w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2",
-                      twitterUrl ? "border-[#5496EE]" : "border-gray-600"
+                      mediumUrl ? "border-[#5496EE]" : "border-gray-600"
                     )}
-                    onClick={() => setCurrentBox("twitter")}
+                    onClick={() => setCurrentBox("medium")}
                   >
                     <Twitter
                       className={cn(
                         "h-8 w-8",
-                        twitterUrl ? "text-[#5496EE]" : "text-gray-600"
+                        mediumUrl ? "text-[#5496EE]" : "text-gray-600"
                       )}
                     />
                     <small>Twitter</small>
@@ -429,14 +428,14 @@ const RecruiterSettings = () => {
                     variant="secondary"
                     className={cn(
                       "w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2",
-                      instaGramUrl ? "border-[#5496EE]" : "border-gray-600"
+                      dribbleUrl ? "border-[#5496EE]" : "border-gray-600"
                     )}
-                    onClick={() => setCurrentBox("instaGram")}
+                    onClick={() => setCurrentBox("dribble")}
                   >
                     <Instagram
                       className={cn(
                         "h-8 w-8",
-                        instaGramUrl ? "text-[#5496EE]" : "text-gray-600"
+                        dribbleUrl ? "text-[#5496EE]" : "text-gray-600"
                       )}
                     />
                     <small>Instagram</small>
@@ -450,14 +449,14 @@ const RecruiterSettings = () => {
                     variant="secondary"
                     className={cn(
                       "w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2",
-                      youtubeUrl ? "border-[#5496EE]" : "border-gray-600"
+                      personalUrl ? "border-[#5496EE]" : "border-gray-600"
                     )}
-                    onClick={() => setCurrentBox("youtube")}
+                    onClick={() => setCurrentBox("personal")}
                   >
                     <UserCircle2
                       className={cn(
                         "h-8 w-8",
-                        youtubeUrl ? "text-[#5496EE]" : "text-gray-600"
+                        personalUrl ? "text-[#5496EE]" : "text-gray-600"
                       )}
                     />
                     <small>YouTube</small>
@@ -541,4 +540,4 @@ const RecruiterSettings = () => {
   );
 };
 
-export default RecruiterSettings;
+export default TalentSettings;
