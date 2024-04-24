@@ -92,20 +92,22 @@ const RecruiterHome = withPageAuthRequired(
         if (!token) return;
         const data = recruiterStore.getState().activeTalent;
         const jobOfferId = data?.jobOfferId;
+        const talentId = data?.talentWithJobOfferId?.auth0Id;
         console.log("like action in recruiter home", data);
-        // const jobOfferId = data?.id;
-        // let res = undefined;
+        let res = undefined;
 
-        // if (like) {
-        //   res = await recruiterLike(token, jobOfferId);
-        // } else {
-        //   res = await recruiterDislike(token, jobOfferId);
-        // }
-        // if (res) {
-        //   const fetchedData: Job[] = await getTalentMatch(token);
-        //   recruiterStore.setState({ jobOffers: fetchedData });
-        //   setData(fetchedData[0]);
-        // }
+        if (like) {
+          res = await recruiterLike(token, jobOfferId, talentId);
+        } else {
+          res = await recruiterDislike(token, jobOfferId, talentId);
+        }
+        if (res) {
+          // Api call
+          const fetchedData: TalentWithJobOffer[] = await getTalentMatch(token);
+          recruiterStore.setState({ talents: fetchedData });
+          setData(fetchedData[0]);
+          recruiterStore.setState({ activeTalent: fetchedData[0] });
+        }
       } catch (error) {
         console.error("Error liking job offer:", error);
       } finally {
