@@ -8,16 +8,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Company } from "@/types"
+import { Talent } from "@/types"
 
 interface SliderProps {
-  data: Company | undefined | null
+  data: Talent | undefined | null
 }
 
 const Slider: React.FC<SliderProps> = ({ data }) => {
   const notFoundUrl = '/images/slider/404.png'
 
-  const images = [data?.image2Url, data?.image3Url, data?.image4Url]
+  const images = [data?.avatarUrl, data?.image2Url, data?.image3Url]
 
   return (
     <Carousel className="w-full">

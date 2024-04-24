@@ -11,7 +11,7 @@ import Suggestions from "./suggestions";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { HTMLAttributes, useEffect, useState } from "react";
 import useRecruiter from "@/hooks/recruiter-store";
-import { Company, Industry, Job, Role } from "@/types";
+import { Company, Industry, Job, Role, Talent, TalentWithJobOffer } from "@/types";
 import {
   getRecruiter,
   getTalentMatch,
@@ -29,7 +29,7 @@ interface NewRecruiterHomeProps extends HTMLAttributes<HTMLDivElement> {}
 const RecruiterHome = withPageAuthRequired(
   ({ className, ...props }: NewRecruiterHomeProps) => {
     const [mobileMenu, setMobileMenu] = useState(false);
-    const [data, setData] = useState<Job | null>(null);
+    const [data, setData] = useState<TalentWithJobOffer | null>(null);
     const [modal, setModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const recruiterStore = useRecruiter();
@@ -50,15 +50,16 @@ const RecruiterHome = withPageAuthRequired(
               Object.keys(fetchedRecruiterDetails).length > 0 &&
               fetchedRecruiterDetails.id
             ) {
+              recruiterStore.setState({ token: accessToken });
               recruiterStore.setState({
                 activeRecruiter: fetchedRecruiterDetails,
               });
 
-              // wrong api call
-              recruiterStore.setState({ token: accessToken });
-              const fetchedData: Job[] = await getTalentMatch(accessToken);
-              recruiterStore.setState({ jobOffers: fetchedData });
+              // Api call
+              const fetchedData: TalentWithJobOffer[] = await getTalentMatch(accessToken);
+              recruiterStore.setState({ talents: fetchedData });
               setData(fetchedData[0]);
+              recruiterStore.setState({ activeTalent: fetchedData[0] });
               
             } else {
               router.push("/recruiter/create");
@@ -81,19 +82,22 @@ const RecruiterHome = withPageAuthRequired(
         setLoading(true);
         const token = recruiterStore.getState().token;
         if (!token) return;
-        const jobOfferId = data?.id;
-        let res = undefined;
+        const data = recruiterStore.getState().activeTalent;
+        const jobOfferId = data?.jobOfferId;
+        console.log("like action in recruiter home", data);
+        // const jobOfferId = data?.id;
+        // let res = undefined;
 
-        if (like) {
-          res = await recruiterLike(token, jobOfferId);
-        } else {
-          res = await recruiterDislike(token, jobOfferId);
-        }
-        if (res) {
-          const fetchedData: Job[] = await getTalentMatch(token);
-          recruiterStore.setState({ jobOffers: fetchedData });
-          setData(fetchedData[0]);
-        }
+        // if (like) {
+        //   res = await recruiterLike(token, jobOfferId);
+        // } else {
+        //   res = await recruiterDislike(token, jobOfferId);
+        // }
+        // if (res) {
+        //   const fetchedData: Job[] = await getTalentMatch(token);
+        //   recruiterStore.setState({ jobOffers: fetchedData });
+        //   setData(fetchedData[0]);
+        // }
       } catch (error) {
         console.error("Error liking job offer:", error);
       } finally {

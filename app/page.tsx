@@ -41,6 +41,7 @@ const HomePage = () => {
         if (accessToken) {
           const account = await getAccount(accessToken);
           console.log("Account:", account);
+          console.log("Account:", accessToken);
           if (account) {
             accountStore.setActive(account);
             if (account.accountType === "Applicant") {
