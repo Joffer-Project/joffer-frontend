@@ -31,8 +31,8 @@ import useRecruiter from "@/hooks/recruiter-store";
 const schema = z.object({
   title: z.string().min(3).max(100),
   description: z.string().min(3).max(1000),
-  minSalary: z.number(),
-  maxSalary: z.number(),
+  minSalary: z.coerce.number(),
+  maxSalary: z.coerce.number(),
   employmentStatus: z.string().min(3).max(100),
   industries: z
     .array(z.string())
