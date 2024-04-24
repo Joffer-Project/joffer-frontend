@@ -24,6 +24,12 @@ export interface Talent {
   email: string;
 };
 
+
+export interface TalentWithJobOffer {
+  talentWithJobOfferId: Talent;
+  jobOfferId: number; 
+};
+
 export interface Role {
   id: number;
   name: string;

@@ -77,7 +77,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
             setLinkedInUrl(currentLink);
         } else if (currentBox === "twitter") {
             setTwitterUrl(currentLink);
-        } else if (currentBox === "instaGram") {
+        } else if (currentBox === "instagram") {
             setInstaGramUrl(currentLink);
         } else if (currentBox === "youtube") {
             setYoutubeUrl(currentLink);
@@ -231,7 +231,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                             type="button"
                                             variant="secondary"
                                             className={cn("w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2", twitterUrl ? "border-[#5496EE]" : "border-gray-600")}
-                                            onClick={() => setCurrentBox("medium")}
+                                            onClick={() => setCurrentBox("twitter")}
                                         >
                                             <Twitter className={cn("h-8 w-8", twitterUrl ? "text-[#5496EE]" : "text-gray-600")} />
                                             <small>Twitter</small>
@@ -247,7 +247,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                             type="button"
                                             variant="secondary"
                                             className={cn("w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2", instaGramUrl ? "border-[#5496EE]" : "border-gray-600")}
-                                            onClick={() => setCurrentBox("dribble")}
+                                            onClick={() => setCurrentBox("instagram")}
                                         >
                                             <Instagram className={cn("h-8 w-8", instaGramUrl ? "text-[#5496EE]" : "text-gray-600")} />
                                             <small>Instagram</small>
@@ -263,7 +263,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                             type="button"
                                             variant="secondary"
                                             className={cn("w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2", youtubeUrl ? "border-[#5496EE]" : "border-gray-600")}
-                                            onClick={() => setCurrentBox("personal")}
+                                            onClick={() => setCurrentBox("youtube")}
                                         >
                                             <UserCircle2 className={cn("h-8 w-8", youtubeUrl ? "text-[#5496EE]" : "text-gray-600")} />
                                             <small>YouTube</small>

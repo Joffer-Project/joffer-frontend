@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { Company, Industry, Role, Match, Job } from "@/types";
+import { Company, Industry, Role, Match, Job, Talent, TalentWithJobOffer } from "@/types";
 
 interface RecruiterStore {
   formData: Company;
@@ -9,8 +9,8 @@ interface RecruiterStore {
   industries: Industry[];
   selectedIndustries: string[];
   matches: Match[];
-  activeJobOffer: Job;
-  jobOffers: Job[];
+  talents: TalentWithJobOffer[];
+  activeTalent: TalentWithJobOffer;
   token: string;
   ownIndustries: Industry[];
   activeRecruiter: Company;
@@ -27,8 +27,8 @@ const useRecruiter = create<RecruiterStore>((set, get) => ({
   industries: [],
   ownIndustries: [],
   matches: [],
-  activeJobOffer: {} as Job,
-  jobOffers: [],  
+  talents: [],
+  activeTalent: {} as TalentWithJobOffer,
   token: '',
   setState: (state) => set(state),
   getState: () => get(),

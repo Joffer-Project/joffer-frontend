@@ -56,7 +56,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                     ...recruiterStore.formData,
                     ...data,
                     auth0Id: user?.sub || "",
-                    email: user?.email || "",
+                    email: user?.email || ""
                 }
             });
 

@@ -39,7 +39,7 @@ const getRecruiter = async (token: string) => {
 };
 
 const getTalentMatch = async (token: string) => {
-  const res = await fetch(`${URL}/JobOffers/Recruiter`, {
+  const res = await fetch(`${URL}/Talents`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
