@@ -176,7 +176,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({ setStep }) => {
 								<FormControl>
 									<Textarea
 										placeholder="Tell us a little bit about yourself"
-										className="rounded-md border border-[#FF7E33] resize-y max-h-[500px] xl:h-[300px] ml:h-[250px] md:h-[425px] sm:h-[397px] xxs:h-[395px]"
+										className="rounded-md border border-[#FF7E33] resize-none max-h-[500px] xl:h-[300px] ml:h-[250px] md:h-[425px] sm:h-[397px] xxs:h-[395px]"
 										{...field}
 									/>
 								</FormControl>
