@@ -23,7 +23,7 @@ const updateTalent = async (data: Talent, token: string) => {
       body: JSON.stringify(data),
     });
   
-    return res.status === 201;
+    return res.status === 204;
   };
 
 const getJobOffer = async (token: string) => {

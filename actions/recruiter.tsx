@@ -23,7 +23,7 @@ const updateRecruiter = async (data: Company, token: string) => {
     body: JSON.stringify(data),
   });
 
-  return res.status === 201;
+  return res.status === 204;
 };
 
 const getRecruiter = async (token: string) => {
@@ -60,9 +60,9 @@ const getMatches = async (token: string) => {
   return res.json();
 };
 
-const recruiterLike = async (token: string, jobOfferId: any) => {
-  const res = await fetch(`${URL}/like/${jobOfferId}`, {
-    method: "POST",
+const recruiterLike = async (token: string, jobOfferId: any, talentAuth0Id: any) => {
+  const res = await fetch(`${URL}/Like/${jobOfferId}/Talent/${talentAuth0Id}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -72,16 +72,18 @@ const recruiterLike = async (token: string, jobOfferId: any) => {
   return res.status;
 };
 
-const recruiterDislike = async (token: string, jobOfferId: any) => {
-  const res = await fetch(`${URL}/dislike/${jobOfferId}`, {
-    method: "POST",
+const recruiterDislike = async (token: string, jobOfferId: any, talentAuth0Id: any) => {
+  const res = await fetch(`${URL}/Dislike/${jobOfferId}/Talent/${talentAuth0Id}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   });
+
   return res.status;
 };
+
 
 const createJob = async (data: Job, token: string) => {
   const res = await fetch(`${URL}/JobOffers`, {
