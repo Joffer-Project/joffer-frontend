@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -10,11 +9,11 @@ export function LogoArea() {
     return (
         <div className={cn("flex items-center py-8")}>
             <img
-                src="/images/logo-hq.png"
+                src="/images/logo-white.png"
                 alt="logo"
-                className={cn("h-12 w-auto")}
+                className={cn("h-16")}
             />
-                <div className="text-2xl font-medium text-white ml-4">Latest Matchs</div>
+                <div className="text-2xl font-normal text-[#FDFDFD]">Latest Matches</div>
 
         </div>
     )

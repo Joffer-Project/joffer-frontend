@@ -1,12 +1,11 @@
-import React from "react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { Match } from "@/types"
 import { getMatches } from "@/actions/recruiter"
+import { buttonVariants } from "@/components/ui/button"
 import useRecruiter from "@/hooks/recruiter-store"
+import { cn } from "@/lib/utils"
+import { Match } from "@/types"
 
 export function Matches() {
   const [data, setData] = useState<Match[] | null>(null);
@@ -28,10 +27,10 @@ export function Matches() {
 
   }, []);
 
-  if (!data) return <h1 className="text-[#3C4144] text-2xl font-semibold text-center m-auto">No match found</h1>;
+  if (!data) return <h1 className="text-[#FDFDFD] text-2xl font-normal text-center m-auto">No matches yet 🫠</h1>;
 
   return (
-    <div className="group flex flex-col gap-4 py-8 data-[collapsed=true]:py-2">
+    <div className="mr-[100px] h-[100px] group flex flex-col gap-2 py-8 data-[collapsed=true]:py-2">
       <nav className="grid gap-2 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
         {data?.length && data.map((link, index) =>
           <Link
