@@ -8,14 +8,15 @@ body,
   height: 100%;
   overflow: hidden;
 }
-
 .joffer-image-upload-btn:hover {
-  border-color: #ff0000;
+  border:3px solid;
+  border-color: #005AD1;
 }
 
 .joffer-image-upload-btn:hover .joffer-image-upload-btn-icon {
-  color: #ff0000;
-  transform: scale(1.2);
+  color: #005AD1;
+  transform: scale(1.5);
+  transition: all 0.5s;
 }
 
 @layer base {

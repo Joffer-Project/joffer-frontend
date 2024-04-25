@@ -14,7 +14,7 @@ export function LogoArea() {
                 alt="logo"
                 className={cn("h-12 w-auto")}
             />
-                <div className="text-2xl font-medium text-white ml-4">Latest Matchs</div>
+                <div className="text-2xl font-medium text-white ml-4">Latest Matches</div>
 
         </div>
     )

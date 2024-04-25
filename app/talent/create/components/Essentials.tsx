@@ -97,7 +97,7 @@ const Essentials: React.FC<EssentialsProps> = (
                                 <span className="text-[#FF7E33]">1</span>/5
                             </p>
                         </div>
-                        <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
+                        <Button type="submit" className="bg-gradient-to-r from-[#FF7E33] to-[#FF5E00] hover:from-[#FF5E00] hover:to-[#B54300] hover:transition duration-100 ease-out w-fit text-center h-[40px] border rounded-[40px] text-lg">
                             Next <ChevronRight />
                         </Button>
 

@@ -37,7 +37,7 @@ const RecruiterCreateLayout: React.FC<RecruiterCreateLayoutProps> = ({
         2xl:h-[600px]
     ">
           <Image src="/images/logo-hq.png" alt="logo" width={120} height={120} className='mb-[30px] sm:mb-[50px]' />
-          <div className="sm:text-[24px] text-[16px] text-center font-medium mb-[30px] sm:mb-[50px] text-[#3C4144]">Let advanced Joffer algoritms find your ideal carreer fit!</div>
+          <div className="sm:text-[24px] text-[16px] text-center font-medium mb-[30px] sm:mb-[50px] text-[#3C4144]">Let advanced Joffer algorithms find your ideal career fit!</div>
           <div className="sm:text-[32px] text-[24px] text-[#3C4144] text-center font-normal">Just Swipe!</div>
         </div>
 
