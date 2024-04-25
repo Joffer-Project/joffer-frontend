@@ -96,7 +96,7 @@ const Links: React.FC<LinksProps> = ({ data }) => {
                     xl:visible
                     ml:visible
                     md:visible
-                    xls:invisible">Dribble</span>
+                    xls:invisible">Personal</span>
                 </a>
             </div>
         </div>
