@@ -133,12 +133,12 @@ const RecruiterHome = withPageAuthRequired(
           </div>
           <div
             className={cn(
-              "bg-gradient-to-br from-[#FF7E33] to-[#FF5E00] max-h-[100vh] min-w-[400px] 2xl:flex flex-col hidden", mobileMenu && "flex absolute top-0 left-0 w-full h-full z-50"
+              "bg-gradient-to-br from-[#5496EE] to-[#0063E6] max-h-[100vh] min-w-[400px] 2xl:flex flex-col hidden", mobileMenu && "flex absolute top-0 left-0 w-full h-full z-50"
             )}
           >
             <div
               className={cn(
-                "flex h-[80px] items-center bg-gradient-to-r from-[#E85600] to-[#8C3400] px-2 relative"
+                "flex h-[80px] items-center bg-gradient-to-r from-[#005AD1] to-[#00367F] px-2 relative"
               )}
             >
               <LogoArea />
@@ -155,7 +155,7 @@ const RecruiterHome = withPageAuthRequired(
             <div
               onClick={() => setModal(true)}
               className={cn(
-                " flex h-[70px] items-center bg-gradient-to-br from-[#005AD1] to-[#00367F] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
+                " flex h-[70px] items-center bg-gradient-to-br from-[#FF5E00] to-[#B54300] mt-auto cursor-pointer hover:pb-2 transition-all ease-in-out duration-200"
               )}
             >
               <div
