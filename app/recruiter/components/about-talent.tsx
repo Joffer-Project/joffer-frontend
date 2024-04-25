@@ -10,7 +10,7 @@ const AboutTalent: React.FC<AboutTalentProps> = ({ data }) => {
             <div className="mb-1">
                 <h1 className="text-[#616161] text-[16px] font-medium">About {data ? data : "Talent"}</h1>
             </div>
-            <div className="overflow-y-auto max-h-[300px] text-[14px] text-[#7F7F7F]">
+            <div className="overflow-y-auto h-full text-[14px] text-[#7F7F7F]">
                 {data ? data : "No data available"}
             </div>
         </div>
