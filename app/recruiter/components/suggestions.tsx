@@ -20,7 +20,11 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                         < div className="bg-[#8F9293] gap-[8px] hidden lg:flex h-[70vh] overflow-y-auto w-fit max-w-[1024px] mx-auto p-[8px] rounded-[10px] shadow-xl shadow-[#0c0a1b2a]">
                             <div className="flex w-2/5 gap-[8px] h-full
                             xls:max-h-[100%] bg-black rounded-lg overflow-hidden object-contain" >
-                               <img className='object-cover h-full w-full' src="https://assets.artworkarchive.com/image/upload/t_jpg_large/v1605300238/user_43577/contact_images/dahli_x4uneu.jpg" alt="" /> 
+                                {
+                                    // if image is not available
+                                    !data?.talentWithJobOfferId.avatarUrl ? <img className='object-cover h-full w-full' src="https://assets.artworkarchive.com/image/upload/t_jpg_large/v1605300238/user_43577/contact_images/dahli_x4uneu.jpg" alt="" /> :
+                                        <img className='object-cover h-full w-full' src={data?.talentWithJobOfferId.avatarUrl} alt="" />
+                                }
                             </div>
                             <div className="flex flex-col w-3/5 items-center max-w-full gap-[8px]">
                             <AboutTalent data={data?.talentWithJobOfferId.aboutMe} />
@@ -41,7 +45,11 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                             ">
                                 <div className="flex flex-col gap-[8px] h-full
                                 xls:max-h-[100%] bg-black rounded-lg overflow-hidden object-contain" >
-                               <img className='object-cover h-full w-full' src="https://assets.artworkarchive.com/image/upload/t_jpg_large/v1605300238/user_43577/contact_images/dahli_x4uneu.jpg" alt="" /> 
+                               {
+                                    // if image is not available
+                                    !data?.talentWithJobOfferId.avatarUrl ? <img className='object-cover h-full w-full' src="https://assets.artworkarchive.com/image/upload/t_jpg_large/v1605300238/user_43577/contact_images/dahli_x4uneu.jpg" alt="" /> :
+                                        <img className='object-cover h-full w-full' src={data?.talentWithJobOfferId.avatarUrl} alt="" />
+                                }
                                 </div>
                                 <Links data={data.talentWithJobOfferId} />
                             </div>
@@ -72,8 +80,12 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                             ">
                                 <div className="flex flex-col gap-[8px] h-full
                                 xls:max-h-[100%] bg-black rounded-lg overflow-y-auto object-contain" >
-                               <img className='object-cover h-full w-full' src="https://assets.artworkarchive.com/image/upload/t_jpg_large/v1605300238/user_43577/contact_images/dahli_x4uneu.jpg" alt="" /> 
-                                </div>
+                              {
+                                    // if image is not available
+                                    !data?.talentWithJobOfferId.avatarUrl ? <img className='object-cover h-full w-full' src="https://assets.artworkarchive.com/image/upload/t_jpg_large/v1605300238/user_43577/contact_images/dahli_x4uneu.jpg" alt="" /> :
+                                        <img className='object-cover h-full w-full' src={data?.talentWithJobOfferId.avatarUrl} alt="" />
+                                }
+                              </div>
                                 <div>
                             <Links data={data.talentWithJobOfferId} />
                             </div>
