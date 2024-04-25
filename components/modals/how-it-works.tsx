@@ -30,8 +30,9 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
             description=""
             isOpen={isOpen}
             onClose={onClose}
+            className="w-full md:min-w-[900px]"
         >
-            <div className="flex flex-col gap-16 p-8"> {/* Responsive layout for mobile/desktop */}
+            <div className="flex flex-col md:gap-16 gap-4 md:p-8 p-4"> {/* Responsive layout for mobile/desktop */}
                 <div className="flex gap-8 justify-center items-start">
                     <img
                         src="/images/Superlike.png"

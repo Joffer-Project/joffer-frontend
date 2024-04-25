@@ -15,6 +15,7 @@ export function Matches() {
     const getData = async () => {
       try {
         const token = recruiterStore.getState().token;
+        console.log(token);
         if (!token) return;
         const fetchedData: Match[] = await getMatches(token);
         recruiterStore.setState({ matches: fetchedData });

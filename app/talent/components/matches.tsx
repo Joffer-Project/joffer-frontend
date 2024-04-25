@@ -11,9 +11,11 @@ export function Matches() {
   const [data, setData] = useState<Match[] | null>(null);
   const talentStore = useTalent();
   useEffect(() => {
+    console.log("Matches component");
     const getData = async () => {
       try {
         const token = talentStore.getState().token;
+        console.log(token);
         if (!token) return;
         const fetchedData: Match[] = await getMatches(token);
         talentStore.setState({ matches: fetchedData });

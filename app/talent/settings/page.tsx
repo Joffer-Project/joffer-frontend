@@ -52,6 +52,7 @@ import {
 import { cn } from "@/lib/utils";
 import ImageUpload from "@/components/ui/image-upload";
 import { Label } from "@/components/ui/label";
+import Loader from "@/components/ui/loader";
 
 const TalentSettings = () => {
   const talentStore = useTalent();
@@ -182,9 +183,7 @@ const TalentSettings = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-[#5496EE] text-2xl">Loading...</p>
-      </div>
+      <Loader />
     );
   }
 
