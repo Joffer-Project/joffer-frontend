@@ -1,9 +1,11 @@
+
 import CompanySlider from '@/components/ui/company-slider'
 import { Job } from '@/types'
 import React from 'react'
 import AboutCompany from './about-company'
 import AboutJob from './about-job'
 import Links from './links'
+  
 
 interface SuggestionsProps {
     data: Job | null | undefined;
@@ -19,7 +21,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                 </div> :
                     <>
                         {/* big screen */}
-                        < div className="bg-[#8F9293] gap-[8px] hidden lg:flex h-[70vh] overflow-y-auto w-fit max-w-[1024px] mx-auto p-[8px] rounded-[10px] shadow-xl shadow-[#0c0a1b2a] 
+                        < div className="bg-[#8F9293] gap-[8px] hidden lg:flex h-[70vh] overflow-hidden w-fit max-w-[1024px] mx-auto p-[8px] rounded-[10px] shadow-xl shadow-[#0c0a1b2a] 
                         ">
                             <div className="flex flex-col w-2/5 gap-[8px]
                             ">
@@ -34,7 +36,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
 
                         {/* tablet */}
                         < div className="bg-[#8F9293] gap-2 hidden lg:hidden
-                     sm:flex h-[90vh] overflow-y-auto w-fit mx-auto p-[8px] rounded-lg
+                     sm:flex h-[90vh] overflow-hidden w-fit mx-auto p-[8px] rounded-lg
                         sm:w-[98vw]
                         sm:h-[70vh]
                         sm:ml-[-40px]
@@ -66,7 +68,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                             sm:flex-row 
                             sm:flex-wrap
                              ">
-                             <div className="w-full overflow-hidden border-none rounded-lg min-h-[250px] max-h-[250px]
+                             <div className="w-full overflow-y-auto border-none rounded-lg min-h-[250px] max-h-[250px]
                             ">
                                 <CompanySlider data={data?.company} />
                             </div>
@@ -81,7 +83,9 @@ const Suggestions: React.FC<SuggestionsProps> = ({ data }) => {
                             <div>
                                 <AboutJob data={data} />
                             </div>
-                                
+                        
+                            
+
                             </div>
                                 
                             </div>
