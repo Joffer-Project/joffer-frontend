@@ -102,11 +102,74 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
     };
     return (
         <Dialog>
-            <h2 className="font-bold text-3xl mb-4 text-[#FF7E33]">Images & Links</h2>
-            <p className="font-medium text-xl mb-6">The images and links that you added will be shown on your profile as listed below. You can always update your images in the settings.</p>
+            <h2 className="font-normal text-4xl bg-gradient-to-r from-[#FF5E00] to-[#B54300] inline-block text-transparent bg-clip-text
+            
+            xls:text-[28px]
+            xls:mt-[0px]
+            xls:ml-[0px]
+            xls:mb-[-25px] 
+            xxs:text-[28px]
+            xxs:mt-[16px]
+            xxs:ml-[10px]
+            xxs:mb-[-25px] 
+            sm:text-[28px]
+            sm:mt-[16px]
+            sm:ml-[10px]
+            sm:mb-[-25px] 
+            md:text-[28px]
+            md:mt-[10px]
+            md:ml-[-10px]
+            md:mb-[-25px]  
+            ml:text-[28px]
+            ml:mt-[10px]
+            ml:ml-[-10px]
+            ml:mb-[-25px] 
+            xl:text-[36px]
+            xl:mt-[28px]
+            xl:ml-[-10px]
+            xl:mb-[-20px]
+            2xl:text-4xl
+            2xl:mt-[20px]
+            2xl:mb-[-20px]">Images & Links</h2>
+            <p className="font-400 text-[#5C6062] leading-5 text-justify
+            
+            xls:text-[14px]
+            xls:w-[22 0px]
+            xls:mb-[-10px]
+            xls:mt-[5px]
+            xls:ml-[0px]
+            xxs:text-[12px]
+            xxs:w-[300px]
+            xxs:mb-[-5px]
+            xxs:mt-[5px]
+            xxs:ml-[10px]
+            sm:text-[14px]
+            sm:w-[365px]
+            sm:mb-[-5px]
+            sm:mt-[5px]
+            sm:ml-[10px]
+            md:text-[14px]
+            md:w-[450px]
+            md:mb-[2px]
+            md:mt-[5px]
+            md:ml-[-10px]
+            ml:text-[14px]
+            ml:w-[500px]
+            ml:mb-[-2px]
+            ml:mt-[5px]
+            ml:ml-[-10px]
+            xl:text-[16px]
+            xl:w-[530px]
+            xl:mb-[0px]
+            xl:mt-[5px]
+            2xl:text-[18px]
+            2xl:w-[560px]
+            2xl:mb-[18px]
+            2xl:mt-[5px]">The images and links that you added will be shown on your profile as listed below. You can always update your images in the settings.</p>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col xl:h-[300px] ml:h-[275px] sm:h-[400px] xxs:h-[400px]">
+                    <h2 className="font-normal text-2xl mb-3">Images</h2>
                         <div className="flex gap-3 overflow-auto justify-between">
                             <FormField
                                 control={form.control}
@@ -190,6 +253,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                 )}
                             />
                         </div>
+                        <h2 className="font-normal text-2xl mb-3">Links</h2>
                         <div className="flex gap-3 overflow-auto justify-between -mb-4">
 
                             <FormItem>
@@ -198,7 +262,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                         <Button
                                             type="button"
                                             variant="secondary"
-                                            className={cn("w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2", githubLink ? "border-[#FF7E33]" : "border-gray-600")}
+                                            className={cn("w-[80px] h-[80px] border-2 flex flex-col items-center justify-center gap-2", githubLink ? "border-[#FF7E33]" : "border-gray-600 borderColorTalent")}
                                             onClick={() => setCurrentBox("github")}
                                         >
                                             <Github className={cn("h-8 w-8", githubLink ? "text-[#FF7E33]" : "text-gray-600")} />
@@ -313,7 +377,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                     <div className="flex justify-between items-center pt-8">
                         <Button
                             onClick={() => setStep(3)}
-                            className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg"
+                            className="bg-gradient-to-r from-[#FF7E33] to-[#FF5E00] hover:from-[#FF5E00] hover:to-[#B54300] hover:transition duration-100 ease-out w-fit text-center h-[40px] border rounded-[40px] text-lg"
                         >
                             <ChevronLeft /> Back
                         </Button>
@@ -322,7 +386,7 @@ const ImagesLinks: React.FC<ImagesLinksProps> = ({
                                 <span className="text-[#FF7E33]">4</span>/5
                             </p>
                         </div>
-                        <Button type="submit" className="bg-[#FF7E33] w-fit text-center h-[40px] border rounded-[40px] text-lg">
+                        <Button type="submit" className="bg-gradient-to-r from-[#FF7E33] to-[#FF5E00] hover:from-[#FF5E00] hover:to-[#B54300] hover:transition duration-100 ease-out w-fit text-center h-[40px] border rounded-[40px] text-lg">
                             Next <ChevronRight />
                         </Button>
 

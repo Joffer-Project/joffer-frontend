@@ -85,8 +85,70 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
 
     return (
         <>
-            <h2 className="font-bold text-3xl mb-4 text-[#5496EE]">Final step</h2>
-            <p className="font-medium text-xl mb-6">Share some information about your career path. Remember to keep it direct, these pieces of information can place you ahead.</p>
+            <h2 className="font-normal text-4xl bg-gradient-to-r from-[#5496EE] to-[#0063E6] inline-block text-transparent bg-clip-text
+            
+            xls:text-[28px]
+            xls:mt-[0px]
+            xls:ml-[0px]
+            xls:mb-[-25px] 
+            xxs:text-[28px]
+            xxs:mt-[16px]
+            xxs:ml-[10px]
+            xxs:mb-[-25px] 
+            sm:text-[28px]
+            sm:mt-[16px]
+            sm:ml-[10px]
+            sm:mb-[-25px] 
+            md:text-[28px]
+            md:mt-[10px]
+            md:ml-[-10px]
+            md:mb-[-25px]  
+            ml:text-[28px]
+            ml:mt-[10px]
+            ml:ml-[-10px]
+            ml:mb-[-25px] 
+            xl:text-[36px]
+            xl:mt-[28px]
+            xl:ml-[-10px]
+            xl:mb-[-20px]
+            2xl:text-4xl
+            2xl:mt-[20px]
+            2xl:mb-[-20px]">Final step</h2>
+            <p className="font-400 text-[#5C6062] leading-5 text-justify
+            
+            xls:text-[14px]
+            xls:w-[22 0px]
+            xls:mb-[-10px]
+            xls:mt-[5px]
+            xls:ml-[0px]
+            xxs:text-[12px]
+            xxs:w-[300px]
+            xxs:mb-[-5px]
+            xxs:mt-[5px]
+            xxs:ml-[10px]
+            sm:text-[14px]
+            sm:w-[365px]
+            sm:mb-[-5px]
+            sm:mt-[5px]
+            sm:ml-[10px]
+            md:text-[14px]
+            md:w-[450px]
+            md:mb-[2px]
+            md:mt-[5px]
+            md:ml-[-10px]
+            ml:text-[14px]
+            ml:w-[500px]
+            ml:mb-[-2px]
+            ml:mt-[5px]
+            ml:ml-[-10px]
+            xl:text-[16px]
+            xl:w-[530px]
+            xl:mb-[0px]
+            xl:mt-[5px]
+            2xl:text-[18px]
+            2xl:w-[560px]
+            2xl:mb-[18px]
+            2xl:mt-[5px]">Share some information about your career path. Remember to keep it direct, these pieces of information can place you ahead.</p>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                     <FormField
@@ -97,7 +159,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                                 <FormControl>
                                     <Textarea
                                         placeholder="Tell us a little bit about yourself"
-                                        className="rounded-md border border-[#5496EE] resize-y max-h-[200px] md:h-[200px]"
+                                        className="rounded-md border border-[#5496EE] resize-none max-h-[500px] xl:h-[300px] ml:h-[250px] md:h-[425px] sm:h-[397px] xxs:h-[395px]"
                                         {...field}
                                     />
                                 </FormControl>
@@ -108,7 +170,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                     <div className="flex justify-between items-center pt-8">
                         <Button
                             onClick={() => setStep(4)}
-                            className="bg-[#5496EE] w-fit text-center h-[40px] border rounded-[40px] text-lg" disabled={loading}
+                            className="bg-gradient-to-r from-blue-500 to-blue-700 hover:bg-gradient-to-r hover:from-blue-900 hover:to-blue-700 transition duration-100 ease-out w-fit text-center h-[40px] border rounded-[40px] text-lg" disabled={loading}
                         >
                             <ChevronLeft /> Back
                         </Button>
@@ -117,7 +179,7 @@ const AboutInfo: React.FC<AboutInfoProps> = ({
                                 <span className="text-[#5496EE]">5</span>/5
                             </p>
                         </div>
-                        <Button type="submit" className="bg-[#5496EE] w-fit text-center h-[40px] border rounded-[40px] text-lg" disabled={loading}>
+                        <Button type="submit" className="bg-gradient-to-r from-blue-500 to-blue-700 hover:bg-gradient-to-r hover:from-blue-900 hover:to-blue-700 transition duration-100 ease-out w-fit text-center h-[40px] border rounded-[40px] text-lg" disabled={loading}>
                             {
                                 loading ? 'Creating Profile' : <>
                                     Finish <ChevronRight />
